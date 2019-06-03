@@ -1,0 +1,26 @@
+/* en el cao de border radius si paso 2 parámetros comenzará de forma 
+intercalada comenzando por la esq. superior izquierda
+si paso 4parametros los colocará esquina por esquina */
+.contenedor{
+    width:400px;
+    height:400px;
+    border:solid red 4px ;
+    margin:20px;
+    padding:10px;
+    border-radius:50%;
+}
+/* margin como padding con 1 parámetro (10px)
+    arriba abajo derecha e izquierda,
+    con 2 para metros 10px 60px,
+    el 1ero(10px) va a ser puesto arriba y abajo
+    el 2do(60px) va a ser puesto a los costados */
+.caja1{
+    border:dashed gray 3px;
+    padding:10px 60px;
+}
+/* si pongo 4 parámetros comenzará arriba derecha abajo e izquierda */
+.caja2{
+    border:solid blue 3px;
+    padding:20px 40px 60px 80px;
+    margin:10px 0px;
+}

@@ -1,54 +1,17 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Document</title>
 </head>
-
 <body>
     <form action="">
-        <!-- input => campo de entrada -->
-        <p>
-            <label for="nom"> Nombre: </label>
-            <input type="text" required minlength="10" maxlength="15" placeholder="Ejm: Juan"
-            id="nom"/>
-        </p>
-        <p>
-            <label> Apellido: </label>
-            <input type="text" placeholder="Ejm: Pérez"/>
-        </p>
-        <p>
-            <label> Email: </label>
-            <input type="email" required 
-            placeholder="Ejm: jgarnica@gmail.com"/>
-        </p>
-        <p>
-            <label> Edad: </label>
-            <input type="number" min="17" max="60" required step="1" value="18"/>
-        </p>
-        <p>
-            <label> Fecha de Nacimiento: </label>
-            <input type="date" required/>
-        </p>
-        <p>
-            <label> Contraseña: </label>
-            <input type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-            title="Minimo 8 caracteres 1 mayuscula, 1 minuscula, 1 numero "/>
-        </p>
-        <p>
-            <label> Telefono: </label>
-            <input type="tel" />
-        </p>
-        <p>
-            <label> Color Favorito: </label>
-            <input type="color" value="#BB0000" />
-        </p>
-        <!-- submit => envia el formulario al servidor -->
-        <input type="submit" value="Guardar">
+        <label>Nombre</label>
+        <input type="text"/>
+    </p>
+        <label>Apellidos</label>
+        <input type="text" type="radio"/>
     </form>
+    
 </body>
-
 </html>

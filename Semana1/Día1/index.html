@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!-- Nos sirve para poner contenido
+        que no siempre va a ser visual, pero va a ser util 
+        para el navegador y también para el documento html -->
+        <!-- Unicode 8 -->
+        <meta charset="UTF-8">
+        <!-- meta name="keywords" son las palabras clave con las que esta relacionada la página web
+        si queremos hacer una analogía serian como los hashtags en un post-->
+        <meta name="keywords" content="HTML5,Código,Etiquetas,Libro,Desarrollo">
+        <!-- meta name="description nos permite añadir una descripción para mostrar
+        de que trata nuestra página web" -->
+        <meta name="description" content="Esta es una mi primera página web desarrollada con HTML5">
+        
+        <!-- title nos sirve para poner un título en la 
+        pestaña del navegador por defecto en caso de no tener la etiqueta title nos pondrá
+        el nombre del archivo como tÍtulo de la pestaña-->
+       <title>Hola Mundo Código</title>
+    </head>
+    <!-- body, aquí va el contenido de nuestra página -->
+    <body>
+        
+        <header>
+            <!-- con h1,h2,h3,h4,h5,h6 definimos los títulos para nuestro contenido de 
+            h1 el más grande a h6 el mas pequeño -->
+            <h1>Mi Título de la Página Web</h1>
+        </header>
+        <!-- en nav pondremos links referidos a nuestro sitio, como la siguiente lista -->
+        <nav>
+            <!-- ul (unordened list) li(list) los usamos para definir una lista desornedada -->
+            <ul>
+                <li>Inicio</li>
+                <li>Artículos</li>
+                <li>Nosotros</li>
+                <li>Contacto</li>
+            </ul>
+        </nav>
+        <!-- en section pondremos nuestro contenido principal -->
+        <section>
+            <article>
+                
+                    <h2>Articulo 1</h2>
+                    <!-- img nos permite poner imagenes dandole como parámetro la ubicación de la 
+                    imagen -->
+                    <img src="https://okdiario.com/img/2018/11/28/codigo-html-655x368.jpg" />
+                    <p> ipsum, dolor sit amet consectetur 
+                        adipisicing elit. Eius eveniet eum 
+                        quisquam maxime provident mollitia 
+                        inventore molestias eligendi nihil voluptatum 
+                        eaque magni, veniam saepe minus dignissimos cumque 
+                        ipsum, deserunt autem!</p>
+                    <div>
+                        <h5>Escrito por Jorge Montesinos</h5>
+                        <div>
+                            <h6>Arequipa 27 de Mayo del 2019</h6>
+                        </div>
+                    </div>    
+                    
+            </article>
+            <article>
+                    <h2>Articulo 2</h2>
+                    <a href="https://www.recetasgratis.net/receta-de-ceviche-peruano-18147.html">
+                        <img src="assets/img/ceviche.jpg" width="600px" height="300px">
+                    </a>
+                    <p>Lipsum, dolor sit amet consectetur 
+                        adipisicing elit. Eius eveniet eum 
+                        quisquam maxime provident mollitia 
+                        inventore molestias eligendi nihil voluptatum 
+                        eaque magni, veniam saepe minus dignissimos cumque 
+                        ipsum, deserunt autem!... 
+                        <a href="articulo2.html" target="_blank">Leer más</a></p>
+                    
+            </article>
+            <article>
+                    <h2>Articulo 3</h2>
+                    <span>Texto1</span>
+                    <span>Texto2</span>
+            </article>
+            <article>
+                <h2></h2>
+                <p> dolor sit amet consectetur adipisicing elit. Mollitia, quam incidunt magni recusandae omnis consequuntur quia dignissimos atque magnam debitis fugiat laudantium vero, doloremque ut. Aspernatur veritatis illum earum error!</p>
+            </article>
+            <article>
+                <h2></h2>
+                <p> dolor sit amet consectetur adipisicing elit. Mollitia, quam incidunt magni recusandae omnis consequuntur quia dignissimos atque magnam debitis fugiat laudantium vero, doloremque ut. Aspernatur veritatis illum earum error!</p>
+            </article>
+            <article>
+                <h2></h2>
+                <p> dolor sit amet consectetur adipisicing elit. Mollitia, quam incidunt magni recusandae omnis consequuntur quia dignissimos atque magnam debitis fugiat laudantium vero, doloremque ut. Aspernatur veritatis illum earum error!</p>
+            </article>
+        </section>
+        <!-- El aside lo usaremos para poner contenido adicional como links a sitios
+        externos como redes socuales,
+        usualmente es el contenido que encontramos a la derecha o izquierda del contenido principal -->
+        <aside>
+            <ol>
+                <!-- la etiqueta <a href="http://pagina.com">Mi Página</a> 
+                nos permite convertir texto en hipervinculos (links) para llevarnos a
+                alguna otra página web-->
+                
+                <!-- _blank nos permite abrir la URL en una nueva pestaña -->
+                <li><a href="https://www.facebook.com/" target="_blank  ">Facebook</a></li>
+                <!-- _self lo que va a hacer es abrir la URL en la misma pestaña -->
+                <li><a href="https://www.twitter.com" target="_self">Twitter</a></li>
+                <!-- Por defecto va a tener la propuiedad _self -->
+                <li><a href="https://www.instagram.com" >Instagram</a></li>
+            </ol>
+        </aside>
+        <!-- El footer usualmente lo encontramos en la parte inferior, usualmente encontramos
+        datos especificos del sitio desde datos de contacto hasta quien ha desarrollado la págine web -->
+        <footer>
+            CodiGO Derechos Reservados - 2019
+        </footer>
+    </body>
+</html>

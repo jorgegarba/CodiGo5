@@ -1,0 +1,11 @@
+body{
+    background-image:url('./img/textura.jpg');
+    /* background-size me acepta ancho y alto, en ese orden */
+    background-size: 200px;
+}
+#background2{
+    background-image:url('./img/textura2.jfif');
+    width:500px;
+    height:500px;
+    background-repeat: repeat-y;
+}

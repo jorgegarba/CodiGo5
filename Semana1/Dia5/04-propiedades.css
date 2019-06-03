@@ -1,0 +1,30 @@
+header{
+    border:solid 1px rgb(0,0,0);
+    /* me va a colocar una sombra en el contenedor
+    al que le asigne la propiedad */
+    box-shadow:rgb(123,123,123) 15px 15px 15px;
+    background: -webkit-radial-gradient(right,ELLIPSE,transparent,#225498)
+    
+}
+body{
+    /* background-image:url('./img/textura2.jfif'); */
+}
+section{
+    margin-top:10px;
+    margin-bottom: 20px;
+    margin-left:30px;
+    margin-right:50px;
+    padding:10px;
+    /* difumina el texto hasta 10px */
+    filter:blur(0.4px);
+    opacity: 0.5;
+}
+.imagen{
+    /* el valor de grayscale va de 0.1 a 1 */
+    /* invert me invierte los colores 0.1 a 1*/  
+      /* brightness me cambiará el brillo de la imagen 1 a 10*/
+    /* opacity, transparencia a una imagen de 0.1 a 1 */
+    /* contrast diferencia entre colores mas oscuros y brillantes */
+      /*  */
+    filter:saturate(0.5);
+}

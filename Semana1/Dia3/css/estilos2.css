@@ -1,0 +1,34 @@
+/* hacemos referencia al atributo name, en caso de tener un valor
+    hacemos referencia de esta manera [name="valor"] */
+div[name]{
+    border-style:dotted;
+    border-width:3px;
+    border-color:blue;
+    border-radius:10px;
+}
+/* va a buscar el primer hermano y le va a poner el estilo */
+#padre + div{
+    border-style:dashed;
+    border-width:2px;
+    border-color:red;
+    border-radius:5px;
+}
+/* > hace referencia a los hijos inmediatos */
+#padre > div{
+    font-family:sans-serif;
+    font-weight: bold;
+    border-style:dashed;
+    border-color:green;
+}
+body{
+    background:gray !important; 
+}
+/* hijos de section que tengan class="otraclase" */
+section .otraclase{
+    color: crimson;
+}
+
+/* elementos 'span' que sean hijos en cualquier */
+.otraclase span{
+    color: violet;
+}

@@ -1,0 +1,74 @@
+#family {
+    /* En caso no encuentre Arial
+    va a buscar Helvetica 
+    y po último buscará una fuente sans-serif */
+    font-family:Arial, Helvetica, sans-serif;
+    text-align:center;
+}
+#google-fonts{
+    font-family: 'Indie Flower', cursive, sans-serif;
+
+}
+@font-face{
+    font-family:'codigo';
+    src:url("../fonts/codigo.otf");
+}
+.codigo{
+    font-family:'codigo';
+    text-align:justify; /*center left right justify*/
+}
+.color{
+    background:gray;
+}
+.negrita{
+    font-weight:bold;
+}
+.borde{
+    border: black dashed 3px;
+}
+#caja1{
+    width:400px;
+}
+#fontfamily{
+    /* Recordando que va a coger la 1ra de la Izq a la Derecha
+    en caso no encuentre la fuente */
+    font-family:Arial, Helvetica, sans-serif;
+}
+#fontsize{
+    font-size:20px;
+}
+#fontweight{
+    font-weight: bold;
+}
+/* me combina varios parámetros en una sola propiedad */
+#font{
+    font:bold 24px Arial;
+}
+#fontstyle{
+    font-style: italic;
+}
+#textindent{
+    text-indent: 20px;
+}
+#letterspacing{
+    letter-spacing: 5px;
+}
+#wordspacing{
+    word-spacing:8px;
+}
+#textdecoration{
+    text-decoration: underline red ;
+}
+#lineheight{
+    line-height: 30px;
+}
+#font-face{
+    font-family:'codigo'; /*que es el nombre que le puse en @font-face*/
+    -moz-user-select:none;
+}
+#unico{
+
+}
+.multiple{
+    
+}

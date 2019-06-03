@@ -1,0 +1,31 @@
+header, nav{
+    background:purple;
+    color:white;
+}
+p{
+    background:green;
+    color:white;
+}
+
+body{
+    background:skyblue;
+}
+/* Hola estos son los estilos
+con hijitos */
+body main section article p{
+    background:blue;
+}
+
+/* #es para ID y . es para clases */
+#articulo_1{
+    background:brown;
+    color:gray;
+}
+#cabecera{
+    background:black;
+    color:lightblue;
+}
+.receta{
+    background:pink;
+    color:red;
+}
