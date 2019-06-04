@@ -1,0 +1,33 @@
+/* selector de etiqueta */
+/* p{
+
+} */
+/* ------------- */
+/* selector de clase */
+/* .nombre_de_la_clase{
+
+} */
+/* ------------- */
+/* selector de id */
+/* #nombre_del_id{
+
+} */
+/* todos los li's que sean hijos de ol's
+en cualquier nivel */
+ol li {
+    border: 1px solid green;
+    /* box-shadow: 2px 2px 8px black; */
+}
+/* todos los li's que sean hijos directos(en 1er nivel) de un ul */
+ul > li {
+    border: 1px solid blue;
+}
+/* al elemento que tenga id=primero
+y al elemento que tenga id=segundo */
+#primero, #segundo{
+    font-weight: 600;
+}
+/* Todos los elementos article que lleven la clase articulo */
+article.articulo{
+    border: 1px solid rebeccapurple;
+}

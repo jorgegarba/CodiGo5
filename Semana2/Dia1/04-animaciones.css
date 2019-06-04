@@ -1,0 +1,29 @@
+.midiv{
+    width: 200px;
+    height: 200px;
+    border: 2px solid darkslategray;
+    animation: moverelcuadrado 3s ease 0s infinite normal none;
+}
+
+@keyframes moverelcuadrado{
+    0%{
+        background-color: aqua;
+        transform: translate(0px, 0px);
+    }
+
+    25%{
+        background-color: blueviolet;
+        border-radius: 50%;
+        transform: translate(200px, 0px);
+
+    }
+
+    50%{
+        background-color: brown;
+        transform: translate(200px, 200px);
+    }
+
+    100%{
+        background-color: aqua;
+    }
+}

@@ -1,0 +1,37 @@
+div{
+    width: 400px;
+    height: 400px;
+    border: 2px solid purple;
+    transition-property: transform;
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
+}
+
+div:hover{
+    /* transition-duration => tiempo de ejecucion de su transformacion */
+    /* transition-delay: 1s; */
+    /* transition-delay => tiempo muerto antes de iniciar la transformacion */
+    
+    /* agrandar o reducir el tamanio del elemento */
+    /* scale(x,y) */
+
+    /* trasladar el elemento */
+    /* translate(x,y) */
+    transform: translate(50%,50%) scale(1.1) rotate(45deg);
+}
+
+.bolita, .bolita2{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: brown;
+    transition-duration: 2s;
+    transition-timing-function: ease-in;
+}
+.bolita2{
+    background-color: blue;
+    transition-timing-function: ease-in-out;
+}
+.bolita:hover,.bolita2:hover{
+    transform: translate(500px);
+}

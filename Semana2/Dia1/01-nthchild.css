@@ -1,0 +1,31 @@
+body{
+    background: #8e9eab;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+p:nth-child(2){
+    border: 1px solid tomato;
+}
+/* odd => impares */
+tr:nth-child(odd){
+    background-color: aquamarine;
+    color: brown;
+}
+/* even => pares */
+tr:nth-child(even), #primerafila{
+    background-color: burlywood;
+    color: brown;
+}
+
+p:first-child{
+    font-style: italic;
+}
+
+p:last-child{
+    color: blue;
+}
+/* todos los elementos hijos de body en cualquier nivel */
+/* excepto los elementos 'section' */
+body :not(section){
+    font-size: 30px;
+}
