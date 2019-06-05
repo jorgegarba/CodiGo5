@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        header {
+            border: 1px solid red;
+            height: 10%;
+            background-color: aquamarine;
+        }
+
+        main {
+            height: 70%;
+            background-color: bisque;
+        }
+
+        footer {
+            height: 20%;
+            background-color: lightblue;
+        }
+
+        aside {
+            height: 60%;
+            width: 30%;
+            background-color: pink;
+            float: left;
+        }
+
+        section {
+            height: 100%;
+            width: 60%;
+            background-color: darkgoldenrod;
+            float: left;
+        }
+
+        /* body{
+            margin: 0px 10%;
+        } */
+        .wrap{
+            width: 90%;
+            height: 100%;
+            margin: auto;
+            /* max-width: 90%; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            header
+        </header>
+        <main>
+            <aside>
+                aside
+            </aside>
+            <section>
+                section
+            </section>
+        </main>
+        <footer>
+            footer
+        </footer>
+    </div>
+
+</body>
+
+</html>
