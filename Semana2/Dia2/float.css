@@ -1,0 +1,25 @@
+*{
+    margin:0;
+    padding:0;
+}
+/* todos los elementos del body tendrán el sgte: borde */
+body *{
+    border:1px solid red;
+}
+#contenedor{
+    background-color:rgb(85,128,97);
+    border:1px solid green;
+}
+#imagen{
+    width:400px;
+    /* va a poner el elemento de forma "flotante" según el
+    contenedor en el que se encuentre*/
+    float: right;
+    
+}
+#imagenizq{
+    float:left;
+}
+#clear{
+    clear:both;
+}

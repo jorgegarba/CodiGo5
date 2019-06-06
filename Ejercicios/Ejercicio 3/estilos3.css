@@ -1,0 +1,65 @@
+*{
+    margin:0;
+    padding:0;
+}
+@font-face{
+    font-family: 'noticias';
+    src:url('./assets/fonts/ostrich-regular.ttf');
+}
+.titulo {
+    padding:40px 20px;
+    background-color:rgb(88, 175, 255);
+    border-bottom:15px solid rgb(49, 86, 134);
+    margin-bottom:30px;
+}
+h1{
+    font-family: 'noticias';
+    font-size:60px;
+    font-weight:bold;
+}
+.sidebar {
+    /* height: 300px;
+    background-color: #F09A9D;   
+    width: 200px;     */
+    float: left;  
+    margin:0px 20px;  
+}
+.content {
+    text-align:justify;
+    height: 500px;
+    padding-left:20px;
+}
+.content p{
+    line-height: 25px;
+}
+
+.otrosidebar {
+    border-left:4px solid  rgb(49, 86, 134);
+    height: 650px;
+        /* Red */
+    width: 300px;    
+    float: right; 
+    padding-left:10px;
+    margin: 10px 0px 20px 20px;;   
+}
+.otrosidebar img{
+    width: 260px;
+}
+.footer {
+    clear:both;
+    height: 100px;
+    background-color:rgb(49, 86, 134);
+    box-sizing:border-box;
+}
+.footer>div{
+    display:inline-block;
+    width:32%;
+    padding-top:30px;
+    color:white;
+    font-size:24px;
+    text-align:center;
+}
+.texto{
+    font-family:'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+
+}

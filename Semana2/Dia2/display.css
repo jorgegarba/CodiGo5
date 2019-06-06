@@ -1,0 +1,28 @@
+/* retiramos cualquier padding o margin de mi HTML */
+*{
+    padding:0;
+    margin:0;
+}
+/* cuando el div se ajusta a su propio contenido la propiedad 
+display:inline; */
+header{
+    border:1px solid red;
+    /* display:block; */
+}
+span{
+    display:block;
+}
+/* display:block va a ser predeterminado tanto para header, nav,
+section, article, main, aside, footer, div */
+/* inline-block pondrá los elementos en linea
+según el tamaño que tengan */
+div{
+    border:1px solid blue;
+    display:inline-block;
+    width:500px;
+    height:500px;
+    padding:100px 50px;
+    /* box sizing: me va ayudar a mantener el tamaño de mi elemento */
+    box-sizing: border-box;
+}
+

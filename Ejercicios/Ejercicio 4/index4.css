@@ -1,0 +1,114 @@
+*{
+    margin:0;
+    padding:0;
+}
+header{
+    text-align:center;
+    background-color:#28244d;
+    color:#FAFAFA;
+    font-family:'Actor';
+    padding:10px;
+    margin-bottom:30px;
+}
+header img{
+    
+    width:32px;
+}
+header *{
+    display:inline;
+    margin:0px 5px;
+}
+body{
+    background-image:linear-gradient(90deg,#f34d71,#585ef6);
+    
+}
+#contenedor{
+    background-color:white;
+    margin:0 auto;
+    width:900px;
+    border:0 solid;
+    border-radius:10px;
+    font-family:'Quicksand',sans-serif;
+    box-shadow:4px 4px 15px;
+}
+#back{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:21px;
+    font-weight: bold;
+    position:absolute;
+    top:100px;
+    left:30px;
+}
+#cabecera{
+    background-image:url('./assets/img/arequipa.jpg');
+    border-radius:10px 10px 0 0;
+    height:350px;
+    border-bottom:16px solid #2d2a8a;
+    font-weight:bold;
+    color:white;
+    text-shadow: 2px 2px 4px black; 
+    text-align:center;
+}
+#cabecera>div{
+    width:50%;
+    height:340px;
+    box-sizing: border-box;
+    padding:30px;
+    float:left;
+}
+#grados{
+    font-size:120px;
+    
+}
+#ciudad{
+    font-size:70px;
+}
+#ciudad p:nth-child(2){
+    font-size:50px;
+}
+#contenido{
+    border:0;
+    border-radius:0 0 10px 10px;
+    padding-bottom:10px;
+    margin-bottom:20px;
+}
+.comentario{
+    height:90px;  
+    border:2px solid lightgray;
+    border-radius:5px;
+    margin:10px 10px 10px 50px;
+    text-align:justify;
+    padding:5px 5px 5px 50px;
+}
+.comentario>p{
+    position:relative;
+    width:750px;
+    position:relative;
+    top:-100px;
+    right:10px;
+    padding:30px;
+}
+.avatar{
+    width:75px;
+    border:  4px solid #2d2a8a;   
+    border-radius:50%;   
+    position:relative;
+    top:5px;
+    left:-90px;                                  
+}
+#publicidad{
+    font-family:'Trebuchet MS', 'Lucida Sans', Arial, sans-serif;
+    background-color:#2d2a8a;
+    width:120px;
+    height:140px;
+    box-shadow:3px 3px 5px black;
+    color:white;
+    padding:10px;
+    font-size:18px;
+    text-align:right;
+    border:0;
+    border-radius:10px;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+}

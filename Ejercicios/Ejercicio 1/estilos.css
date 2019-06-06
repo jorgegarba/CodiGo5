@@ -1,0 +1,54 @@
+*{
+    padding:0;
+    margin:0;
+}
+body{
+    background-image:url('./assets/img/city.jpg');
+
+}
+#contenedor{
+    margin-top:90px;
+    text-align:center;
+}
+p{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', Arial, sans-serif;
+    color:white;
+    font-size:28px;
+    text-shadow:3px 3px 5px black;
+}
+#imagencita{
+    border:9px #BF0600 solid;
+    border-radius:50%;
+    margin:20px;
+}
+footer{
+    font: 16px Arial,sans-serif;
+    box-sizing: border-box;
+    text-align:right;
+    color:white;
+    background-color:#BF0600;
+    border-top:8px solid white;
+    padding:15px 20px;
+    position:absolute;
+    bottom:0px; 
+    width:100%;
+}
+form{
+    margin-top:20px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', Arial, sans-serif;
+}
+#email{
+    border:0;
+    height:35px;
+    width:400px;
+    border-radius:5px;
+    padding-left:10px;
+}
+#boton{
+    background-color:#BF0600;
+    color:white;
+    border:0;
+    width:80px;
+    height:35px;
+    border-radius:5px;
+}

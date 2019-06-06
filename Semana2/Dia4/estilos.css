@@ -1,0 +1,30 @@
+div{
+    width:200px;
+    height:200px;
+}
+.normal{
+    background-color:red;
+    position:relative;
+    top:0;
+    left:0;
+    z-index:100;
+}
+.relativo{
+    background-color:yellow;
+    position:relative;
+    top:-50px;
+    left:-50px;
+    z-index:0;
+}
+.absoluto{
+    background-color:blue;
+    position:absolute;
+    top:500px;
+    left:100px;
+}
+.fixed{
+    background-color:green;
+    position:fixed;
+    top:80px;
+    right:50px;
+}

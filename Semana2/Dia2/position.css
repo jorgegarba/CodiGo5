@@ -1,0 +1,38 @@
+#contenedor{
+    background-color:#999999;
+}
+
+.caja1{
+    background-color:tomato;
+    border:1px black solid;
+    width:150px;
+    height:150px;
+    position:static;
+}
+#caja2{
+    background-color:skyblue;
+    border:1px black solid;
+    width:150px;
+    height:150px;
+    position:relative;
+    top:40px;
+    left:50px;
+}
+#caja3{
+    background-color:yellowgreen;
+    border:1px black solid;
+    width:150px;
+    height:150px;
+    position:absolute;
+    right:60px;
+    bottom:90px;
+}
+#caja4{
+    background-color:violet;
+    border:1px black solid;
+    width:150px;
+    height:150px;
+    position:fixed;
+    top:60px;
+    left:70px;
+}
