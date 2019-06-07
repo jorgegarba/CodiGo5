@@ -1,0 +1,57 @@
+*{
+    margin:0;
+    padding:0;
+}
+html,body{
+    height:100%;
+}
+#papa{
+    height:100%;
+    /* esta propiedad afectará a los hijos inmediatos */
+    display:flex;
+    /* flex-end manda mis elementods al final horizontalmente
+        space-between pondrá un espacio entre mis elementos
+        space-evenly creara un espacio identico entre elementos
+        y los costados
+        space-around, similar a space evenly, con la Dif. que
+        el espacio en los costados sera la mitad que el espacio
+        entre mis elementos
+        */
+    justify-content:space-evenly;
+
+    /* flex-direction, tiene como valor por defecto row y 
+        column y que adicioanlmente puedo usar inverse */
+    flex-direction:column;
+    /* align-items:  [center flex-start flex-end] */
+    /* align-items:flex-start; */
+
+    /* va a permitir cambiar si es que deseo que mis elementos creen
+    nuevas filas o columnas */
+    flex-wrap:wrap;
+}  
+
+.box{
+    width:200px;
+    height:200px;
+    margin:20px;
+    border:3px solid red;
+    /* flex-shrink [0 ó 1] me permitirá encoger o no enger mis elementos
+    en caso sean varios */
+    flex-shrink:0;
+}
+/* flex-grow me permite indicar una relación entre mis elementos hijos para que
+cambien de tamaño según los valores indicados */
+#caja1{
+    flex-grow:1;
+}
+#caja2{
+    flex-grow:1;
+}
+#caja3{
+    flex-grow:1;
+}
+#caja4{
+    flex-grow:1;
+    /* será el valor inicial de mi elemento */
+    /* flex-basis:400px; */
+}
