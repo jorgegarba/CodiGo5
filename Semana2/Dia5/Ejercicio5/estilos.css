@@ -1,0 +1,87 @@
+*{
+    margin:10px;
+    padding:10px;
+    box-sizing: border-box;
+}
+body{
+    height:100%;
+}
+.padre{
+    display:flex;
+    /* flex-flow combinar flex-direction y el flex-wrap */
+    flex-flow: column;
+}
+header{
+    background-color:black;
+    display:flex;
+    flex-flow:column;
+}
+.menu,.titulo{
+    background-color:white;
+}
+.menu{
+    display:flex;
+    flex-flow:row nowrap;
+    align-items:center;
+    height:100px;
+}
+.logo,.nav,.social{
+    background-color:#ff4958;
+    height:50px;
+}
+.logo{
+    /* flex-grow     |    flex-shrink     | flex-basis */
+    flex:1 1 auto;
+}
+.nav{
+    flex:5 1 auto;
+}
+.social{
+    flex:1 1 auto;
+}
+
+.titulo{
+    display:flex;
+    justify-content:center;
+}
+h1{
+    background-color:#ff4958;
+    flex:1 1 90%;
+}
+
+.principal{
+    background-color:gray;
+    display:flex;
+}
+.articulos{
+    background-color:#2855ff;
+    flex:2 1 auto;
+     /* flex-flow combinar flex-direction y el flex-wrap */
+    flex-flow:row wrap;
+    display:flex;
+}
+.articulo{
+    background-color:green;
+    /* flex-grow     |    flex-shrink     | flex-basis */
+    flex:1 1 40%;
+}
+.aside{
+    background-color:violet;
+    display:flex;
+    flex:1 1 auto;
+    /* flex-flow combinar flex-direction y el flex-wrap */
+    flex-flow:column wrap;
+}
+.publicidad{
+    background-color:orange;
+    flex:1 1 auto;
+}
+.footer{
+    background-color:purple;
+    display:flex;
+    justify-content:center;
+}
+.piecito{
+    background:lightgray;
+    width:400px;
+}
