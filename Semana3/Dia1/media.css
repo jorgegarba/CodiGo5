@@ -1,0 +1,36 @@
+h1{
+    color:steelblue;
+    font-size:36px;
+    font-family:Arial;
+}
+ 
+body{
+    background-color:gray;
+
+}
+p{
+    font-size:24px;
+    font-family:Arial;
+}
+img{
+    width:600px;
+    border:10px solid red;
+}
+/* breakpoint */
+@media screen and (max-width:768px){
+    h1{
+        color:green;
+        text-shadow:2px 2px 5px white;
+    }
+    p{
+        color:blue;
+        font: italic 16px Arial;
+    }
+    img{
+        width:250px;
+        border:2px yellow dashed;
+    }
+    body{
+        background-color:aqua;
+    }
+}

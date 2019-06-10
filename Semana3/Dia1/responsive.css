@@ -1,0 +1,16 @@
+h1{
+    font-size:24px;
+    color:white;
+    font-family:'Verdana';
+}
+p{
+    font-size:18px;
+    color:white;
+}
+img{
+    width:300px;
+    border:2px solid blue;
+}
+body{
+    background-color:black;
+}
