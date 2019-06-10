@@ -222,6 +222,11 @@ figure img {
     border-bottom: 1px solid #094660;
 }
 @media(max-width:1120px){
+
+    header h1{
+        text-align:center;
+    }
+
     article time{
         position: static;
         width: 100%;
@@ -230,6 +235,8 @@ figure img {
         background-color:white;
         box-shadow: 0px 0px 0px;
         border-radius: 0px;
+        align-self:center;
+        text-align: center;
     }
     .numerodia{
         display: inline-block;
@@ -241,5 +248,42 @@ figure img {
         display: inline-block;
         font: bold 14px Verdana, sans-serif;
         color: #999999;
+    }
+    #articulosprincipales{
+        display:block;
+        width:100%;
+    }
+    article{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #infoadicional{
+        width:100%;
+        display:block;
+        margin-top:10px;
+        box-sizing: border-box;
+        text-align:center;
+    }
+    #infoadicional h1{
+        font-size:28px;
+    }
+    #infoadicional p{
+        font-size:22px;
+    }
+}
+@media (max-width:576px){
+
+    #menuprincipal{
+        display:none;
+    }
+    #menuprincipal{
+        height:100%;
+        text-align:center;
+    }
+    #menuicono{
+        display:block;
     }
 }

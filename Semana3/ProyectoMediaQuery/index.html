@@ -90,7 +90,24 @@
             <div class="recuperar"></div>
         </div>
     </footer>
-   
+    <script>
+        var visible = false;
+        
+        var menuimg = document.getElementById("menu-img");
+        
+        menuimg.addEventListener("click", function(){
+            var menuprincipal = document.getElementById("menuprincipal");
+            if(visible==false){
+                menuprincipal.style.display="block";
+                visible=true;
+                console.log(true);
+            }else{
+                menuprincipal.style.display="none";
+                visible=false;
+                console.log(false);
+            }
+        });
+    </script>
 </body>
 
 </html>
