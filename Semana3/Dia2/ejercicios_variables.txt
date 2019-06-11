@@ -1,0 +1,23 @@
+EJERCICIOS
+
+1. Porque pagar a un adivino cuando puedes tener el tuyo propio?
+
+Guardar en variables, A. la cantidad de hijos, B. el nombre de su pareja  C. localizacion geografica D. trabajo
+
+=> Estarás casado con ______ tendrás _____ Hijos y viviran en _______ y estaras trabajando de _________
+
+2. Una empresa desea saber la edad del personal, pero solo tiene el año de nacimiento
+
+=>La edad del trabajador es: ____ ó ____
+
+3. A una persona se le cobrará por el uso de agua en su piscina calcular el pago que realizara según el volumen, costo de metro cúbico y veces que llene de agua la piscina
+
+=> el pago por X metros cubicos, y N veces de llenado es: _____
+
+4. Se han preguntado cuantos platos de su snack favorito comerán en el resto su vida) (si ese snack lo comen a diario)
+
+=> Tu vas a comer tu snack favorito _____ veces hasta que mueras a la edad de ______
+
+5. conversor de temperatura Celsius a Farenheit;
+
+X Celsius equivalen a ____ Farenheit;

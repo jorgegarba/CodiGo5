@@ -82,3 +82,25 @@
 	padding: 20px;
 	height: 1%;
 }
+
+@media (max-width:900px){
+    #aside{
+        display:block;
+        float: none;
+        width:100%;
+    }
+    #content{
+        display:block;
+        width:100%;
+        padding:2%;
+        box-sizing: border-box;
+        
+    }
+    #footer{
+        display:block;
+        clear:both;
+    }
+    img{
+        width:100%;
+    }
+}
