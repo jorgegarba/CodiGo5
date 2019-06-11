@@ -17,9 +17,19 @@ var costo = 10;
 /*
 if(condicionales){
 
-}else if(aun mas condicionales){
+}else if(aún mas condicionales){
 
 }else{
-    
+
 }
 */
+// ejemplito else if  --->>>
+var comida="patata";
+
+if(comida == "camote"){
+	console.log("es camote");
+}else if(comida == "patata"){
+	console.log("es patata");
+}else{
+	console.log("no es ni patata ni camote");
+}
