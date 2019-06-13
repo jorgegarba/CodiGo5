@@ -10,9 +10,49 @@ un 10% adicional
 consideren a partir de 5 metros que es Large
 cuanto es el costo final???????
 */
-var genero = "";
-var niño = true;
-var costo = 10;
+var tela = 3;
+var genero = "M";
+var nino = false;
+var costoUnitario = 10;
+var ganancia = 1.15;
+var costmujer=1.15;
+var costvaron=1.3;
+var costL=1.10;
+var precosto;
+
+if (nino==true){
+	console.log(tela*costoUnitario*ganancia);
+}else if(genero == "F" && tela >= 5){
+	console.log(tela*costoUnitario*ganancia*costmujer*costL);
+}else if(genero == "M" && tela >= 5){
+	console.log(tela*costoUnitario*ganancia*costvaron*costL);
+}else if(genero == "F"){
+	console.log(tela*costoUnitario*ganancia*costmujer);
+}else if(genero == "M"){
+	console.log(tela*costoUnitario*ganancia*costvaron);
+}
+
+if(nino==true){
+	console.log(tela*ganancia);
+}else if(genero=="M"){
+	precosto = tela*costoUnitario*ganancia*costvaron;
+	if(tela>=5){
+		console.log(precosto*costL);
+	}else{
+		console.log(precosto);
+	}
+}else{
+	precosto = tela*costoUnitario*ganancia*costmujer;
+	if(tela>=5){
+		console.log(precosto*costL);
+	}else{
+		console.log(precosto);
+	}
+}
+
+
+
+
 
 /*
 if(condicionales){
