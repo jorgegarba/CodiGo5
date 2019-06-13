@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script>
+        /**
+         * EJERCICIO 3.12
+         * */
+        var horas = 50;
+        var sph = 10;
+        var sueldoT = 0;
+        switch (true) {
+            case horas > 40 && horas <= 45:
+                sueldoT = ((horas - 40) * 2 * sph) + 40 * sph;
+                break;
+            case horas > 45 && horas <= 50:
+                sueldoT = (5 * 2 * sph) + ((horas - 45) * 3 * sph) + (40 * sph);
+                break;
+            case horas <= 40:
+                sueldoT = horas * sph;
+                break;
+            case horas > 50 || horas < 1:
+                sueldoT = 0;
+                break;
+        }
+        console.log("El sueldo a pagar es: " + sueldoT);
+    </script> -->
+    <script>
+        /**
+         * EJERCICIO 3.9
+         */
+        var pA = 1200;
+        var pB = 950;
+        var tipo = "A";
+        var pagarA = pA;
+        var pagarB = pB;
+
+        var alcohol = true;
+        var lentes = true;
+        var enfermedad = true;
+        var edad = 23;
+        if(alcohol){
+            pagarA = pagarA + (pA*0.1);
+            pagarB = pagarB + (pB*0.1);
+        }
+        if(lentes){
+            pagarA = pagarA + (pA*0.05);
+            pagarB = pagarB + (pB*0.05);
+        }
+        if(enfermedad){
+            pagarA = pagarA + (pA*0.05);
+            pagarB = pagarB + (pB*0.05);
+        }
+
+        if(edad > 40){
+            pagarA = pagarA + (pA*0.2);
+            pagarB = pagarB + (pB*0.2);
+        }else{
+            pagarA = pagarA + (pA*0.1);
+            pagarB = pagarB + (pB*0.1);
+        }
+
+        tipo === "A" ? console.log("TOTAL A PAGAR => " + pagarA) : console.log("TOTAL A PAGAR => " + pagarB)
+        
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
