@@ -34,52 +34,22 @@ Para la solución de este problema se requiere saber qué número de
 cita se efectuará, con el cual se podrá determinar el costo que tendrá la consulta y cuánto se ha gastado en el tratamiento.
 */
 
-var numeroCita = 8;
+var numeroCita = 2;
 var precio;
-
-switch (numeroCita) {
-  case 1:
+switch (true) {
+  case numeroCita >= 1 && numeroCita <= 3:
     precio = 200;
-    console.log("el precio de la cita es : " + precio);
     break;
-  case 2:
-    precio = 200;
-    console.log("el precio de la cita es : " + precio);
-    
+  case numeroCita >= 4 && numeroCita <= 5:
+    precio = 150;    
     break;
-  case 3:
-    precio = 200;
-    console.log("el precio de la cita es : " + precio);
-    
-    break;
-  case 4:
-    precio = 150;
-    console.log("el precio de la cita es : " + precio);
-    
-    break;
-  case 5:
-    precio = 150;
-    console.log("el precio de la cita es : " + precio);
-    
-    break;
-  case 6:
-    precio = 100;
-    console.log("el precio de la cita es : " + precio);
-    
-    break;
-  case 7:
-    precio = 100;
-    console.log("el precio de la cita es : " + precio);
-    
-    break;
-  case 8:
-    precio = 100;
-    console.log("el precio de la cita es : " + precio);
-    
+  case numeroCita >= 6 && numeroCita <= 8:
+    precio = 100;    
     break;
   default:
-    precio = 50;
-    console.log("el precio de la cita es : " + precio);
-    
+    precio = 50;   
     break;
 }
+
+console.log("El precio es precio " +  precio);
+
