@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var cadena = "Tecsup Arequipa 2019";
+        console.log("Minusculas " + cadena.toLowerCase());
+        cadena = cadena.toLowerCase();
+        console.log(cadena);
+        console.log("Mayusculas " + cadena.toUpperCase());
+        console.log("Tamaño ");
+        console.log(cadena.length);
+        console.log(50/0);
+        // substring-> extrae una porcion de la la cadena de texto
+        console.log("Sub-cadena con 2 parametros" + cadena.substring(7,16));
+        console.log("Sub-cadena con 1 parametro " + cadena.substring(7));
+        console.log("5 ultimos caracteres " + cadena.substring(cadena.length-5, cadena.length));
+        // slice=> inicia en la posicion 7 y desde el final de la cadena
+        // se descuenta 6
+        console.log("Sub-cadena (slice) " + cadena.slice(7,-6));
+        console.log("divir mi cadena en un arreglo ");
+        console.log(cadena.split(" "));
+        // caracter en la posicion 4
+        console.log(cadena[4]);
+        console.log(cadena.charAt(4));
+        // indexOf devuelve la posicion de inicio de una subcadena
+        console.log(cadena.indexOf("2019"));
+        // window.location.href => devuelve la url de la pagina
+        var url = window.location.href;
+        if(url.indexOf("cadenas")!= -1){
+            console.log("estoy en lla pagina cadenas.html");  
+        }
+        // encontrar la segunda ocurrencia de la letra a
+        console.log(cadena.indexOf("a",cadena.indexOf("a")+1));
+        // replace => reemplaza la primera ocurrencia de un caracter por otro
+        console.log(cadena.replace("a","X"));
+        console.log(cadena.replace(/a/g,"X"));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
