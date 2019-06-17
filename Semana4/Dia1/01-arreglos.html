@@ -28,24 +28,36 @@
         // console.log(pares);
         // 03 - MULTIPLICAR DOS ARREGLOS
         // var tamanio = parseInt(prompt("Ingrese el tamaño de los arreglos"));
-        var tamanio = +prompt("Ingrese el tamaño de los arreglos");
-        var arreglo1 = [], arreglo2 = [], rpta = [];
-        for (var j = 0; j < 2; j++) {
-            for (var i = 0; i < tamanio; i++) {
-                if(j===0){
-                    arreglo1[i] = +prompt(`Ingrese el elemento ${i} del arreglo ${j}`);
-                }else{
-                    arreglo2[i] = +prompt(`Ingrese el elemento ${i} del arreglo ${j}`);
+        // var tamanio = +prompt("Ingrese el tamaño de los arreglos");
+        // var arreglo1 = [], arreglo2 = [], rpta = [];
+        // for (var j = 0; j < 2; j++) {
+        //     for (var i = 0; i < tamanio; i++) {
+        //         if(j===0){
+        //             arreglo1[i] = +prompt(`Ingrese el elemento ${i} del arreglo ${j}`);
+        //         }else{
+        //             arreglo2[i] = +prompt(`Ingrese el elemento ${i} del arreglo ${j}`);
+        //         }
+        //     }
+        // }
+        // var cont = tamanio-1;
+        // for (var i = 0; i < tamanio; i++) {            
+        //     rpta[i] = arreglo1[i] * arreglo2[cont-i];
+        // }
+        // console.log(rpta);
+        // 04 / ORDENAR UN ARREGLO
+        var arreglo = [10, -9, 0, 40, 56, 90, 10];
+        for (var j = 0; j < arreglo.length - 1; j++) {
+            for (var i = 0; i < arreglo.length - 1; i++) {
+                if (arreglo[i] > arreglo[i + 1]) {
+                    var temporal = arreglo[i + 1];
+                    arreglo[i + 1] = arreglo[i];
+                    arreglo[i] = temporal;
                 }
             }
         }
-        var cont = tamanio-1;
-        for (var i = 0; i < tamanio; i++) {            
-            rpta[i] = arreglo1[i] * arreglo2[cont-i];
-        }
 
-        console.log(rpta);
-</script>
+        console.log(arreglo);
+    </script>
 </head>
 
 <body>
@@ -53,3 +65,9 @@
 </body>
 
 </html>
+<!-- Dado un arreglo de N elementos -->
+<!-- 1.- obtener el mayor y menor -->
+<!-- 2.- obtener la cantidad de elementos positivos, 
+        negativos e iguales a cero -->
+<!-- 3.- ordenar el arreglo de forma ascendente 
+        (sin usar el método SORT)-->
