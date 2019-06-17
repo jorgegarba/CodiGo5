@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 01 - Ejercicio usando el metodo push de los arreglos
+        // var miArreglo = [1,3,34,6,87,33,80];
+        // var pares = [];
+        // var i,j;
+        // for (i = 0; i < miArreglo.length; i++) {
+        //     if(miArreglo[i] % 2 === 0){
+        //         // push(elemento) => inyecta un elemento al final del
+        //         // arreglo indicado
+        //         pares.push(miArreglo[i]);
+        //     }
+
+        // }
+        // 02 - EJERCICIO USANDO EL METODO POP DE LOS ARREGLOS
+        // console.log(pares);
+        // var tamanio = pares.length
+        // for(j=0; j<tamanio;j++){
+        //     console.log(pares.pop());
+        // }
+        // console.log(pares);
+        // 03 - MULTIPLICAR DOS ARREGLOS
+        // var tamanio = parseInt(prompt("Ingrese el tamaño de los arreglos"));
+        var tamanio = +prompt("Ingrese el tamaño de los arreglos");
+        var arreglo1 = [], arreglo2 = [], rpta = [];
+        for (var j = 0; j < 2; j++) {
+            for (var i = 0; i < tamanio; i++) {
+                if(j===0){
+                    arreglo1[i] = +prompt(`Ingrese el elemento ${i} del arreglo ${j}`);
+                }else{
+                    arreglo2[i] = +prompt(`Ingrese el elemento ${i} del arreglo ${j}`);
+                }
+            }
+        }
+        var cont = tamanio-1;
+        for (var i = 0; i < tamanio; i++) {            
+            rpta[i] = arreglo1[i] * arreglo2[cont-i];
+        }
+
+        console.log(rpta);
+</script>
+</head>
+
+<body>
+
+</body>
+
+</html>

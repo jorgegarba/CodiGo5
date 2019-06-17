@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // EJERCICIO 3
+        // var cadena = "Este es mi texto";
+        // cadena = cadena.toLowerCase();
+        // var vocales = 0;
+        // for(var i=0; i<cadena.length; i++){
+        //     switch(cadena[i]){
+        //         case "a": 
+        //             vocales++;
+        //             break;
+        //         case "e":
+        //             vocales++;
+        //             break;
+        //         case "i":
+        //             vocales++;
+        //             break;
+        //         case "o":
+        //             vocales++;
+        //             break;
+        //         case "u":
+        //             vocales++;
+        //             break;
+        //     }
+        // }
+        // console.log("cantidad de vocales " + vocales);
+        // EJERCICIO 4
+        var cadena = "NO IMPORTA EL TEXTO",eliminar = "O", rpta="";
+        for(var i=0; i<cadena.length; i++){
+            if(cadena[i] != eliminar){
+                rpta = rpta + cadena[i];
+            }
+            // rpta = cadena[i] != eliminar ? rpta + cadena[i] : rpta;
+        }
+        console.log(rpta);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
