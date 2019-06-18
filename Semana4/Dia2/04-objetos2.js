@@ -1,6 +1,6 @@
 function Persona(nombreInicial,appellidoInicial,nuevoDni="00000000"){
     var sueldo = 6000;
-
+    
     var objPersona = {
         nombre:nombreInicial,
         apellido:appellidoInicial,
