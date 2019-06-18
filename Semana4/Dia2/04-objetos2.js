@@ -1,6 +1,6 @@
 function Persona(nombreInicial,appellidoInicial,nuevoDni="00000000"){
     var sueldo = 6000;
-    
+
     var objPersona = {
         nombre:nombreInicial,
         apellido:appellidoInicial,
@@ -39,3 +39,10 @@ var william = Persona("William","Miranda");
 julio.imprimirInfo();
 carlos.imprimirInfo();
 william.imprimirInfo();
+
+
+var arreglo = [1,2,3,4,6,7,8];
+console.log(arreglo);
+// Elimina 1 elemento a partir de la posicion 3
+arreglo.splice(3,1);
+console.log(arreglo);
