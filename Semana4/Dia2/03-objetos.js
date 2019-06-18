@@ -27,3 +27,32 @@ for (var i = 0; i < personas.length; i++) {
 }
 
 console.log(personas);
+
+
+var objVehiculo = {
+    marca:"Mazda",
+    modelo:"CX-3",
+    color:"Gris",
+    mantenimientos:[
+        {
+            fecha:"18-01-2019",
+            estado:"Sin observaciones"
+        },
+        {
+            fecha:"18-02-2019",
+            estado:"Sin observaciones"
+        }
+    ]
+}
+
+console.log(objVehiculo);
+
+var objMantenimiento = {
+    fecha:"10-10-19",
+    estado:"Sin obs"
+};
+
+objVehiculo.mantenimientos.push(objMantenimiento);
+
+console.log(objVehiculo);
+
