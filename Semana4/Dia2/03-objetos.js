@@ -5,7 +5,7 @@ var objPersona1 = {
         "Cebiche",
         "Torta de Jamon"
     ],
-    dni: "12121212"
+    dni: "12121212",
 };
 var objPersona2 = {
     nombre: "David",
@@ -14,7 +14,7 @@ var objPersona2 = {
         "Tilapia",
         "Chaufa"
     ],
-    dni: "01828372"
+    dni: "01828372",
 };
 
 var personas = [];
@@ -44,11 +44,14 @@ var objVehiculo = {
         }
     ],
     mostrarMantenimientos: function(){
-        for (let i = 0; i < objVehiculo.mantenimientos.length; i++) {
+        for (let i = 0; i < this.mantenimientos.length; i++) {
             console.log(`Mantenimiento 
-                        Fecha: ${objVehiculo.mantenimientos[i].fecha}
-                        Observaciones ${objVehiculo.mantenimientos[i].estado}`);
+                        Fecha: ${this.mantenimientos[i].fecha}
+                        Observaciones ${this.mantenimientos[i].estado}`);
         }
+    },
+    objeto:function(){
+        console.log(this);
     }
 }
 
@@ -64,3 +67,4 @@ objVehiculo.mantenimientos.push(objMantenimiento);
 console.log(objVehiculo);
 
 objVehiculo.mostrarMantenimientos();
+objVehiculo.objeto();
