@@ -42,7 +42,14 @@ var objVehiculo = {
             fecha:"18-02-2019",
             estado:"Sin observaciones"
         }
-    ]
+    ],
+    mostrarMantenimientos: function(){
+        for (let i = 0; i < objVehiculo.mantenimientos.length; i++) {
+            console.log(`Mantenimiento 
+                        Fecha: ${objVehiculo.mantenimientos[i].fecha}
+                        Observaciones ${objVehiculo.mantenimientos[i].estado}`);
+        }
+    }
 }
 
 console.log(objVehiculo);
@@ -56,3 +63,4 @@ objVehiculo.mantenimientos.push(objMantenimiento);
 
 console.log(objVehiculo);
 
+objVehiculo.mostrarMantenimientos();
