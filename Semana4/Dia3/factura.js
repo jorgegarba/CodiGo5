@@ -42,6 +42,17 @@ function Factura(){
             this.total = totalLocal;
             this.subtotal = +((this.total - (this.total*0.18)).toFixed(2));
             this.igv = +((this.total - this.subtotal).toFixed(2));
+        },
+        crearDetalle: function(_id, _cant, _descripcion, _punitario){
+            //que retorne un objeto de tipo detalle
+            var objDetalle = {
+                id:_id,
+                cant:_cant,
+                descripcion:_descripcion,
+                punitario:_punitario,
+                subtotal:_punitario * _cant,
+            };
+            return objDetalle;
         }
     };
     return objFactura;
@@ -49,35 +60,18 @@ function Factura(){
 
 var miFactura = Factura();
 
-var miDetalle1 = {
-    id:1,
-    cant:10,
-    descripcion:"Chelas",
-    punitario:6,
-    subtotal:60,
-};
-
-var miDetalle2 = {
-    id:2,
-    cant:2,
-    descripcion:"Huevos",
-    punitario:0.5,
-    subtotal:1,
-};
-
 // Crear el constructor del objeto Detalle Factura
 // el cual va a recibir todos los parametros del detalle excepto
 // el subtotal(que será calculado automaticamente multiplicando
 // la cantidad por el precio unitario).
-// 
-
 
 // debugger;
 
-miFactura.agregarDetalle(miDetalle1);
+// var miDetalle1 = miFactura.crearDetalle(1,10,"Chelas",6);
+// var miDetalle2 = miFactura.crearDetalle(2,15,"Chizitos",0.5);
 
-miFactura.agregarDetalle(miDetalle2);
-
+miFactura.agregarDetalle(miFactura.crearDetalle(1,10,"Chelas",6));
+miFactura.agregarDetalle(miFactura.crearDetalle(2,15,"Chizitos",0.5));
 miFactura.eliminarDetalle(1);
 
 console.log(miFactura);
