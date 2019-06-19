@@ -96,7 +96,5 @@ miFactura.agregarDetalle(miFactura.crearDetalle(2,15,"Chizitos",0.5));
 miFactura.eliminarDetalle(1);
 
 
-prompt
-
 console.log(miFactura);
 
