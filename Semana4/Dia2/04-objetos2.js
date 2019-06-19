@@ -1,12 +1,13 @@
 function Persona(nombreInicial,appellidoInicial,nuevoDni="00000000"){
+    
     var sueldo = 6000;
 
     var objPersona = {
-        nombre:nombreInicial,
-        apellido:appellidoInicial,
-        edad:0,
-        genero:'No especifica',
-        dni:nuevoDni,
+        nombre: nombreInicial,
+        apellido: appellidoInicial,
+        edad: 0,
+        genero: 'No especifica',
+        dni: nuevoDni,
         email:'sin email',    
         cambiarNombre: function(nuevoNombre){
             this.nombre = nuevoNombre;
@@ -24,10 +25,11 @@ function Persona(nombreInicial,appellidoInicial,nuevoDni="00000000"){
         }
     };
 
-    return objPersona
+    return objPersona;
 }
 
 var julio = Persona("Julio","Montesinos");
+
 julio.cambiarNombre("Julius");
 julio.modificarSueldo(10000);
 
