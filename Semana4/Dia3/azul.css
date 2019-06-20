@@ -1,0 +1,14 @@
+/* light */
+html,body{
+    height: 100%,
+}
+html{
+    background-color: #eee;
+}
+#titulo{
+    color: #222;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 1px solid #222;
+    border-radius: 15px;
+    padding: 20px;
+}

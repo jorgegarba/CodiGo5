@@ -1,0 +1,14 @@
+/* darks */
+html,body{
+    height: 100%,
+}
+html{
+    background-color: #333;
+}
+#titulo{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 1px solid whitesmoke;
+    border-radius: 15px;
+    padding: 20px;
+}

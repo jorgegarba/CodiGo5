@@ -60,6 +60,8 @@ function Factura(){
     return objFactura;
 }
 
+var objFactura = Factura();
+
 // FORMA 2 => Con el constructor del Detalle independiente
 // function Detalle(_id, _cant, _descripcion, _punitario){
 //     //que retorne un objeto de tipo detalle
