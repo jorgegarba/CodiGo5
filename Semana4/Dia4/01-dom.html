@@ -9,21 +9,64 @@
         *{
             margin: 0;
         }
-        #miDiv{
+        .miDiv{
             width: 200px;
             height: 200px;
             border: 1px solid red;
             border-radius: 7px;
         }
+        .nuevaClase{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            border-radius: 50%;
+        }
+        .bordeNegro{
+            border: 1px solid black;
+        }
+        .rellenoAmarillo{
+            background-color: yellowgreen;
+        }
+        #multiclase{
+            width: 50px;
+            height: 50px;
+        }
+        @keyframes vueltas{
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        .rotar{
+            animation-name: vueltas;
+            animation-iteration-count: infinite;
+            animation-duration: 2s;
+        }
     </style>
 </head>
 <body>
-    <div id="miDiv">
+    <div id="miDiv" class="miDiv">
+
+    </div>
+    <div id="multiclase" class="bordeNegro rellenoAmarillo">
 
     </div>
     <button id="boton">
         Click aqui
     </button>
+    <button id="cambiarClase">
+        Cambiar Clase
+    </button>
+    <button id="agregarClase">
+        Agregar Clase
+    </button>
+    <button id="quitarClase">
+        Quitar Clase
+    </button>
+
+
     
 <script src="./01-dom.js"></script>
 </body>
