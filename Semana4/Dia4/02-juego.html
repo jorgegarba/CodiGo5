@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            background-color: #333;
+        }
+
+        .contenedor {
+            width: 800px;
+            height: 800px;
+            border: 1px solid yellow;
+            position: absolute;
+            left: 100px;
+            top: 50px;
+        }
+
+        .contenido {
+            width: 100px;
+            height: 100px;
+            border: 1px solid white;
+            position: relative;
+            left: 50px;
+        }
+        .botones{
+            position: relative;
+            top:852px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="contenedor" class="contenedor">
+        <div id="contenido" class="contenido">
+
+        </div>
+    </div>
+    <div class="botones">
+        <button id="btnIzquierda">btnIzquierda</button>
+        <button id="btnArriba">btnArriba</button>
+        <button id="btnAbajo">btnAbajo</button>
+        <button id="btnDerecha">btnDerecha</button>
+    </div>
+
+    <script src="./03-juego.js"></script>
+</body>
+
+</html>
