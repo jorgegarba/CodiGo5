@@ -24,33 +24,61 @@ header.prepend(h1);
 console.log(header);
 
 var lista = [{
-                nombre: 'Karlita',
-                apellido: 'Muñoz',
-                edad: 27
-            }, {
-                nombre: 'Camila',
-                apellido: 'Quiroz',
-                edad: 29
-            }];
+    nombre: 'Karlita',
+    apellido: 'Muñoz',
+    edad: 27
+}, {
+    nombre: 'Camila',
+    apellido: 'Quiroz',
+    edad: 29
+}];
 var tabla = document.getElementById("alumnos");
-tabla.innerHTML = "<tr><th>Nombre</th><th>Apellido</th><th>Edad</th></tr>";
 
-for (let i = 0; i < lista.length; i++) {
-    var tr = document.createElement("tr");
-
-    var tdNombre = document.createElement("td");
-    tdNombre.innerHTML = lista[i].nombre;
-
-    var tdApellido = document.createElement("td");
-    tdApellido.innerHTML = lista[i].apellido;
-
-    var tdEdad = document.createElement("td");
-    tdEdad.innerHTML = lista[i].edad;
-
-    tr.appendChild(tdNombre);
-    tr.appendChild(tdApellido);
-    tr.appendChild(tdEdad);
+function generarTabla() {
     
-    tabla.appendChild(tr);
+    tabla.innerHTML = "<tr><th>Nombre</th><th>Apellido</th><th>Edad</th></tr>";
 
+    for (let i = 0; i < lista.length; i++) {
+        var tr = document.createElement("tr");
+
+        var tdNombre = document.createElement("td");
+        tdNombre.innerHTML = lista[i].nombre;
+        tr.appendChild(tdNombre);
+
+        var tdApellido = document.createElement("td");
+        tdApellido.innerHTML = lista[i].apellido;
+        tr.appendChild(tdApellido);
+
+        var tdEdad = document.createElement("td");
+        tdEdad.innerHTML = lista[i].edad;
+        tr.appendChild(tdEdad);
+
+        tabla.appendChild(tr);
+    }
 }
+
+generarTabla();
+
+
+var btnAgregar = document.getElementById("agregar");
+btnAgregar.addEventListener("click", function () {
+    var iNombre = prompt("Ingrese el nombre");
+    var iApellido = prompt("Ingrese el apellido");
+    var iEdad = prompt("Edad");
+
+    var objAlumno = {
+        nombre: iNombre,
+        apellido: iApellido,
+        edad: iEdad
+    };
+
+    lista.push(objAlumno);
+    console.log(lista);
+    generarTabla();
+});
+
+
+
+var input = document.getElementById("miInput");
+console.log(input.value);
+input.value = "Nuevo Nombre";
