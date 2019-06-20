@@ -12,7 +12,8 @@ var libros = ["Harry Potter y la piedra filosofal",
               "Ensayo sobre la ceguera",
               "Platero y Yo"];
 
-var resultado = "<ul>";
+
+var resultado = "<ul id='miLista'>";
 
 for (let i = 0; i < libros.length; i++) {
     resultado = resultado + "<li>";
