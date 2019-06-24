@@ -36,8 +36,9 @@ function click(e){
     if(e.shiftKey === true){
         console.log("El click se hizo presionando la tecla Shift");
     }
-    
 
+    // e.target es equivalente al objeto "this"
+    console.log(this);
 }
 
 // asignano una misma funcion de evento a dos elementos distintos
