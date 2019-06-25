@@ -7,6 +7,21 @@ window.onload = function () {
     var inputColor = document.getElementById("inputColor");
     var inputGuardar = document.getElementById("inputGuardar");
     var body = document.getElementById("cuerpo");
+    var btnBorrar = document.getElementById("btnBorrar");
+
+    btnBorrar.onclick = function(e){
+        e.preventDefault();
+        // Borrando uno o varios elementos del localStorage
+        // localStorage.removeItem("[nombre_del_item]");
+        // localStorage.clear() => elimina todo el localStorage
+        localStorage.removeItem("nombre");
+        localStorage.removeItem("apellido");
+        localStorage.removeItem("color");
+        localStorage.removeItem("preferencias");
+        // recargar la pagina
+        location.reload();
+    }
+
     /**
      * Funcion que toma los elementos del localStorage
      * de forma independiente
