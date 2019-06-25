@@ -3,6 +3,9 @@ window.onload = function(){
     var cuadrado  = document.getElementById("cuadrado");
     var pais = document.getElementById("pais");
     var departamento = document.getElementById("departamento");
+    var link = document.getElementById("google");
+    var contadorDeClicks = 0;
+
     // onfocus
     // Evento que se ejecuta cuando el cursor esta localizado
     // en el elemento
@@ -48,6 +51,7 @@ window.onload = function(){
     var brasil = ["Rio de Janeiro","Sao Paulo","Porto Alegre"];
     var venezuela = ["Caracas","Maracaibo"];
     pais.onchange = function(){
+        // debugger;
         departamento.innerHTML = "<option value='0' selected>Selecione...</option>";
         departamento.removeAttribute("disabled");
 
@@ -57,6 +61,7 @@ window.onload = function(){
                     for(var i = 0; i < peru.length; i++){
                         var option = document.createElement("option");
                         option.innerHTML = `${peru[i]}`;
+                        option.setAttribute('value',peru[i].charAt(0));
                         departamento.appendChild(option);
                     }
                     break;
@@ -64,6 +69,7 @@ window.onload = function(){
                     for(var i = 0; i < brasil.length; i++){
                         var option = document.createElement("option");
                         option.innerHTML = `${brasil[i]}`;
+                        option.setAttribute('value',peru[i].charAt(0));
                         departamento.appendChild(option);
                     }
                     break;
@@ -73,4 +79,25 @@ window.onload = function(){
         }
     }
 
+    departamento.onchange = function(){
+        // Valor seleccionado
+        console.log(this.value);
+        // selectedIndex => posicion seleccionada del arreglo de options
+        console.log(this.selectedIndex);
+        // options => devuelve un arreglo de los options internos
+        console.log(this.options);
+        // obtener el texto del option seleccionado
+        console.log(this.options[this.selectedIndex].innerHTML);
+        input.setAttribute("value",this.options[this.selectedIndex].innerHTML);
+    }
+
+    link.onclick = function(e){
+        // preventDefault => Cancela el comportamiento
+        // por defecto que tiene un elemento
+        // e.preventDefault();
+        contadorDeClicks++;
+        if(contadorDeClicks>1){
+            e.preventDefault();
+        }
+    }
 }
