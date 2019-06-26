@@ -1,5 +1,15 @@
 window.onload = function () {
 
+    function miFuncion(){
+        return 1+6;
+    }
+
+    let obj = {
+        x:1,
+        y:miFuncion
+    }
+    localStorage.setItem("prueba",JSON.stringify(obj));
+
     // localStorage => es como una base de datos
     // en el navegador
     var inputNombre = document.getElementById("inputNombre");
