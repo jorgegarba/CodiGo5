@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script>
-        window.onload = function(){
+        window.onload = function () {
             var tabla1 = document.getElementById("tabla1");
             var btnSwitch = document.getElementById("darks");
-            btnSwitch.onclick = function(){
+            btnSwitch.onclick = function () {
                 // classList.contains("[nombre_de_clase]"), devuelve true o false
                 // en caso de que el elemento, contenga el nombre de la clase dada
-                if(tabla1.classList.contains("table-dark")===true){
+                if (tabla1.classList.contains("table-dark") === true) {
                     tabla1.classList.remove("table-dark");
-                }else{
+                } else {
                     tabla1.classList.add("table-dark");
                 }
             }
         }
     </script>
     <style>
-        .darks{
+        .darks {
             width: 50px;
             height: 50px;
             position: fixed;
@@ -33,10 +35,12 @@
             border: 2px solid orangered;
             color: whitesmoke;
         }
-        .darks:hover{
+
+        .darks:hover {
             background-color: orangered;
         }
-/* modificando los estilos de bootstrap */
+
+        /* modificando los estilos de bootstrap */
         /* .table-striped>tbody>tr:nth-child(even){
             background-color: brown !important;
         }
@@ -47,9 +51,9 @@
         /* .table-hover>tfoot:hover{
             background-color: aquamarine;
         } */
-
     </style>
 </head>
+
 <body>
     <button class="darks" id="darks">
         D
@@ -99,8 +103,8 @@
                 </tr>
             </tfoot>
         </table>
-        
-        <hr/>
+
+        <hr />
 
         <h3>Tabla simple con estilo dark<code>class="table table-dark"</code></h3>
         <table class="table table-dark">
@@ -142,7 +146,7 @@
             </tfoot>
         </table>
 
-        <hr/>
+        <hr />
 
         <h3>Tabla simple con colores alternos<code>class="table table-striped"</code></h3>
         <table class="table table-striped">
@@ -184,7 +188,7 @@
             </tfoot>
         </table>
 
-        <hr/>
+        <hr />
 
         <h3>Tabla simple con borde en todas sus celdas<code>class="table table-bordered"</code></h3>
         <table class="table table-bordered">
@@ -226,9 +230,10 @@
             </tfoot>
         </table>
 
-        <hr/>
+        <hr />
 
-        <h3>Tabla simple con resaltado en las filas cuando el mouse pasa sobre ellas<code>class="table table-hover"</code></h3>
+        <h3>Tabla simple con resaltado en las filas cuando el mouse pasa sobre
+            ellas<code>class="table table-hover"</code></h3>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -267,8 +272,8 @@
                 </tr>
             </tfoot>
         </table>
-        
-        <hr/>
+
+        <hr />
 
         <h3>Tabla simple compacta(pequeña)<code>class="table table-sm"</code></h3>
         <table class="table table-sm">
@@ -310,7 +315,7 @@
             </tfoot>
         </table>
 
-        <hr/>
+        <hr />
 
         <h3>Tabla con estilos combinados, toma mas de un estilo de tabla</h3>
         <table class="table table-hover table-sm table-dark table-bordered">
@@ -353,7 +358,7 @@
         </table>
 
 
-        <hr/>
+        <hr />
 
         <h3>Tabla con colores personalizados, cada parte de la tabla, recibirá un color custom</h3>
         <table class="table">
@@ -394,13 +399,75 @@
                 </tr>
             </tfoot>
         </table>
-        
+
+        <hr />
+
+        <h3>Tabla responsiva <code>class="table-responsive-[sm-md-lg-xl]"</code></h3>
+        <div class="table-responsive-xl">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Cabecera 01</th>
+                        <th>Cabecera 02</th>
+                        <th>Cabecera 03</th>
+                        <th>Cabecera 04</th>
+                        <th>Cabecera 04</th>
+                        <th>Cabecera 04</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Contenido 1</td>
+                        <td>Contenido 2</td>
+                        <td>Contenido 3</td>
+                        <td>Contenido 4</td>
+                        <td>Contenido 4</td>
+                        <td>Contenido 4</td>
+                    </tr>
+                    <tr>
+                        <td>Contenido 1</td>
+                        <td>Contenido 2</td>
+                        <td>Contenido 3</td>
+                        <td>Contenido 4</td>
+                        <td>Contenido 4</td>
+                        <td>Contenido 4</td>
+                    </tr>
+                    <tr>
+                        <td>Contenido 1</td>
+                        <td>Contenido 2</td>
+                        <td>Contenido 3</td>
+                        <td>Contenido 4</td>
+                        <td>Contenido 4</td>
+                        <td>Contenido 4</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Contenido 1</td>
+                        <td>Contenido 2</td>
+                        <td>Contenido 3</td>
+                        <td>Contenido 4</td>
+                        <td>Contenido 4</td>
+                        <td>Contenido 4</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+
 
 
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
