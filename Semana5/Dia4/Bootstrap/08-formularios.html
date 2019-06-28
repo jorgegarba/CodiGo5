@@ -19,20 +19,100 @@
 
 <body>
 
-    <main class="container mt-5">
+    <main class="container-fluid mt-5">
         <h4>Formulario Vertical</h4>
-        <form autocomplete="off">
-            <div class="form-group">
-                <label for="inputNombre">Nombre:</label>
-                <input type="text" id="inputNombre" name="inputNombre" class="form-control"
-                    placeholder="Ingrese su nombre">
-                <small class="form-text text-success"
-                        id="helpNombre"
-                        hidden="true">
-                    texto
-                </small>
+        <div class="row">
+            <div class="col-md-6">
+                <form autocomplete="off" class="row mt-5">
+                    <div class="form-group col-md-6">
+                        <label for="inputNombre">Nombre:</label>
+                        <input type="text" id="inputNombre" name="inputNombre" class="form-control"
+                            placeholder="Ingrese su nombre">
+                        <small class="form-text text-success" id="helpNombre" hidden="true">
+                            texto
+                        </small>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword">Contraseña:</label>
+                        <input type="password" id="inputPassword" name="inputPassword" class="form-control"
+                            placeholder="Ingrese su contraseña">
+                        <small class="form-text text-warning" id="helpNombre">
+                            Mínimo 6 caracteres
+                        </small>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputMensaje">Escriba un mensaje:</label>
+                        <textarea name="inputMensaje" id="inputMensaje" cols="30" rows="10" class="form-control"
+                            maxlength="20" placeholder="Introduzca su mensaje"></textarea>
+                        <small class="form-text text-muted" id="helpMensaje">20 Caracteres máximo.</small>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="">Elija Idioma</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="checkbox" id="es">
+                                </div>
+                            </div>
+                            <label for="es" class="form-control">Español</label>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="checkbox" id="en">
+                                </div>
+                            </div>
+                            <label for="en" class="form-control">English for kids</label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="">Elija Género</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" id="mgenero" name="genero">
+                                </div>
+                            </div>
+                            <label for="mgenero" class="form-control">Masculino</label>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="radio" id="fgenero" name="genero">
+                                </div>
+                            </div>
+                            <label for="fgenero" class="form-control">Femenino</label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="pais">Elija País</label>
+                        <select name="pais" id="pais" class="form-control">
+                            <option value="p">Perú</option>
+                            <option value="e">España</option>
+                            <option value="c">Colombia</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="cursos">Elija Cursos</label>
+                        <select name="cursos" id="cursos" class="form-control" multiple>
+                            <option value="a">Angular JS</option>
+                            <option value="n">Node JS</option>
+                            <option value="r">React JS</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Registrar
+                        </button>
+                    </div>
+
+                </form>
             </div>
-        </form>
+            <div class="col-md-6">
+                NADA
+            </div>
+        </div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

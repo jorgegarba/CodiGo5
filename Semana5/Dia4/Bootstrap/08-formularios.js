@@ -1,6 +1,8 @@
 window.onload = function(){
     var inputNombre = document.getElementById("inputNombre");
     var helpNombre = document.getElementById("helpNombre");
+    var inputMensaje = document.getElementById("inputMensaje");
+    var helpMensaje = document.getElementById("helpMensaje");
     // declarar un arrelgo de personas (objetos)
     var personas = [
         {
@@ -52,4 +54,9 @@ window.onload = function(){
             helpNombre.setAttribute("hidden","true");
         }
     }
+
+    inputMensaje.onkeyup = function () {
+        var tamanio = this.value.length;
+        helpMensaje.innerHTML = `Quedan ${20-tamanio} caracteres.`;
+    };
 }
