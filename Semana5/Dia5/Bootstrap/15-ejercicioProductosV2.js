@@ -67,8 +67,7 @@ window.onload = function(){
         boton.innerHTML="Ver Producto";
 
         boton.onclick = function(){
-
-            var idProducto = productos[i].id;            
+                       
             $("#miModal").modal("show");
             modalTitulo.innerHTML = productos[i].nombre;
             modalDescripcion.innerHTML = productos[i].descripcion;

@@ -60,11 +60,12 @@ window.onload = function(){
                                                 </div>
                                             </div>
                                         </div>`; 
-                                               
+
     }
     row.innerHTML = divProducto;
 
     var botones = document.querySelectorAll(".clickable");
+    
     for (let i = 0; i < botones.length; i++) {
         // var temp = document.getElementById(`btnAbrir${i}`);
         // console.log(temp);
