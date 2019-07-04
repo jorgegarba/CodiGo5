@@ -10,13 +10,18 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <style>
+        html,
+        body {
+            height: 100% !important;
+        }
+
         li.nav-item a.nav-link {
-            color: white !important;
+            color: #343a40 !important;
         }
 
         li.nav-item a.active {
-            background-color: white !important;
-            color: #343a40 !important;
+            background-color: #343a40 !important;
+            color: white !important;
             border-radius: 0;
         }
     </style>
@@ -65,10 +70,10 @@
         </nav>
     </header>
 
-    <main class="container-fluid mt-5">
+    <main class="container-fluid mt-1">
         <div class="row">
-            <section class="col-md-8 bg-dark">
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <section class="col-md-8 bg-dark p-0">
+                <ul class="nav nav-pills mb-3 w-100 bg-light" id="pills-tab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
                             aria-controls="pills-home" aria-selected="true">Home</a>
@@ -83,7 +88,7 @@
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                    <div class="tab-pane fade show active p-4" id="pills-home" role="tabpanel"
                         aria-labelledby="pills-home-tab">
                         <!-- div que contendrá la lista de aulas -->
                         <div class="row" id="aulas">
@@ -98,7 +103,26 @@
                 </div>
             </section>
             <section class="col-md-4">
-                QUI IRÁ LA INFORMACIÓN DE CADA AULA
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <h5 class="card-title" id="nombreAula">No seleccionado</h5>
+                        <p class="card-text">
+                            <strong>Id: </strong> <span id="idAula">No especifica</span>
+                        </p>
+                        <p class="card-text">
+                            <strong>Capacidad: </strong> <span id="capacidadAula">No especifica</span>
+                        </p>
+                        <p class="card-text">
+                            <strong>Número: </strong> <span id="numeroAula">No especifica</span>
+                        </p>
+                        <p class="card-text">
+                            <strong>Tipo: </strong> <span id="tipoAula">No especifica</span>
+                        </p>
+                        <button class="btn btn-danger disabled" disabled id="btnEliminar">
+                            Eliminar Aula
+                        </button>
+                    </div>
+                </div>
             </section>
         </div>
     </main>
