@@ -1,4 +1,5 @@
 function traerAulas() {
+
     $.ajax({
         type: "GET",
         url: "http://5d1cd485f31e7f00147ebb7a.mockapi.io/aulas",
