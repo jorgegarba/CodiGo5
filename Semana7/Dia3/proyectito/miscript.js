@@ -14,7 +14,15 @@ $(document).ready(function(){
             {data:"prod_nom"},
             {data:"prod_desc"},
             {data:"prod_price"},
-            {data:"prod_pic"}
-        ]
+            {data:"prod_pic",
+            render:function(data){
+                let imagen = '<img src="' + data + '" width="50px">';
+                return imagen;
+            }}
+        ],
+        "language":{
+            "lengthMenu":"Mostrando _MENU_ items",
+            "search": "Buscar: "
+        }
     })
 })
