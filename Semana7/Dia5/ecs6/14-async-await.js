@@ -34,8 +34,6 @@ let getCursosByAlumnoId = async (id)=>{
     throw "No existen cursos para el alumno";
 }
 
-
-
 let getDatos = async ()=>{
     let alumno = await getAlumnoById(1);
     let cursos = await getCursosByAlumnoId(1);
@@ -43,7 +41,6 @@ let getDatos = async ()=>{
     console.log(cursos);
     return [alumno,cursos];
 }
-
 
 getDatos().then(([alumno,cursos])=>{
     console.log(alumno);
