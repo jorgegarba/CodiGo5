@@ -1,5 +1,4 @@
 window.onload = () => {
-
     let traerGata = () => {
         return new Promise((resolve, reject) => {
             $.ajax({
@@ -30,6 +29,6 @@ window.onload = () => {
     }).catch((error)=>{
         console.log("Ups!, hubo un error");
         console.error(error.responseText);
-    });
+    });   
 
 }
