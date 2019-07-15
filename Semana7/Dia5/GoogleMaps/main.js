@@ -1,9 +1,9 @@
-import {estiloMapa} from './js/variables.js';
+import {estiloMapa, centroPorDefecto} from './js/variables.js';
 
 window.onload = () => {   
 
     let mapaGoogle = new google.maps.Map(document.getElementById('mapa'), {
-        center: { lat: -14, lng: -70 },
+        center: centroPorDefecto,
         zoom: 8,
         styles: estiloMapa
     });

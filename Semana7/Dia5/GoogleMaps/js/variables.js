@@ -202,3 +202,5 @@ export var estiloMapa = [
       ]
     }
   ];
+
+export var centroPorDefecto = { lat: -14, lng: -70 };
