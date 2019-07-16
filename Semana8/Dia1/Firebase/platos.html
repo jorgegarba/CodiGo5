@@ -6,14 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/slate/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
     <style>
-        #mapa {
-            height: 500px;
+        #btnCrearPlato {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
         }
     </style>
 </head>
 
 <body>
+
+    <div class="modal fade" id="modalCrearPlato">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Crear un Nuevo Plato</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form autocomplete="off">
+                        <div class="form-group">
+                            <label for="inputNombre">Nombre:</label>
+                            <input type="text" id="inputNombre" name="inputNombre" class="form-control"
+                                placeholder="Ejm: Seco de Cabrito">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputOrigen">Origen:</label>
+                            <input type="text" id="inputOrigen" name="inputOrigen" class="form-control"
+                                placeholder="Ejm: Perú">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputCalorias">Cantidad de Calorías:</label>
+                            <input type="number" id="inputCalorias" name="inputCalorias" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputDescripcion">Describa el Plato:</label>
+                            <textarea name="inputDescripcion" id="inputDescripcion" cols="30" rows="10" class="form-control"
+                                maxlength="20" placeholder="Introduzca una descripción"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -45,75 +91,11 @@
             </div>
         </nav>
     </header>
-    <main class="container-fluid">
-        <div class="card-columns">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title that wraps to a new line</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-            <div class="card p-3">
-                <blockquote class="blockquote mb-0 card-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <footer class="blockquote-footer">
-                        <small class="text-muted">
-                            Someone famous in <cite title="Source Title">Source Title</cite>
-                        </small>
-                    </footer>
-                </blockquote>
-            </div>
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
-                    </p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card bg-primary text-white text-center p-3">
-                <blockquote class="blockquote mb-0">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
-                    <footer class="blockquote-footer text-white">
-                        <small>
-                            Someone famous in <cite title="Source Title">Source Title</cite>
-                        </small>
-                    </footer>
-                </blockquote>
-            </div>
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has a regular title and short paragraphy of text below it.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-            </div>
-            <div class="card p-3 text-right">
-                <blockquote class="blockquote mb-0">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <footer class="blockquote-footer">
-                        <small class="text-muted">
-                            Someone famous in <cite title="Source Title">Source Title</cite>
-                        </small>
-                    </footer>
-                </blockquote>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is another card with title and supporting text below. This card has some
-                        additional content to make it slightly taller overall.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
+    <main class="container-fluid mt-4">
     </main>
+    <button id="btnCrearPlato" class="btn btn-info">
+        <i class="fas fa-plus fa-2x"></i>
+    </button>
 
 
 
