@@ -6,6 +6,7 @@ import { firebaseConfig } from "./variables.js";
 
 window.onload = () => {
 
+    
 
 
     // Iniciando la configuración de firebase con nuestra aplicación
@@ -17,11 +18,76 @@ window.onload = () => {
 
     }
     if (location.href.indexOf("platos") >= 0) {
+        $('input[type="range"]').rangeslider({
+
+            // Feature detection the default is `true`.
+            // Set this to `false` if you want to use
+            // the polyfill also in Browsers which support
+            // the native <input type="range"> element.
+            polyfill: true,
+        
+            // Default CSS classes
+            rangeClass: 'rangeslider',
+            disabledClass: 'rangeslider--disabled',
+            horizontalClass: 'rangeslider--horizontal',
+            verticalClass: 'rangeslider--vertical',
+            fillClass: 'rangeslider__fill',
+            handleClass: 'rangeslider__handle',
+        
+            // Callback function
+            onInit: function() {},
+        
+            // Callback function
+            onSlide: function(position, value) {},
+        
+            // Callback function
+            onSlideEnd: function(position, value) {}
+        });
+        // Creando una referencia inicial al nodo "platos"
+        let refPlatos = firebase.database().ref("platos");
+        /**
+         * Funcion para crear un registro en la DB de firebase
+         */
+        let createPlato = ()=>{
+
+            /**
+             * 1. obtener una nueva clave o primary para el 
+             * registro que se va a insertar
+             */
+             let key = refPlatos.push().key;
+             /**
+              * 2. Referenciar al nodo que lleva por nombre
+              * la clave generada en el paso 1
+              */
+             let referenciaKey = refPlatos.child(key);
+             /**
+              * 3. Asignar atributos al nodo referenciado en 
+              * el paso [2] a partir del metodo "set()"
+              */
+             referenciaKey.set({
+                 nombre:$("#inputNombre").val().trim(),
+                 calorias: $("#inputCalorias").val(),
+                 origen: $("#inputOrigen").val(),
+                 descripcion: $("#inputDescripcion").val()
+             }).then(()=>{
+                $.notify("Plato creado correctamente","success");
+                $("#modalCrearPlato").modal("hide");
+             }).catch( error =>{
+                $.notify("Error al crear el plato","danger");
+                console.log(error);
+             });
+
+        }  
+
         // configurando click al boton de agregar plato
         // para aparecer modal
         $("#btnCrearPlato").click(()=>{
             $("#modalCrearPlato").modal("show")
         });
+
+        // asignando evento click al boton para crear un registro en firebase
+        $("#btnGuardarPlato").click(createPlato);
+
         // estamos en platos.html
         $.notify("estamos en platos.html", "info");
 
@@ -57,7 +123,6 @@ window.onload = () => {
             // Inicializar la base de datos en tiempo real
             // creando una referencia al nodo principal
             // database() => funcion disponible con el script de database firebase
-            let refPlatos = firebase.database().ref("platos");
             refPlatos.on("value", dataSnapshot => {
                 // FORMA 1 PARA CONSUMIR LOS DATOS de dataSnapshot
                 // let data = dataSnapshot.val();
@@ -76,8 +141,6 @@ window.onload = () => {
             });
 
         }
-
-
 
         getPlatos();
 
