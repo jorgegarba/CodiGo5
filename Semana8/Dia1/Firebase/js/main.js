@@ -13,6 +13,87 @@ window.onload = () => {
         // estamos en index.html
         $.notify("estamos en index.html", "info");
 
+
+        let cerrarSesion = (e)=>{
+            e.preventDefault();
+            firebase.auth().signOut();
+        }
+
+        /**
+         * Función para inciar sesión con Firebase
+         */
+        let iniciarSesion = () => {
+            let email = $("#inputEmail").val().trim();
+            let password = $("#inputPassword").val().trim();
+            
+            firebase.auth().signInWithEmailAndPassword(email, password)
+            .then(()=>{
+                $("#modalIniciarSesion").modal("hide");
+            })
+            .catch(function (error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // ...
+            });
+        }
+
+        /**
+         * Funcion para abrir el modal de inicio de Sesión
+         * @param {*} e 
+         */
+        let abrirModalInicioSesion = (e) => {
+            e.preventDefault();
+            $("#modalIniciarSesion").modal("show");
+        }
+
+        /**
+         * Funcion que verifica si un usuario estaba o no 
+         * con la sesion iniciada.
+         * Esta funcion se dispara automaticamente cada vez que el 
+         * estado de la sesion cambia.
+         */
+        let verificarSesion = () => {
+            firebase.auth().onAuthStateChanged(function (user) {
+                if (user) {
+                    // User is signed in.
+                    //   var displayName = user.displayName;
+                    //   var email = user.email;
+                    //   var emailVerified = user.emailVerified;
+                    //   var photoURL = user.photoURL;
+                    //   var isAnonymous = user.isAnonymous;
+                    //   var uid = user.uid;
+                    //   var providerData = user.providerData;
+                    console.log("Habia una sesion iniciada");
+                    console.log(user);
+                    $("#btnUsuario").html(user.email);
+
+                    $("#btnRegistrar").hide();
+                    $("#btnIniciarSesion").hide();
+                    $("#btnCerrarSesion").show();
+
+                } else {
+                    console.log("No habia una sesion iniciada o el usuario cerró sesion");
+                    $("#btnUsuario").html("Iniciar Sesión");
+
+                    $("#btnRegistrar").show();
+                    $("#btnIniciarSesion").show();
+                    $("#btnCerrarSesion").hide();
+                }
+            });
+        }
+
+        verificarSesion();
+
+        // configurar boton para abrir modal
+        $("#btnIniciarSesion").click(abrirModalInicioSesion);
+
+        // configurar boton para iniciar sesion con firebase
+        $("#btnIngresar").click(iniciarSesion);
+
+        // configurar boton para cerrar sesion con firebase
+        $("#btnCerrarSesion").click(cerrarSesion);
+
     }
     if (location.href.indexOf("platos") >= 0) {
         // estamos en platos.html
@@ -119,7 +200,6 @@ window.onload = () => {
                 .then(() => {
                     // El registro de la base de datos ha sido actualizado 
                     // con el campo de la imagen correctamente. =)
-                    
                     $.notify("Plato creado correctamente", "success");
                     $("#modalCrearPlato").modal("hide");
                     // reseteando el formulario luego de crear el registro
@@ -237,6 +317,8 @@ window.onload = () => {
                 let cardTitle = $(`<h5 class="card-title"></h5>`);
                 let parrafo = $(`<p class="card-text"></p>`);
 
+                let img = $(`<img src="${plato.val().imagen}" class="card-img-bottom"></img>`);
+
                 parrafo.html(plato.val().descripcion);
                 cardTitle.html(plato.val().nombre);
 
@@ -248,6 +330,8 @@ window.onload = () => {
                 cardBody.append(parrafo);
 
                 card.append(cardBody);
+
+                card.append(img)
 
                 cardColumns.append(card);
 
