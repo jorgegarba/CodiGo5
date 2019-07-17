@@ -77,7 +77,11 @@ window.onload = () => {
                 console.log(error);
              });
 
-        }  
+        }
+
+        let deletePlato = (key)=>{
+            console.log(key);
+        }
 
         // configurando click al boton de agregar plato
         // para aparecer modal
@@ -100,18 +104,41 @@ window.onload = () => {
              * 2. crear una variable string que guardara
              * la estructura del contenido de main (cards)
              */
-            let contenido = "";
-            contenido += `<div class="card-columns">`;
+            
+            let cardColumns = $(`<div class="card-columns"></div>`);
+
             dataSnapshot.forEach(plato => {
-                contenido += `<div class="card">
-                                <div class="card-body">
-                                <h5 class="card-title">${plato.val().nombre}</h5>
-                                <p class="card-text">${plato.val().descripcion}</p>
-                                </div>
-                            </div>`;
+                let card = $(`<div class="card"></div`);
+                let cardHeader = $(`<div class="card-header text-right"></div>`);
+                let botonEliminar = $(`<button class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminarsh">
+                                            <i class="fa fa-trash"></i>
+                                       </button>`);
+                botonEliminar.tooltip({});
+
+                let cardBody = $(`<div class="card-body"></div>`);
+                let cardTitle = $(`<h5 class="card-title"></h5>`);
+                let parrafo = $(`<p class="card-text"></p>`);
+
+                parrafo.html(plato.val().descripcion);
+                cardTitle.html(plato.val().nombre);
+
+                cardHeader.append(botonEliminar);
+                card.append(cardHeader);
+                
+                cardBody.append(cardTitle);
+                cardBody.append(parrafo);
+
+                card.append(cardBody);
+
+                cardColumns.append(card);
+                
+                botonEliminar.click((e)=>{
+                    deletePlato(plato.key)
+                });
+
             });
-            contenido += `</div>`;
-            $("main").html(contenido);
+
+            $("main").append(cardColumns);
         }
 
         let getPlatos = () => {
