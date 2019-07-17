@@ -6,9 +6,6 @@ import { firebaseConfig } from "./variables.js";
 
 window.onload = () => {
 
-
-
-
     // Iniciando la configuración de firebase con nuestra aplicación
     firebase.initializeApp(firebaseConfig);
 
@@ -23,6 +20,9 @@ window.onload = () => {
 
         // Creando una referencia inicial al nodo "platos"
         let refPlatos = firebase.database().ref("platos");
+
+        // Creando una referencia inicial al STORAGE
+        let refStorage = firebase.storage();
 
         // evento onchange para el slider
         let slider = document.getElementById("inputCalorias");
@@ -50,14 +50,90 @@ window.onload = () => {
                 createPlato(key);
             });
 
-        
+
+        }
+
+        /**
+         * Funcion que sube una imagen al storage
+         */
+        let subirFoto = key => {
+            // SUBIENDO UNA IMAGEN AL STORAGE LUEGO DE CREAR
+            // EL REGISTRO EN DATABASE
+            /**
+             * 1. obtener el File o archivo del input para subir
+             * archivos
+             */
+            let foto = document.getElementById("inputFoto").files[0];
+            /**
+             * 2. obtener la referencia al STORAGE
+             * A continuación hacemos referencia a una carpeta
+             * denominada "platos", si la carpeta no existe,
+             * será creada automáticamente
+             */
+            let refStoragePlatos = refStorage.ref().child("platos");
+            /**
+             * 3. Obtener el nombre del archivo
+             * EJM> mi_foto.jpg
+             */
+            let nombre = foto.name;
+            /**
+             * 4. Generar un nuevo nombre que no pueda repetirse
+             * para el nombre del archivo a subir
+             */
+            let nombreFinal = key + "-" + nombre;
+            /**
+             * 5. Crear la metadata indicando el tipo de archivo
+             * que se envia al servidor
+             */
+            let metadata = {
+                contentType: foto.type
+            };
+            /**
+             * 6. Subir el archivo a la referencia con el nuevo nombre
+             * a través de la función "put()"
+             */
+            refStoragePlatos.child(nombreFinal)
+                .put(foto, metadata)
+                .then(respuesta => {
+                    // repuesta => informacion de la subida
+                    // del archivo
+                    // ref.getDownloadURL() => funcion que devuelve una
+                    // promesa con la URL del archivo subido
+                    return respuesta.ref.getDownloadURL();
+                })
+                .then(url => {
+                    console.log(url);
+                    // COn la URL recibida, se debe actualizar el registro
+                    // del plato en la base de datos para agregar el campo
+                    // url.
+                    /**
+                     * 1. Crear la referencia al nodo a actualizar
+                     */
+                    let refPlatoCreado = refPlatos.child(key);
+                    /**
+                     * 2. Usar la funcion update() para enviar el nuevo campo
+                     * con la URL de la imagen recientemente creada
+                     */
+                    return refPlatoCreado.update({ imagen: url });
+                })
+                .then(() => {
+                    // El registro de la base de datos ha sido actualizado 
+                    // con el campo de la imagen correctamente. =)
+                    
+                    $.notify("Plato creado correctamente", "success");
+                    $("#modalCrearPlato").modal("hide");
+                    // reseteando el formulario luego de crear el registro
+                    $("#formCrearPlato").trigger("reset");
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
         }
 
         /**
          * Funcion para crear un registro en la DB de firebase
          */
         let createPlato = (key) => {
-            console.log(key);
             if (key) {
                 // actualizar
                 /**
@@ -79,7 +155,6 @@ window.onload = () => {
 
                 })
             } else {
-                
                 // crear
                 /**
                  * 1. obtener una nueva clave o primary para el 
@@ -101,10 +176,9 @@ window.onload = () => {
                     origen: $("#inputOrigen").val(),
                     descripcion: $("#inputDescripcion").val()
                 }).then(() => {
-                    $.notify("Plato creado correctamente", "success");
-                    $("#modalCrearPlato").modal("hide");
-                    // reseteando el formulario luego de crear el registro
-                    $("#formCrearPlato").trigger("reset");
+
+                    subirFoto(key);
+
                 }).catch(error => {
                     $.notify("Error al crear el plato", "danger");
                     console.log(error);
@@ -231,14 +305,14 @@ window.onload = () => {
         // configurando click al boton de agregar plato
         // para aparecer modal
         $("#btnCrearPlato").click(() => {
-           
+            // desvincular todos los listeners anteriores
             $("#btnGuardarPlato").off();
             $("#btnGuardarPlato").html("Crear Plato");
-            $("#formCrearPlato").trigger("reset");
             $("#btnGuardarPlato").click(() => {
                 createPlato();
             });
 
+            $("#formCrearPlato").trigger("reset");
             $("#modalCrearPlato").modal("show");
 
         });
@@ -251,6 +325,7 @@ window.onload = () => {
         getPlatos();
 
     }
+
 }
 
 

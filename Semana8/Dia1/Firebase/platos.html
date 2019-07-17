@@ -51,6 +51,13 @@
                             <p class="text-center"><strong id="sliderCantidad">1</strong> </p>
                         </div>
                         <div class="form-group">
+                          <label for="inputFoto">Subir Foto del Plato</label>
+                          <input type="file"
+                                class="form-control-file" 
+                                name=""
+                                id="inputFoto">
+                        </div>
+                        <div class="form-group">
                             <label for="inputDescripcion">Describa el Plato:</label>
                             <textarea name="inputDescripcion" id="inputDescripcion" cols="30" rows="10"
                                 class="form-control" placeholder="Introduzca una descripción"></textarea>
@@ -110,6 +117,8 @@
     <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"></script>
     <!-- Script para conectarse a la base de datos en tiempo real -->
     <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-database.js"></script>
+    <!-- Script para conectarse al cloud storage de Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-storage.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./js/rangeslider.min.js"></script>
