@@ -33,7 +33,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form autocomplete="off">
+                    <form autocomplete="off" id="formCrearPlato">
                         <div class="form-group">
                             <label for="inputNombre">Nombre:</label>
                             <input type="text" id="inputNombre" name="inputNombre" class="form-control"
@@ -46,20 +46,14 @@
                         </div>
                         <div class="form-group">
                             <label for="inputCalorias">Cantidad de Calorías:</label>
-                            <input type="range"
-                                    id="inputCalorias"
-                                    name="inputCalorias"
-                                    min="1"                    
-                                    max="200"                  
-                                    step="1"                   
-                                    value="1"                 
-                                    data-orientation="vertical" 
-                                    >
+                            <input type="range" id="inputCalorias" name="inputCalorias" min="1" max="200" step="1"
+                                value="1" class="form-control">
+                            <p class="text-center"><strong id="sliderCantidad">1</strong> </p>
                         </div>
                         <div class="form-group">
                             <label for="inputDescripcion">Describa el Plato:</label>
-                            <textarea name="inputDescripcion" id="inputDescripcion" cols="30" rows="10" class="form-control"
-                                placeholder="Introduzca una descripción"></textarea>
+                            <textarea name="inputDescripcion" id="inputDescripcion" cols="30" rows="10"
+                                class="form-control" placeholder="Introduzca una descripción"></textarea>
                         </div>
                     </form>
                 </div>
