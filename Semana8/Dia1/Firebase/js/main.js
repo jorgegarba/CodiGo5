@@ -1,6 +1,6 @@
 import { firebaseConfig } from "./variables.js";
 import { compararStrings } from './utils.js';
-
+import { Plato } from './Plato.js';
 // let script = document.createElement("script");
 // script.setAttribute("src","https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js");
 // document.querySelector("body").prepend(script);
@@ -32,7 +32,7 @@ window.onload = () => {
             let password = $("#inputPasswordCrear1").val().trim();
 
             firebase.auth().createUserWithEmailAndPassword(email, password)
-                .then(()=>{
+                .then(() => {
                     $("#modalCrearCuenta").modal("hide");
                 })
                 .catch(function (error) {
@@ -100,7 +100,7 @@ window.onload = () => {
                     $("#btnRegistrar").hide();
                     $("#btnIniciarSesion").hide();
                     $("#btnCerrarSesion").show();
-                    
+
                     // VAMOS A VER SI EL USUARIO YA ESTABA REGISTRADO EN LA
                     // BASE DE DATOS EN TIEMPO REAL para crearlo o no crearlo
 
@@ -109,12 +109,12 @@ window.onload = () => {
                         // true si el nodo "usuarios" ya tenia ese child
                         // false si el nodo "usuarios" no tenia ese child
                         let existe = dataSnapshot.hasChild(user.uid);
-                        if(!existe){
+                        if (!existe) {
                             // crear al usuario en la realtimeDatabase
                             refUsuarios.child(user.uid).set({
                                 email: user.email
-                            }).then(()=>{
-                                $.notify("Usuario REGISTRADO correctamente","success");
+                            }).then(() => {
+                                $.notify("Usuario REGISTRADO correctamente", "success");
                             })
                         }
                     });
@@ -171,6 +171,7 @@ window.onload = () => {
 
     }
     if (location.href.indexOf("platos") >= 0) {
+
         // estamos en platos.html
         $.notify("estamos en platos.html", "info");
 
@@ -359,6 +360,172 @@ window.onload = () => {
                     console.log(error);
                 });
         }
+
+        let renderizarPlatosV2 = dataSnapshot => {
+            $("main").html("");
+            let platos = [];
+
+            let ul = $(`<ul id="pagination-demo" class="pagination-lg pull-right"></ul>`);
+
+            dataSnapshot.forEach(plato => {
+                let objPlato = new Plato(plato.key,
+                    plato.val().nombre,
+                    plato.val().descripcion,
+                    plato.val().origen,
+                    plato.val().calorias,
+                    plato.val().imagen);
+                platos.push(objPlato);
+            });
+
+            let paginas = Math.ceil(platos.length / 3);
+            let elementosEnUltimaPagina = platos.length % 3;
+
+            console.log(paginas);
+            for (let i = 0; i < paginas; i++) {
+                let page = $(`<div class="page"></div>`);
+                page.attr("id", `page${i + 1}`);
+                if (i === paginas - 1) {
+                    let cardColumns = $(`<div class="card-columns"></div>`);
+                    for (let j = i * 3; j < (i * 3) + elementosEnUltimaPagina; j++) {
+
+                        let card = $(`<div class="card"></div`);
+                        let cardHeader = $(`<div class="card-header text-right"></div>`);
+                        let botonEliminar = $(`<button class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminarsh">
+                                            <i class="fa fa-trash"></i>
+                                       </button>`);
+                        botonEliminar.tooltip({});
+
+                        let botonEditar = $(`<button class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Editarsh"><i class="fa fa-pen"></i></button>`);
+
+                        let cardBody = $(`<div class="card-body"></div>`);
+                        let cardTitle = $(`<h5 class="card-title"></h5>`);
+                        let parrafo = $(`<p class="card-text"></p>`);
+
+                        let img = $(`<img src="${platos[j].imagen}" class="card-img-bottom"></img>`);
+
+                        parrafo.html(platos[j].descripcion);
+                        cardTitle.html(platos[j].nombre);
+
+                        cardHeader.append(botonEliminar);
+                        cardHeader.append(botonEditar);
+                        card.append(cardHeader);
+
+                        cardBody.append(cardTitle);
+                        cardBody.append(parrafo);
+
+                        card.append(cardBody);
+
+                        card.append(img)
+
+                        cardColumns.append(card);
+
+                        botonEliminar.click((e) => {
+                            deletePlato(platos[j].key);
+                        });
+
+                        botonEditar.click((e) => {
+                            $("#modalCrearPlato").modal('show');
+                            actualizarModal(objPlato);
+                        });
+                    }
+                    page.append(cardColumns);
+                } else {
+                    let cardColumns = $(`<div class="card-columns"></div>`);
+                    for (let j = i * 3; j < (i * 3) + 3; j++) {
+
+                        let card = $(`<div class="card"></div`);
+                        let cardHeader = $(`<div class="card-header text-right"></div>`);
+                        let botonEliminar = $(`<button class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminarsh">
+                                            <i class="fa fa-trash"></i>
+                                       </button>`);
+                        botonEliminar.tooltip({});
+
+                        let botonEditar = $(`<button class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Editarsh"><i class="fa fa-pen"></i></button>`);
+
+                        let cardBody = $(`<div class="card-body"></div>`);
+                        let cardTitle = $(`<h5 class="card-title"></h5>`);
+                        let parrafo = $(`<p class="card-text"></p>`);
+
+                        let img = $(`<img src="${platos[j].imagen}" class="card-img-bottom"></img>`);
+
+                        parrafo.html(platos[j].descripcion);
+                        cardTitle.html(platos[j].nombre);
+
+                        cardHeader.append(botonEliminar);
+                        cardHeader.append(botonEditar);
+                        card.append(cardHeader);
+
+                        cardBody.append(cardTitle);
+                        cardBody.append(parrafo);
+
+                        card.append(cardBody);
+
+                        card.append(img)
+
+                        cardColumns.append(card);
+
+                        botonEliminar.click((e) => {
+                            deletePlato(platos[j].key);
+                        });
+
+                        botonEditar.click((e) => {
+                            $("#modalCrearPlato").modal('show');
+                            actualizarModal(objPlato);
+                        });
+                    }
+                    page.append(cardColumns);
+                }
+                $("main").append(page);
+                $("main").append(ul);
+            }
+
+            $('#pagination-demo').twbsPagination({
+                totalPages: 2,
+                // the current page that show on start
+                startPage: 1,
+
+                // maximum visible pages
+                visiblePages: 2,
+
+                initiateStartPageClick: true,
+
+                // template for pagination links
+                href: false,
+
+                // variable name in href template for page number
+                hrefVariable: '{{number}}',
+
+                // Text labels
+                first: 'First',
+                prev: 'Previous',
+                next: 'Next',
+                last: 'Last',
+
+                // carousel-style pagination
+                loop: false,
+
+                // callback function
+                onPageClick: function (event, page) {
+                    $('.page-active').removeClass('page-active');
+                    $('#page' + page).addClass('page-active');
+                },
+
+                // pagination Classes
+                paginationClass: 'pagination',
+                nextClass: 'next',
+                prevClass: 'prev',
+                lastClass: 'last',
+                firstClass: 'first',
+                pageClass: 'page',
+                activeClass: 'active',
+                disabledClass: 'disabled'
+
+            });
+            console.log("fin");
+            
+
+        }
+
         /**
          * Funcion que recibe un snapshot de el nodo platos 
          * de Firebase para dibujarlos en el DOM en forma de Cards
@@ -456,7 +623,8 @@ window.onload = () => {
                 //     console.log(plato.val().calorias);
                 //     console.log(plato.val().origen);
                 // });
-                renderizarPlatos(dataSnapshot);
+                // renderizarPlatos(dataSnapshot);
+                renderizarPlatosV2(dataSnapshot);
             });
 
         }

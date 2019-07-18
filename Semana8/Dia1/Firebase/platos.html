@@ -18,6 +18,18 @@
             bottom: 20px;
             right: 20px;
         }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page-active {
+            display: block;
+        }
     </style>
 </head>
 
@@ -51,11 +63,8 @@
                             <p class="text-center"><strong id="sliderCantidad">1</strong> </p>
                         </div>
                         <div class="form-group">
-                          <label for="inputFoto">Subir Foto del Plato</label>
-                          <input type="file"
-                                class="form-control-file" 
-                                name=""
-                                id="inputFoto">
+                            <label for="inputFoto">Subir Foto del Plato</label>
+                            <input type="file" class="form-control-file" name="" id="inputFoto">
                         </div>
                         <div class="form-group">
                             <label for="inputDescripcion">Describa el Plato:</label>
@@ -106,7 +115,9 @@
             </div>
         </nav>
     </header>
-    <main class="container-fluid mt-4">
+    <main class="container">
+        
+        
     </main>
     <button id="btnCrearPlato" class="btn btn-info">
         <i class="fas fa-plus fa-2x"></i>
@@ -131,6 +142,8 @@
         crossorigin="anonymous"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnZzdYNu8q7TN9PdX5XEmbJ2TIHYMC8cI"></script>
     <script src="./js/notify.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js"></script>
+
     <script type="module" src="./js/main.js"></script>
 </body>
 
