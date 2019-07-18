@@ -11,29 +11,49 @@ window.onload = () => {
     firebase.initializeApp(firebaseConfig);
 
     if (location.href.indexOf("index") >= 0) {
+
+        // Creando la referencia a Usuarios
+        let refUsuarios = firebase.database().ref("usuarios");
+
         // estamos en index.html
         $.notify("estamos en index.html", "info");
 
 
-        let abrirModalCrearCuenta = (e)=>{
+        let abrirModalCrearCuenta = (e) => {
             e.preventDefault();
             $("#modalCrearCuenta").modal("show");
+        }
+
+        /**
+         * Funcion para crear una cuenta en firebase
+         */
+        let crearCuenta = () => {
+            let email = $("#inputEmailCrear").val().trim();
+            let password = $("#inputPasswordCrear1").val().trim();
+
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+                .then(()=>{
+                    $("#modalCrearCuenta").modal("hide");
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
 
         /**
          * Funcion para cerrar sesion de Firebase
          * @param {*} e 
          */
-        let cerrarSesion = (e)=>{
+        let cerrarSesion = (e) => {
             e.preventDefault();
             firebase.auth().signOut()
-                            .then(()=>{
-                                // redireccionar al index cuando la sesión se cierra
-                                location = "./index.html";
-                            })
-                            .catch(()=>{
+                .then(() => {
+                    // redireccionar al index cuando la sesión se cierra
+                    location = "./index.html";
+                })
+                .catch(() => {
 
-                            });
+                });
         }
 
         /**
@@ -42,17 +62,17 @@ window.onload = () => {
         let iniciarSesion = () => {
             let email = $("#inputEmail").val().trim();
             let password = $("#inputPassword").val().trim();
-            
+
             firebase.auth().signInWithEmailAndPassword(email, password)
-            .then(()=>{
-                $("#modalIniciarSesion").modal("hide");
-            })
-            .catch(function (error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                // ...
-            });
+                .then(() => {
+                    $("#modalIniciarSesion").modal("hide");
+                })
+                .catch(function (error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    // ...
+                });
         }
 
         /**
@@ -73,14 +93,6 @@ window.onload = () => {
         let verificarSesion = () => {
             firebase.auth().onAuthStateChanged(function (user) {
                 if (user) {
-                    // User is signed in.
-                    //   var displayName = user.displayName;
-                    //   var email = user.email;
-                    //   var emailVerified = user.emailVerified;
-                    //   var photoURL = user.photoURL;
-                    //   var isAnonymous = user.isAnonymous;
-                    //   var uid = user.uid;
-                    //   var providerData = user.providerData;
                     console.log("Habia una sesion iniciada");
                     console.log(user);
                     $("#btnUsuario").html(user.email);
@@ -88,6 +100,25 @@ window.onload = () => {
                     $("#btnRegistrar").hide();
                     $("#btnIniciarSesion").hide();
                     $("#btnCerrarSesion").show();
+                    
+                    // VAMOS A VER SI EL USUARIO YA ESTABA REGISTRADO EN LA
+                    // BASE DE DATOS EN TIEMPO REAL para crearlo o no crearlo
+
+                    refUsuarios.on("value", dataSnapshot => {
+                        // existe => variable booleana
+                        // true si el nodo "usuarios" ya tenia ese child
+                        // false si el nodo "usuarios" no tenia ese child
+                        let existe = dataSnapshot.hasChild(user.uid);
+                        if(!existe){
+                            // crear al usuario en la realtimeDatabase
+                            refUsuarios.child(user.uid).set({
+                                email: user.email
+                            }).then(()=>{
+                                $.notify("Usuario REGISTRADO correctamente","success");
+                            })
+                        }
+                    });
+
 
                 } else {
                     console.log("No habia una sesion iniciada o el usuario cerró sesion");
@@ -115,26 +146,27 @@ window.onload = () => {
         $("#btnRegistrar").click(abrirModalCrearCuenta);
 
         // configurar la validacion de contraseñas
-        $("#inputPasswordCrear2").keyup(function (e) { 
+        $("#inputPasswordCrear2").keyup(function (e) {
             let iguales = compararStrings($("#inputPasswordCrear1").val().trim(),
-                                          $(this).val().trim());
+                $(this).val().trim());
             console.log(iguales);
-                                          
-            if(!iguales){
+
+            if (!iguales) {
                 $("#helpPassword").html("Las Contraseñas no coinciden");
                 $("#helpPassword").removeAttr("hidden");
                 $("#helpPassword").attr("class", "form-text text-danger");
 
-                $(this).attr("class","form-control is-invalid");
-                $("#btnCrearCuenta").attr("disabled",true);
-            }else{
-                $("#helpPassword").attr("hidden",true);
+                $(this).attr("class", "form-control is-invalid");
+                $("#btnCrearCuenta").attr("disabled", true);
+            } else {
+                $("#helpPassword").attr("hidden", true);
                 $("#btnCrearCuenta").removeAttr("disabled");
-                $(this).attr("class","form-control is-valid");
+                $(this).attr("class", "form-control is-valid");
             }
         });
 
-        
+        // configurar boton para crear o registrar una cuenta en firebase
+        $("#btnCrearCuenta").click(crearCuenta);
 
 
     }
