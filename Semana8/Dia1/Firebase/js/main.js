@@ -1,4 +1,5 @@
 import { firebaseConfig } from "./variables.js";
+import { compararStrings } from './utils.js';
 
 // let script = document.createElement("script");
 // script.setAttribute("src","https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js");
@@ -14,9 +15,25 @@ window.onload = () => {
         $.notify("estamos en index.html", "info");
 
 
+        let abrirModalCrearCuenta = (e)=>{
+            e.preventDefault();
+            $("#modalCrearCuenta").modal("show");
+        }
+
+        /**
+         * Funcion para cerrar sesion de Firebase
+         * @param {*} e 
+         */
         let cerrarSesion = (e)=>{
             e.preventDefault();
-            firebase.auth().signOut();
+            firebase.auth().signOut()
+                            .then(()=>{
+                                // redireccionar al index cuando la sesión se cierra
+                                location = "./index.html";
+                            })
+                            .catch(()=>{
+
+                            });
         }
 
         /**
@@ -93,6 +110,32 @@ window.onload = () => {
 
         // configurar boton para cerrar sesion con firebase
         $("#btnCerrarSesion").click(cerrarSesion);
+
+        // configurar boton para abrir modal de crear cuenta
+        $("#btnRegistrar").click(abrirModalCrearCuenta);
+
+        // configurar la validacion de contraseñas
+        $("#inputPasswordCrear2").keyup(function (e) { 
+            let iguales = compararStrings($("#inputPasswordCrear1").val().trim(),
+                                          $(this).val().trim());
+            console.log(iguales);
+                                          
+            if(!iguales){
+                $("#helpPassword").html("Las Contraseñas no coinciden");
+                $("#helpPassword").removeAttr("hidden");
+                $("#helpPassword").attr("class", "form-text text-danger");
+
+                $(this).attr("class","form-control is-invalid");
+                $("#btnCrearCuenta").attr("disabled",true);
+            }else{
+                $("#helpPassword").attr("hidden",true);
+                $("#btnCrearCuenta").removeAttr("disabled");
+                $(this).attr("class","form-control is-valid");
+            }
+        });
+
+        
+
 
     }
     if (location.href.indexOf("platos") >= 0) {

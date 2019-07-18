@@ -13,13 +13,13 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Crear un Nuevo Plato</h5>
+                    <h5 class="modal-title">Iniciar Sesión</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form autocomplete="off" id="formCrearPlato">
+                    <form autocomplete="off">
                         <div class="form-group">
                             <label for="inputEmail">Correo Electrónico:</label>
                             <input type="email" id="inputEmail" name="inputEmail" class="form-control"
@@ -35,6 +35,49 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="btnIngresar">
                         Iniciar Sesion
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalCrearCuenta">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Crea una nueva cuenta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form autocomplete="off">
+                        <div class="form-group">
+                            <label for="inputEmailCrear">Correo Electrónico:</label>
+                            <input type="email" id="inputEmailCrear" name="inputEmailCrear" class="form-control"
+                                placeholder="Ejm: jgarnica@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPasswordCrear1">Contraseña:</label>
+                            <input type="password" id="inputPasswordCrear1" name="inputPasswordCrear1"
+                                class="form-control" placeholder="Ingrese su contraseña">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPasswordCrear2">Repita la Contraseña:</label>
+                            <input type="password" id="inputPasswordCrear2" name="inputPasswordCrear2"
+                                class="form-control" placeholder="Ingrese su contraseña">
+
+                            <small id="helpPassword" class="form-text text-muted" hidden>.......</small>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnCrearCuenta">
+                        Crear Cuenta
                     </button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
