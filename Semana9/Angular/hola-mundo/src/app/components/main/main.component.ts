@@ -1,0 +1,18 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.css']
+})
+export class MainComponent  {
+
+  libros:Array<String> = ["Aves sin nido",
+                          "Ensayo sobre la ceguera",
+                          "La ciudad y los fidos"];
+
+  constructor() { }
+
+
+
+}
