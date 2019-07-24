@@ -1,0 +1,19 @@
+<main [ngClass]="['container-fluid','mt-5']">
+
+    <div [ngClass]="'card-columns'">
+
+        <div class="card" *ngFor="let producto of listaProductos">
+            <!-- Forma 1 -->
+            <!-- <img src="{{producto.imagen}}" class="card-img-top"> -->
+            <!-- Forma 2 -->
+            <img [src]="producto.imagen" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">{{producto.nombre}}</h5>
+                <p class="card-text">{{producto.descripcion}}</p>
+                <p class="card-text"><small class="text-muted">{{producto.precio | currency:'PEN':'S/.':'.2-2'}}</small></p>
+            </div>
+        </div>
+
+    </div>
+
+</main>

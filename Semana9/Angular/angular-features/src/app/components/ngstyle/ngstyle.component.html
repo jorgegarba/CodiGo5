@@ -1,0 +1,32 @@
+<main class="container mt-4">
+    <h2>Usando la directiva <code>ngStyle</code></h2>
+    <hr />
+    <p>La directiva <code>ngStyle</code> sirve para colocar
+        estilos en linea a las etiquetas</p>
+
+    <h5>Ejemplo usando la propiedad <code>style</code></h5>
+    <p style="color: brown">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae suscipit nesciunt
+        repellendus numquam nulla, sequi quaerat ullam, velit beatae magni labore! Soluta dolores quis ex, quos quam
+        fugit officia incidunt.</p>
+    <br>
+
+    <h5>Ejemplo usando la directiva <code>[ngStyle]</code></h5>
+    <p [ngStyle]="{'color':'brown', 'font-size':'20px'}">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Assumenda labore nisi iusto unde dignissimos maiores error rem soluta amet, dolor sequi fugiat iure, animi cum
+        quam praesentium! Perspiciatis, rem quis?</p>
+    <br>
+
+    <h5>Ejemplo usando la directiva <code>[ngStyle]</code> con variables</h5>
+    <p [ngStyle]="{'color':miColor, 'font-size':tamanio + 'px'}">Lorem ipsum dolor sit amet, consectetur adipisicing
+        elit.
+        Assumenda labore nisi iusto unde dignissimos maiores error rem soluta amet, dolor sequi fugiat iure, animi cum
+        quam praesentium! Perspiciatis, rem quis?</p>
+    <br>
+
+    <h5>Ejemplo usando la directiva <code>[style]</code> con atributos directos</h5>
+    <p [style.border]="'1px solid red'">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, facere! Eaque facilis sed suscipit reiciendis
+        deleniti, dolore, quaerat possimus adipisci maiores aspernatur nisi repudiandae incidunt quasi, eius voluptates
+        explicabo error.</p>
+
+
+</main>

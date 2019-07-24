@@ -1,0 +1,24 @@
+<main class="container">
+
+    <span [ngSwitch]="estado">
+        <div class="alert alert-danger"
+            *ngSwitchCase="'danger'">
+            Oh! Error!
+        </div>
+
+        <div class="alert alert-success"
+            *ngSwitchCase="'success'">
+            Exito! =)
+        </div>
+
+        <div class="alert alert-info"
+            *ngSwitchCase="'info'">
+            Info!!!
+        </div>
+        
+        <p *ngSwitchDefault>
+            NO COINCIDE CON NINGUNA ALTERNATIVA
+        </p>
+    </span>
+
+</main>

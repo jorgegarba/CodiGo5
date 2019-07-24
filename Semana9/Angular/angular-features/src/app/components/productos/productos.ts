@@ -1,0 +1,65 @@
+export interface iProducto {
+    id: number;
+    nombre: string;
+    imagen: string;
+    descripcion: string;
+    precio: number;
+}
+
+export let PRODUCTOS: Array<iProducto> = [
+    {
+        "id": 1,
+        "nombre": "Alpina B7",
+        "imagen": "http://dummyimage.com/246x139.png/5fa2dd/ffffff",
+        "descripcion": "Nontoxic single thyroid nodule",
+        "precio": 2886.11
+    },
+    { "id": 2, "nombre": "928", "imagen": "http://dummyimage.com/178x195.jpg/ff4444/ffffff", "descripcion": "Angiodysplasia of colon", "precio": 2646.68 },
+    { "id": 3, "nombre": "Nubira", "imagen": "http://dummyimage.com/180x190.jpg/5fa2dd/ffffff", "descripcion": "Nondisp unsp fx left lesser toe(s), subs for fx w routn heal", "precio": 1681.17 },
+    { "id": 4, "nombre": "Explorer", "imagen": "http://dummyimage.com/149x163.bmp/dddddd/000000", "descripcion": "Bent bone of left rad, subs for opn fx type I/2 w nonunion", "precio": 166.76 },
+    { "id": 5, "nombre": "Sorento", "imagen": "http://dummyimage.com/132x190.png/dddddd/000000", "descripcion": "Lacerat blood vessels at hip and thigh level, left leg, subs", "precio": 2610.72 },
+    { "id": 6, "nombre": "Discovery", "imagen": "http://dummyimage.com/182x242.bmp/cc0000/ffffff", "descripcion": "Sltr-haris Type II physeal fx unspecified metatarsal, 7thD", "precio": 2301.65 },
+    { "id": 7, "nombre": "Maxima", "imagen": "http://dummyimage.com/247x125.jpg/dddddd/000000", "descripcion": "Other injury of unsp part of small intestine, subs encntr", "precio": 2488.92 },
+    { "id": 8, "nombre": "Silverado 2500", "imagen": "http://dummyimage.com/214x177.bmp/cc0000/ffffff", "descripcion": "Injury of digital nerve of right middle finger, init encntr", "precio": 1344.64 },
+    { "id": 9, "nombre": "Ranger", "imagen": "http://dummyimage.com/113x168.bmp/ff4444/ffffff", "descripcion": "Injury of inferior vena cava", "precio": 836.3 },
+    { "id": 10, "nombre": "A6", "imagen": "http://dummyimage.com/189x231.png/5fa2dd/ffffff", "descripcion": "Disorder of ligament, unspecified ankle", "precio": 1411.72 },
+    { "id": 11, "nombre": "Thunderbird", "imagen": "http://dummyimage.com/220x171.jpg/ff4444/ffffff", "descripcion": "Other injuries of lung, bilateral, subsequent encounter", "precio": 562.59 },
+    { "id": 12, "nombre": "Sienna", "imagen": "http://dummyimage.com/159x172.png/cc0000/ffffff", "descripcion": "Other birth injuries to scalp", "precio": 1965.77 },
+    { "id": 13, "nombre": "Nubira", "imagen": "http://dummyimage.com/150x215.bmp/ff4444/ffffff", "descripcion": "Neoplasm of unspecified behavior of left kidney", "precio": 1132.7 },
+    { "id": 14, "nombre": "Accord", "imagen": "http://dummyimage.com/122x211.jpg/ff4444/ffffff", "descripcion": "Other ossification of muscle, unspecified shoulder", "precio": 118.26 },
+    { "id": 15, "nombre": "MR2", "imagen": "http://dummyimage.com/168x165.png/dddddd/000000", "descripcion": "Other juvenile osteochondrosis of hip and pelvis, unsp leg", "precio": 2723.96 },
+    { "id": 16, "nombre": "Cutlass Supreme", "imagen": "http://dummyimage.com/232x245.png/5fa2dd/ffffff", "descripcion": "Ped on skateboard injured in collision w hv veh in traf", "precio": 1926.16 },
+    { "id": 17, "nombre": "Rio5", "imagen": "http://dummyimage.com/160x123.bmp/5fa2dd/ffffff", "descripcion": "Salter-Harris Type I physeal fracture of upper end of radius", "precio": 431.17 },
+    { "id": 18, "nombre": "Tempo", "imagen": "http://dummyimage.com/243x198.jpg/5fa2dd/ffffff", "descripcion": "Other fracture of seventh cervical vertebra", "precio": 628.12 },
+    { "id": 19, "nombre": "Topaz", "imagen": "http://dummyimage.com/134x176.png/dddddd/000000", "descripcion": "Poisoning by other opioids, intentional self-harm", "precio": 1295.72 },
+    { "id": 20, "nombre": "FJ Cruiser", "imagen": "http://dummyimage.com/141x117.bmp/cc0000/ffffff", "descripcion": "Corrosion of cornea and conjunctival sac, left eye", "precio": 283.77 },
+    { "id": 21, "nombre": "Impala", "imagen": "http://dummyimage.com/182x204.jpg/dddddd/000000", "descripcion": "Athscl nonbiol bypass of the extrm w gangrene, unsp extrm", "precio": 2293.84 },
+    { "id": 22, "nombre": "Optima", "imagen": "http://dummyimage.com/187x150.jpg/ff4444/ffffff", "descripcion": "Longitudinal reduction defect of right ulna", "precio": 1438.86 },
+    { "id": 23, "nombre": "Thunderbird", "imagen": "http://dummyimage.com/103x120.jpg/dddddd/000000", "descripcion": "Gout due to renal impairment, unspecified ankle and foot", "precio": 568.87 },
+    { "id": 24, "nombre": "Maxima", "imagen": "http://dummyimage.com/243x101.bmp/ff4444/ffffff", "descripcion": "Person injured wh brd/alit from military vehicle, sequela", "precio": 2450.25 },
+    { "id": 25, "nombre": "6 Series", "imagen": "http://dummyimage.com/211x197.png/ff4444/ffffff", "descripcion": "Nondisplaced articular fracture of head of right femur", "precio": 2410.49 },
+    { "id": 26, "nombre": "Grand Prix", "imagen": "http://dummyimage.com/239x116.bmp/5fa2dd/ffffff", "descripcion": "Other fracture of second lumbar vertebra, sequela", "precio": 1051.49 },
+    { "id": 27, "nombre": "Amanti", "imagen": "http://dummyimage.com/228x148.bmp/5fa2dd/ffffff", "descripcion": "Mech compl of internal fixation device of left humerus", "precio": 97.22 },
+    { "id": 28, "nombre": "Santa Fe", "imagen": "http://dummyimage.com/120x160.jpg/dddddd/000000", "descripcion": "Unspecified fracture of shaft of radius", "precio": 151.18 },
+    { "id": 29, "nombre": "RX-8", "imagen": "http://dummyimage.com/244x244.jpg/dddddd/000000", "descripcion": "Oth soft tissue disorders related to use/pressure of ank/ft", "precio": 829.45 },
+    { "id": 30, "nombre": "Sephia", "imagen": "http://dummyimage.com/250x155.jpg/ff4444/ffffff", "descripcion": "Oth mature T/NK-cell lymph, nodes of axilla and upper limb", "precio": 733.97 },
+    { "id": 31, "nombre": "Charger", "imagen": "http://dummyimage.com/172x203.jpg/ff4444/ffffff", "descripcion": "Forced landing of private fix-wing arcrft inj occupant, init", "precio": 1409.77 },
+    { "id": 32, "nombre": "1500", "imagen": "http://dummyimage.com/151x172.bmp/ff4444/ffffff", "descripcion": "Obstetric air embolism in pregnancy", "precio": 345.17 },
+    { "id": 33, "nombre": "MR2", "imagen": "http://dummyimage.com/169x167.jpg/dddddd/000000", "descripcion": "Disp fx of shaft of first metacarpal bone, left hand", "precio": 1174.89 },
+    { "id": 34, "nombre": "62", "imagen": "http://dummyimage.com/197x229.bmp/cc0000/ffffff", "descripcion": "Fourth [trochlear] nerve palsy, bilateral", "precio": 104.36 },
+    { "id": 35, "nombre": "X-Type", "imagen": "http://dummyimage.com/233x114.bmp/ff4444/ffffff", "descripcion": "Nondisp fx of shaft of 1st MC bone, unsp hand, 7thP", "precio": 1103.11 },
+    { "id": 36, "nombre": "Rendezvous", "imagen": "http://dummyimage.com/213x233.bmp/ff4444/ffffff", "descripcion": "Stress fracture, right radius, subs for fx w delay heal", "precio": 2175.06 },
+    { "id": 37, "nombre": "Sierra 2500", "imagen": "http://dummyimage.com/109x179.jpg/ff4444/ffffff", "descripcion": "Open wound of back wall of thorax w/o penet thoracic cavity", "precio": 735.64 },
+    { "id": 38, "nombre": "Elantra", "imagen": "http://dummyimage.com/117x155.bmp/dddddd/000000", "descripcion": "Disp fx of body of scapula, right shoulder, sequela", "precio": 1259.22 },
+    { "id": 39, "nombre": "MKS", "imagen": "http://dummyimage.com/223x144.bmp/5fa2dd/ffffff", "descripcion": "Poisoning by hemostatic drug, intentional self-harm, subs", "precio": 2842.09 },
+    { "id": 40, "nombre": "C70", "imagen": "http://dummyimage.com/234x195.png/dddddd/000000", "descripcion": "Bronchopulmonary dysplasia origin in the perinatal period", "precio": 1792.78 },
+    { "id": 41, "nombre": "Rodeo Sport", "imagen": "http://dummyimage.com/177x146.bmp/cc0000/ffffff", "descripcion": "Contusion of other urinary and pelvic organ, subs encntr", "precio": 2271.17 },
+    { "id": 42, "nombre": "Yukon XL 2500", "imagen": "http://dummyimage.com/162x105.png/dddddd/000000", "descripcion": "Toxic effect of 2-Propanol, intentional self-harm, sequela", "precio": 1889.27 },
+    { "id": 43, "nombre": "Camaro", "imagen": "http://dummyimage.com/155x130.jpg/dddddd/000000", "descripcion": "Cannabis (derivatives)", "precio": 1140.28 },
+    { "id": 44, "nombre": "S5", "imagen": "http://dummyimage.com/194x167.bmp/dddddd/000000", "descripcion": "Unsp car occupant injured in clsn w oth mv in traf, init", "precio": 598.48 },
+    { "id": 45, "nombre": "Grand Prix", "imagen": "http://dummyimage.com/101x123.bmp/5fa2dd/ffffff", "descripcion": "Abrasion of upper arm", "precio": 1568.05 },
+    { "id": 46, "nombre": "2500", "imagen": "http://dummyimage.com/233x147.bmp/ff4444/ffffff", "descripcion": "Corrosion w resulting rupture and dest of unsp eyeball, subs", "precio": 2034.71 },
+    { "id": 47, "nombre": "Civic", "imagen": "http://dummyimage.com/217x165.png/cc0000/ffffff", "descripcion": "Crushing injury of unspecified hand, initial encounter", "precio": 1174.02 },
+    { "id": 48, "nombre": "Viper", "imagen": "http://dummyimage.com/220x151.png/cc0000/ffffff", "descripcion": "Struck by baseball, initial encounter", "precio": 2842.2 },
+    { "id": 49, "nombre": "Chariot", "imagen": "http://dummyimage.com/108x196.png/dddddd/000000", "descripcion": "Nondisplaced osteochondral fracture of left patella", "precio": 860.42 },
+    { "id": 50, "nombre": "Firebird", "imagen": "http://dummyimage.com/146x210.bmp/ff4444/ffffff", "descripcion": "Rheumatoid myopathy with rheumatoid arthritis of right wrist", "precio": 1757.65 }];

@@ -1,0 +1,29 @@
+<main class="container mt-4">
+
+    <h2>Usando la directiva <code>[ngClass]</code></h2>
+    <hr>
+    <p>La directiva <code>[ngClass]</code> sirve para asignar clases a las etiquetas en html</p>
+    <div [ngClass]="miAlerta" class="alert" role="alert">
+        A simple primary alert—check it out!
+    </div>
+    <!-- forma simple [ngClass]="'btn btn-danger'" -->
+    <button [ngClass]="['btn', 'btn-danger']" (click)="miAlerta = 'alert-danger'">DANGER</button>
+    <button [ngClass]="'btn btn-success'" (click)="cambiarSuccess()">SUCCESS</button>
+    <br>
+    <h3>Usando la directiva <code>[ngClass]</code> bajo una condición</h3>
+
+    <p [ngClass]="{'text-danger': inventario.existencia === 1 , 'text-success': inventario.existencia===2, 'text-info': inventario.existencia===3}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas voluptates iure illum placeat a beatae veniam.
+        Est deserunt hic officia, enim eaque rem quod, ex asperiores, quae minima quo tenetur.</p>
+        <button (click)="inventario.existencia = 3">Cambiar a Info</button>
+    <br>
+    <br><br>
+    <button [ngClass]="'btn btn-primary'"
+            (click)="simularCarga()"
+            [disabled]="guardando === true">
+        <i class="fas fa-save" *ngIf="guardando === false"></i>
+        <i class="fa fa-refresh fa-spin" *ngIf="guardando === true"></i>
+        <span *ngIf="guardando === false"> Guardar Datos</span>
+        <span *ngIf="guardando === true"> Guardando...</span>
+    </button>
+
+</main>

@@ -1,0 +1,121 @@
+<main class="container mt-4">
+
+    <h2>Usando Pipes!!! </h2>
+    <hr>
+    <table [ngClass]="'table'">
+        <thead>
+            <tr>
+                <th>Variable</th>
+                <th>Pipe</th>
+                <th>Resultado</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{nombre}}</td>
+                <td><code>uppercase</code></td>
+                <td>{{nombre | uppercase}}</td>
+                <td>Transforma la variable a mayúsculas</td>
+            </tr>
+            <tr>
+                <td>{{nombre}}</td>
+                <td><code>lowercase</code></td>
+                <td>{{nombre | lowercase}}</td>
+                <td>Transforma la variable a minúsculas</td>
+            </tr>
+            <tr>
+                <td>{{nombre}}</td>
+                <td><code>slice</code></td>
+                <td>{{nombre | slice:3}}</td>
+                <td>Devuelve la cadena desde la posición 3</td>
+            </tr>
+            <tr>
+                <td>{{nombre}}</td>
+                <td><code>slice</code></td>
+                <td>{{nombre | slice:3:8}}</td>
+                <td>Devuelve la cadena desde la posición 3 hasta la posición 8 sin contar el último caracter</td>
+            </tr>
+            <tr>
+                <td>{{numeros}}</td>
+                <td><code>slice</code></td>
+                <td>{{numeros | slice:0:4}}</td>
+                <td>Devuelve un sub arreglo desde la posición 0 hasta la posición 3</td>
+            </tr>
+            <tr>
+                <td>{{PI}}</td>
+                <td><code>number:'3'</code></td>
+                <td>{{PI | number:'3.0-0'}}</td>
+                <td>Formatea el numero a 3 cifras enteras,
+                    minimo 0 cifras decimales y maximo 0 cifras decimales</td>
+            </tr>
+            <tr>
+                <td>{{PI}}</td>
+                <td><code>number:'2.2-4'</code></td>
+                <td>{{PI | number:'2.2-4'}}</td>
+                <td>Formatea el numero a 2 cifras enteras,
+                    minimo 2 cifras decimales y maximo 4 cifras decimales</td>
+            </tr>
+            <tr>
+                <td>{{igv}}</td>
+                <td><code>percent</code></td>
+                <td>{{igv | percent}}</td>
+                <td>Formatea el numero y lo exprea en porcentaje</td>
+            </tr>
+            <tr>
+                <td>{{igv}}</td>
+                <td><code>percent:'2.3-3'</code></td>
+                <td>{{igv | percent:'2.3-3'}}</td>
+                <td>Formatea el numero y lo exprea en porcentaje
+                    con dos cifras enteras y 3 decimales como minimo y maximo
+                </td>
+            </tr>
+            <tr>
+                <td>{{sueldo}}</td>
+                <td><code>currency:'EUR'</code></td>
+                <td>{{sueldo | currency:'EUR'}}</td>
+                <td>Formatea el resultado y añade el simbolo de la moneda</td>
+            </tr>
+            <tr>
+                <td>{{sueldo}}</td>
+                <td><code>currency:'PEN':'S/. '</code></td>
+                <td>{{sueldo | currency:'PEN':'S/.':'4.2-2'}}</td>
+                <td>Formatea el resultado y añade el simbolo de la moneda</td>
+            </tr>
+            <tr>
+                <td>{{hoy}}</td>
+                <td><code>date:'medium'</code></td>
+                <td>{{hoy | date:'medium'}}</td>
+                <td>Formatea la fecha en formato de mes, fecha, año y hora</td>
+            </tr>
+            <tr>
+                <td>{{hoy}}</td>
+                <td><code>date:'dd - MM - yyyy'</code></td>
+                <td>{{hoy | date:'dd - MM - yyyy'}}</td>
+                <td>Formatea la fecha en el formato personalizado entregado</td>
+            </tr>
+            <tr>
+                <td>{{persona}}</td>
+                <td><code>json</code></td>
+                <td>
+                    <pre>
+                        {{persona | json}}
+                    </pre>
+                </td>
+                <td>Formatea un objeto y lo imprime literal. Procure usar
+                    el pipe con una etiqueta PRE
+                </td>
+            </tr>
+            <tr>
+                <td>{{frase}}</td>
+                <td><code>frase | capitalize</code></td>
+                <td>{{frase | capitalize : 'hola'}}</td>
+                <td>Convierte a mayusculas la primera letra de cada palabra</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+
+</main>
+
