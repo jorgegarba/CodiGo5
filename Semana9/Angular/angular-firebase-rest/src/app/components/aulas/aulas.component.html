@@ -1,0 +1,36 @@
+<main class="container mt-4 animated fadeIn slow">
+    <!-- Info de aula seleccionada -->
+
+    <div class="row mb-3 justify-content-center" *ngIf="aulaSeleccionada">
+        <div class="card text-left">
+            <div class="card-body">
+                <h4 class="card-title">Aula Seleccionada</h4>
+                <p class="card-text"><strong>Pabellon: </strong>{{aulaSeleccionada.pabellon}}</p>
+                <p class="card-text"><strong>Capacidad: </strong>{{aulaSeleccionada.capacidad}}</p>
+                <p class="card-text"><strong>Tipo: </strong>{{aulaSeleccionada.tipo}}</p>
+                <p class="card-text"><strong>Id: </strong>{{aulaSeleccionada.id}}</p>
+                <p class="card-text"><strong>Número: </strong>{{aulaSeleccionada.nro}}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Efecto de carga -->
+    <div class="alert alert-success text-center" *ngIf="!listaAulas">
+        <h1 class="alert-heading">Cargando Aulas...</h1>
+        <i class="fa fa-refresh fa-spin fa-4x"></i>
+    </div>
+    <!-- Lista de aulas -->
+
+    <div *ngIf="listaAulas" class="row">
+        <app-aula-card 
+            class="card col-md-4"
+            style="width: 18rem;"
+            (emisor)="setAula($event)"
+            [aulaCard]="aula"
+            *ngFor="let aula of listaAulas">
+
+        </app-aula-card>
+
+    </div>
+
+</main>

@@ -14,6 +14,7 @@ import {RUTAS_APP} from './app.routes';
 import { BienvenidaComponent } from './components/bienvenida/bienvenida.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { ProductosComponent } from './components/productos/productos.component';
+import { ProductoVerComponent } from './components/productos/producto-ver.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProductosComponent } from './components/productos/productos.component';
     CapitalizePipe,
     BienvenidaComponent,
     NotfoundComponent,
-    ProductosComponent
+    ProductosComponent,
+    ProductoVerComponent
   ],
   imports: [
     BrowserModule,

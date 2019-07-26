@@ -1,10 +1,5 @@
-export interface iProducto {
-    id: number;
-    nombre: string;
-    imagen: string;
-    descripcion: string;
-    precio: number;
-}
+
+import {iProducto} from './../models/producto';
 
 export let PRODUCTOS: Array<iProducto> = [
     {

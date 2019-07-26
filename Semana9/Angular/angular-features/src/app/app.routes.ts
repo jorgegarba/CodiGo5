@@ -6,6 +6,7 @@ import { NgswitchComponent } from './components/ngswitch/ngswitch.component';
 import { BienvenidaComponent } from './components/bienvenida/bienvenida.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { ProductosComponent } from './components/productos/productos.component';
+import { ProductoVerComponent } from './components/productos/producto-ver.component';
 
 const MIS_RUTAS:Routes = [
     {
@@ -31,6 +32,10 @@ const MIS_RUTAS:Routes = [
     {
         path:'productos',
         component: ProductosComponent
+    },
+    {
+        path:'productos/:id',
+        component: ProductoVerComponent
     },
     {
         path:'**',
