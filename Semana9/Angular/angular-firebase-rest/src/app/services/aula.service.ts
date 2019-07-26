@@ -10,7 +10,35 @@ export class AulaService {
 
   constructor() { }
 
-  getAulas():Promise<any> {
+  createAula(objAula: Aula):Promise<any>{
+    
+    let objNuevo = {
+      capacidad: objAula.capacidad,
+      nro: objAula.nro,
+      tipo: objAula.tipo,
+      pabellon: objAula.pabellon,
+    };
+
+    let configureishon = {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(objNuevo)
+    };
+
+    return new Promise((resolve, reject) => {
+      fetch(`${this.url}/aulas.json`, configureishon)
+        .then(response=>{
+          return response.json();
+        }).then(rpta=>{
+          resolve(rpta);
+        })
+    })
+  }
+
+
+  getAulas(): Promise<any> {
     return new Promise((resolve, reject) => {
       fetch(`${this.url}/aulas.json`)
         .then((response) => {
@@ -29,10 +57,10 @@ export class AulaService {
    * un arreglo de objetos Aula
    * @param json 
    */
-  crearArregloDeAulas(json:any):Array<Aula>{
-    let aulas:Array<Aula> = [];
+  crearArregloDeAulas(json: any): Array<Aula> {
+    let aulas: Array<Aula> = [];
     for (const llave in json) {
-      let objAula:Aula =  new Aula();
+      let objAula: Aula = new Aula();
       objAula.id = llave;
       objAula.capacidad = json[llave].capacidad;
       objAula.nro = json[llave].nro;

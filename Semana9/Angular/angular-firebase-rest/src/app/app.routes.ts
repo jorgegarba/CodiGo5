@@ -1,19 +1,29 @@
-import {RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { HomeComponent } from './components/home/home.component';
 import { AulasComponent } from './components/aulas/aulas.component';
+import { FormulariosComponent } from './components/formularios/formularios.component';
+import { AulaCrearComponent } from './components/aula-crear/aula-crear.component';
 
-const MIS_RUTAS:Routes = [
+const MIS_RUTAS: Routes = [
     {
-        path:'',
+        path: '',
         component: HomeComponent
     },
     {
-        path:'aulas',
+        path: 'aulas',
         component: AulasComponent
     },
     {
-        path:'**',
+        path: 'formularios',
+        component: FormulariosComponent
+    },
+    {
+        path: 'aulas/crear',
+        component: AulaCrearComponent
+    },
+    {
+        path: '**',
         component: NotfoundComponent
     }
 ];

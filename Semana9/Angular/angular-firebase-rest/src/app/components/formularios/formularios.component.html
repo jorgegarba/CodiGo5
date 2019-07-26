@@ -1,0 +1,45 @@
+<main class="container mt-5 animated fadeIn">
+
+    <h3>Formularios en Angular</h3>
+    <form class="row" #formulario="ngForm" autocomplete="off">
+
+        <div class="form-group col-md-6">
+            <label for="inpuNombre">Nombres y Apellidos</label>
+            <input type="text"
+                    id="inpuNombre"
+                    class="form-control"
+                    [ngClass]="{'is-valid': iNombre.valid && !iNombre.pristine, 'is-invalid':!iNombre.valid && !iNombre.pristine}"
+                    placeholder="Ejm: Jordi"
+                    ngModel
+                    name="inputNombre"
+                    #iNombre="ngModel"
+                    required
+                    minlength="25"
+                >
+            <small class="text-muted" *ngIf="iNombre.errors?.required===true">El campo es obligatorio!!!</small>
+            <small class="text-muted" *ngIf="iNombre.errors?.minlength">El tamaño mínimo es 25 caracteres</small>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="inputEmail">Correo Electronico</label>
+            <input type="text"
+                    id="inputEmail"
+                    class="form-control"
+                    placeholder="Ejm: jenp@gmail.com"
+                    ngModel
+                    #iEmail
+                    name="inputEmail"
+                    required>
+        </div>
+
+        <div class="form-group col text-center">
+            <button type="button"
+                    class="btn btn-primary w-25"
+                    (click)="guardarDatos(iNombre)">
+                <i class="fas fa-save"></i> Guardar Datos
+            </button>
+        </div>
+
+    </form>
+
+</main>

@@ -19,7 +19,7 @@ window.onload = () => {
             // body =>  datos a enviar al servidor
             body: JSON.stringify({nombre: "Canchita Pegazo",direccion: "Calle Santa Catalina 565"
             }),
-            headers: {'Conten-Type': 'application/json'}
+            headers: {'Content-Type': 'application/json'}
         }
         fetch("https://canchitas-b1d33.firebaseio.com/canchitas.json", configuracion)
             .then(rpta => {

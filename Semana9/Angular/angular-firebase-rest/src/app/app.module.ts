@@ -8,8 +8,13 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 
 // Cargando Archivo de Rutas
 import {RUTAS_APP} from './app.routes';
+// Lista de componentes
 import { AulasComponent } from './components/aulas/aulas.component';
 import { AulaCardComponent } from './components/aula-card/aula-card.component';
+import { FormulariosComponent } from './components/formularios/formularios.component';
+// Modulo de Formularios para Angular
+import {FormsModule} from '@angular/forms';
+import { AulaCrearComponent } from './components/aula-crear/aula-crear.component'; 
 
 @NgModule({
   declarations: [
@@ -18,11 +23,14 @@ import { AulaCardComponent } from './components/aula-card/aula-card.component';
     HomeComponent,
     NotfoundComponent,
     AulasComponent,
-    AulaCardComponent
+    AulaCardComponent,
+    FormulariosComponent,
+    AulaCrearComponent
   ],
   imports: [
     BrowserModule,
-    RUTAS_APP
+    RUTAS_APP,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

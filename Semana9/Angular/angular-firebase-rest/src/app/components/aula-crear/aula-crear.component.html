@@ -1,0 +1,48 @@
+<main class="container mt-5 animated fadeIn">
+
+    <h3>Crear un Aula</h3>
+    <form class="row animated fadeInLeft faster" #formulario="ngForm" autocomplete="off" >
+
+        <div class="form-group col-md-6">
+            <label for="inputId">ID del Aula</label>
+            <input type="text" id="inputId" class="form-control" [(ngModel)]="objAula.id" name="inputId" #iId="ngModel" disabled>
+            <small class="text-muted">Este campo es autogenerado</small>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="inputCapacidad">Capacidad</label>
+            <input type="number" id="inputCapacidad" class="form-control" [(ngModel)]="objAula.capacidad" name="inputCapacidad"
+                #iCapacidad="ngModel" required>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="inputNro">Número</label>
+            <input type="number" id="inputNro" class="form-control" [(ngModel)]="objAula.nro" name="inputNro" #iNro="ngModel" required>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="inputPabellon">Pabellón</label>
+            <input type="text" id="inputPabellon" class="form-control"  placeholder="Ingrese un pabellón" [(ngModel)]="objAula.pabellon"
+                #iPabellon name="inputPabellon" required>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="inputTipo">Tipo de Aula</label>
+            <select name="inputTipo" [(ngModel)]="objAula.tipo" id="inputTipo" #iTipo class="form-control">
+                <option value="laboratorio">Laboratorio</option>
+                <option value="normal">Normal</option>
+                <option value="auditorio">Auditorio</option>
+            </select>
+        </div>
+
+
+        <div class="form-group col-md-12 text-center">
+            <button type="button" class="btn btn-primary w-25"
+            (click)="crearAula()">
+                <i class="fas fa-save"></i> Guardar Datos
+            </button>
+        </div>
+
+    </form>
+
+</main>
