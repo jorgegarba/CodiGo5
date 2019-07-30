@@ -1,0 +1,49 @@
+<main class="container mt-4 animated fadeIn faster">
+
+    <!-- efecto de carga -->
+    <div class="alert alert-success text-center" *ngIf="!lugares">
+        <h2 class="alert-heading">Cargando...</h2>
+        <br>
+        <p>
+            <i class="fa fa-refresh fa-spin fa-4x"></i>
+        </p>
+    </div>
+    <!-- tabla con la lista de lugares -->
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Latitud</th>
+                        <th scope="col">Longitud</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let lugar of lugares; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{lugar.id}}</td>
+                        <td>{{lugar.nombre}}</td>
+                        <td>{{lugar.tipo}}</td>
+                        <td>{{lugar.lat}}</td>
+                        <td>{{lugar.lng}}</td>
+                        <td>
+                            <button class="btn btn-info" (click)="irEditar(lugar.id)">
+                                <i class="fa fa-pencil"></i>
+                            </button>
+
+                            <button class="btn btn-danger">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</main>
