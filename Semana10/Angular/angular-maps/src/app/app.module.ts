@@ -6,6 +6,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { LugaresComponent } from './components/lugares/lugares.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { LugarComponent } from './components/lugar/lugar.component';
 
 
 // Modulo de rutas
@@ -14,7 +15,8 @@ import {RUTAS_APP} from './app.routes';
 // Modulos adicionales
 // Modulo HTTP
 import {HttpClientModule} from '@angular/common/http';
-import { LugarComponent } from './components/lugar/lugar.component';
+// Modulo de Formularios Angular
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { LugarComponent } from './components/lugar/lugar.component';
   imports: [
     BrowserModule,
     RUTAS_APP,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

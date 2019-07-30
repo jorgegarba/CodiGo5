@@ -1,1 +1,55 @@
-<p>lugar works!</p>
+<main class="container mt-4 animated fadeIn faster">
+
+    <!-- efecto de carga -->
+    <div class="alert alert-info text-center" *ngIf="!objLugar">
+        <h2 class="alert-heading">Cargando...</h2>
+        <br>
+        <p>
+            <i class="fa fa-refresh fa-spin fa-4x"></i>
+        </p>
+    </div>
+    <!-- Formulario contenedor del objLugar -->
+
+    <form class="row" *ngIf="objLugar">
+        <div class="form-group col-md-6">
+            <label for="">Id:</label>
+            <input type="text" [(ngModel)]="objLugar.id" name="inputId" class="form-control" [disabled]="true">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="">Nombre:</label>
+            <input type="text" [(ngModel)]="objLugar.nombre" name="inputNombre" class="form-control"
+                [disabled]="!editar">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="">Latitud:</label>
+            <input type="text" [(ngModel)]="objLugar.lat" name="inputLat" class="form-control" [disabled]="!editar">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="">Longitud:</label>
+            <input type="text" [(ngModel)]="objLugar.lng" name="inputLng" class="form-control" [disabled]="!editar">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="">Tipo:</label>
+            <input type="text" [(ngModel)]="objLugar.tipo" name="inputTipo" class="form-control" [disabled]="!editar">
+        </div>
+        <div class="form-group col-md-6">
+            <label for=""></label>
+            <button class="btn btn-block" [ngClass]="{'btn-warning': editar , 'btn-info': !editar }"
+                (click)="editar = !editar">
+                <span *ngIf="editar">
+                    <i class="fa fa-pencil"></i> Editar: Activado
+                </span>
+                <span *ngIf="!editar">
+                    <i class="fa fa-pencil"></i> Editar: Desactivado
+                </span>
+            </button>
+        </div>
+        <div class="form-group col-md-12 d-flex justify-content-center">
+            <button class="btn btn-block btn-primary w-50"
+                    [disabled]="!editar"
+                    (click)="guardarCambios()">
+                    <i class="fas fa-save "></i> Guardar Cambios
+            </button>
+        </div>
+    </form>
+</main>
