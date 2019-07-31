@@ -15,6 +15,7 @@ export class LugarComponent implements OnInit {
   objLugar: Lugar;
 
   editar: boolean = false;
+  crear: boolean = false;
 
   constructor(private _sActivatedRoute: ActivatedRoute,
     private _sLugares: LugaresService) { }
@@ -27,7 +28,17 @@ export class LugarComponent implements OnInit {
     // forma 2 de recuperar parametros enviados por la URL, hasta mas de una vez
     this._sActivatedRoute.params.subscribe(parametros => {
       let { id } = parametros;
-      this.getLugar(id);
+      if (id === "crear") {
+        console.log("se va a crear un nuevo Lugar");
+        // crear el objeto en blanco
+        this.objLugar = new Lugar();
+        this.editar = true;
+        this.crear = true;
+      } else {
+        this.editar = false;
+        this.crear = false;
+        this.getLugar(id);
+      }
     });
   }
   getLugar(id) {
@@ -40,36 +51,68 @@ export class LugarComponent implements OnInit {
 
   guardarCambios() {
 
-    Swal.fire({
-      title: '¿Estás seguro mafren?',
-      text: '¿Estás seguro de editar el Aula?',
-      type: 'question',
-      showConfirmButton: true,
-      showCancelButton: true
-    }).then(r => {
-      if (r.value === true) {
+    if (this.editar === true && this.crear === false) {
+      // editar
+      Swal.fire({
+        title: '¿Estás seguro mafren?',
+        text: '¿Estás seguro de editar el Aula?',
+        type: 'question',
+        showConfirmButton: true,
+        showCancelButton: true
+      }).then(r => {
+        if (r.value === true) {
 
-        Swal.fire({
-          title:'Espere',
-          text:'Guardando la Información',
-          type:'info',
-          allowOutsideClick:false,
-          showConfirmButton: false,
-        });
-
-        this._sLugares.updateLugarById(this.objLugar)
-          .subscribe((nuevoLugar: Lugar) => {
-            Swal.fire({
-              title:'Actualizado!',
-              text:`El Lugar ha sido actualizado!`,
-              type:'success'
-            });
-            console.log(nuevoLugar);
+          Swal.fire({
+            title: 'Espere',
+            text: 'Guardando la Información',
+            type: 'info',
+            allowOutsideClick: false,
+            showConfirmButton: false,
           });
-      }
-    })
 
-
+          this._sLugares.updateLugarById(this.objLugar)
+            .subscribe((nuevoLugar: Lugar) => {
+              Swal.fire({
+                title: 'Actualizado!',
+                text: `El Lugar ha sido actualizado!`,
+                type: 'success'
+              });
+              console.log(nuevoLugar);
+            });
+        }
+      })
+    }else{
+      // crear
+      Swal.fire({
+        title: '¿Estás seguro mafren?',
+        text: '¿Estás seguro de crear el Aula?',
+        type: 'question',
+        showConfirmButton: true,
+        showCancelButton: true
+      }).then((rpta)=>{
+        if(rpta.value === true){
+          Swal.fire({
+            title: 'Espere',
+            text: 'Creando el lugar',
+            type: 'info',
+            allowOutsideClick: false,
+            showConfirmButton: false,
+          });
+          
+          this._sLugares.createLugar(this.objLugar)
+                        .subscribe(response=>{
+                          Swal.fire({
+                            title: 'Creadp!',
+                            text: `El Lugar ha sido creado!`,
+                            type: 'success'
+                          });
+                          console.log(response);
+                          this.objLugar.id = response.id;
+                        })
+        }
+      })
+    }
   }
+
 
 }

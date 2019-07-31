@@ -15,6 +15,9 @@ export class NavbarComponent implements OnInit {
 
   buscar(e,termino){
     e.preventDefault();
+    if(termino==="crear"){
+      return;
+    }
     this._sRouter.navigate(['/lugares',termino]);
   }
 

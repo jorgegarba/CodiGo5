@@ -32,7 +32,7 @@
             <label for="">Tipo:</label>
             <input type="text" [(ngModel)]="objLugar.tipo" name="inputTipo" class="form-control" [disabled]="!editar">
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-6" *ngIf="!crear">
             <label for=""></label>
             <button class="btn btn-block" [ngClass]="{'btn-warning': editar , 'btn-info': !editar }"
                 (click)="editar = !editar">

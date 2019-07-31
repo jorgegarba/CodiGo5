@@ -31,5 +31,14 @@ export class LugaresService {
                           );
   }
 
+  createLugar(objLugar:Lugar):Observable<any>{
+    let objLugarString = JSON.stringify(objLugar);
+    let misHeaders = new HttpHeaders().set('Content-Type', 'application/json');
+    return this._sHttp.post(`${this.url}`,
+                              objLugarString,
+                              { headers: misHeaders }
+                          );
+  }
+
 
 }
