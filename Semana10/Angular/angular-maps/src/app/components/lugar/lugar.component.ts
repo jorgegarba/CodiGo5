@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LugaresService } from './../../services/lugares.service';
 import { Lugar } from "./../../models/Lugar";
+import {Router} from '@angular/router';
 
 import Swal from 'sweetalert2';
 
@@ -18,7 +19,8 @@ export class LugarComponent implements OnInit {
   crear: boolean = false;
 
   constructor(private _sActivatedRoute: ActivatedRoute,
-    private _sLugares: LugaresService) { }
+    private _sLugares: LugaresService,
+    private _sRouter:Router) { }
 
   ngOnInit() {
     // forma 1 de recuperar parametros enviados por la URL
@@ -78,6 +80,7 @@ export class LugarComponent implements OnInit {
                 type: 'success'
               });
               console.log(nuevoLugar);
+              this.editar = false;
             });
         }
       })
@@ -100,7 +103,7 @@ export class LugarComponent implements OnInit {
           });
           
           this._sLugares.createLugar(this.objLugar)
-                        .subscribe(response=>{
+                        .subscribe((response:Lugar)=>{
                           Swal.fire({
                             title: 'Creadp!',
                             text: `El Lugar ha sido creado!`,
@@ -108,7 +111,9 @@ export class LugarComponent implements OnInit {
                           });
                           console.log(response);
                           this.objLugar.id = response.id;
-                        })
+                          // redireccionar a ver el lugar creado
+                          this._sRouter.navigate(['/lugares',response.id])
+                        });
         }
       })
     }

@@ -40,5 +40,9 @@ export class LugaresService {
                           );
   }
 
+  deleteLugarById(id){
+    return this._sHttp.delete(`${this.url}/${id}`);
+  }
+
 
 }
