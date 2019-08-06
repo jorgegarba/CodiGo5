@@ -7,22 +7,24 @@
 
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" >
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         <a class="nav-link" [routerLink]="['/']">Home</a>
       </li>
-      <li class="nav-item" routerLinkActive="active" >
+      <li class="nav-item" routerLinkActive="active" *ngIf="user">
         <a class="nav-link" [routerLink]="['/lugares']">Lugares</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/login']">Login</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="user">
+        <p class="nav-link">{{user.name}}</p>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" (ngSubmit)="buscar($event,inputBuscar.value)">
-      <input class="form-control mr-sm-2"
-              type="text"
-              placeholder="Search"
-              (keyup.enter)="buscar($event,inputBuscar.value)"
-              #inputBuscar>
-      <button class="btn btn-secondary my-2 my-sm-0"
-              type="submit"
-              (click)="buscar($event,inputBuscar.value)">Search</button>
+      <input class="form-control mr-sm-2" type="text" placeholder="Search"
+        (keyup.enter)="buscar($event,inputBuscar.value)" #inputBuscar>
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit"
+        (click)="buscar($event,inputBuscar.value)">Search</button>
     </form>
   </div>
 </nav>

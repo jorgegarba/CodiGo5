@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { AuthService } from "angularx-social-login";
+import { SocialUser } from "angularx-social-login";
 
 @Component({
   selector: 'app-navbar',
@@ -8,17 +10,26 @@ import {Router} from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private _sRouter:Router) { }
+  user: SocialUser;
+  loggedIn: boolean;
+
+  constructor(private _sRouter: Router,
+    private authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      console.log(this.user);
+      this.loggedIn = (user != null);
+    });
   }
 
-  buscar(e,termino){
+  buscar(e, termino) {
     e.preventDefault();
-    if(termino==="crear"){
+    if (termino === "crear") {
       return;
     }
-    this._sRouter.navigate(['/lugares',termino]);
+    this._sRouter.navigate(['/lugares', termino]);
   }
 
 }
