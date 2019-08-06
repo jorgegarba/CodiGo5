@@ -4,6 +4,8 @@ import { HomeComponent } from './components/home/home.component';
 import { LugaresComponent } from './components/lugares/lugares.component';
 import { LugarComponent } from './components/lugar/lugar.component';
 import { LoginComponent } from './components/login/login.component';
+// GUARDS
+import {LoggedService} from './guards/logged.service';
 
 const MIS_RUTAS: Routes = [
     {
@@ -12,7 +14,8 @@ const MIS_RUTAS: Routes = [
     },
     {
         path: 'lugares',
-        component: LugaresComponent
+        component: LugaresComponent,
+        canActivate: [LoggedService]
     },
     {
         path: 'lugares/:id',
