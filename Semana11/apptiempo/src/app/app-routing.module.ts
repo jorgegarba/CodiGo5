@@ -8,7 +8,8 @@ const MIS_RUTAS: Routes = [
     component: HomeComponent
   },
   {
-    path: 'intranet'
+    path: 'intranet',
+    loadChildren:'./intranet/intranet.module#IntranetModule'
   },
   {
     path: '**',
