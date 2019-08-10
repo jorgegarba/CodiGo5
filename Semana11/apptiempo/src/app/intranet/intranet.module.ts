@@ -5,13 +5,14 @@ import { HomeComponent } from './components/home/home.component';
 // IMPORTANDO LAS RUTAS DE INTRANET
 import {IntranetRoutingModule} from './intranet-routing.module';
 import { IntranetComponent } from './intranet.component';
-
+import {MaterialModule} from './../material.module';
 
 @NgModule({
   declarations: [HomeComponent, IntranetComponent],
   imports: [
     CommonModule,
-    IntranetRoutingModule
+    IntranetRoutingModule,
+    MaterialModule
   ]
 })
 export class IntranetModule { }

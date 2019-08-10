@@ -1,0 +1,8 @@
+.app-sidenav-container{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+.app-sidenav{
+    width: 240px;
+}
