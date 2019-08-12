@@ -6,9 +6,11 @@ import { HomeComponent } from './components/home/home.component';
 import {IntranetRoutingModule} from './intranet-routing.module';
 import { IntranetComponent } from './intranet.component';
 import {MaterialModule} from './../material.module';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { LugaresComponent } from './components/lugares/lugares.component';
 
 @NgModule({
-  declarations: [HomeComponent, IntranetComponent],
+  declarations: [HomeComponent, IntranetComponent, ToolbarComponent, LugaresComponent],
   imports: [
     CommonModule,
     IntranetRoutingModule,
