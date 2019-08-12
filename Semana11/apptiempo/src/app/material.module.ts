@@ -8,6 +8,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -18,7 +20,9 @@ import {MatInputModule} from '@angular/material/input';
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,
@@ -26,7 +30,9 @@ import {MatInputModule} from '@angular/material/input';
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule { }
