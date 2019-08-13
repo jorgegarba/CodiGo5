@@ -3,6 +3,8 @@ import { LugaresService } from './../../services/lugares.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MapaComponent } from '../../dialogs/mapa/mapa.component';
 
+import Swal from 'sweetalert2';
+
 interface iLugar {
   c: "",
   l: "",
@@ -26,17 +28,26 @@ export class LugaresComponent implements OnInit {
     public dialog: MatDialog) { }
   lugares: Array<iLugar> = [];
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
   buscarLugar(busqueda: string) {
+    this.lugares = [];
+    Swal.fire({
+      title: 'Espere',
+      text: 'Buscando...',
+      type: 'info',
+      allowOutsideClick: false,
+      showConfirmButton: false,
+    });
     this._sLugares.getLugaresByName(busqueda)
       .subscribe(data => {
         this.lugares = data.Results;
+        Swal.close();
       })
   }
   openDialog(lugar: iLugar) {
     const dialogRef = this.dialog.open(MapaComponent, {
-      width: '250px',
+      // width: '250px',
       data: lugar
     });
   }

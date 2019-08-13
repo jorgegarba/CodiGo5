@@ -10,6 +10,9 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { LugaresComponent } from './components/lugares/lugares.component';
 import { MapaComponent } from './dialogs/mapa/mapa.component';
 
+// importando modulo de AGM angular maps
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -22,6 +25,9 @@ import { MapaComponent } from './dialogs/mapa/mapa.component';
     CommonModule,
     IntranetRoutingModule,
     MaterialModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAnZzdYNu8q7TN9PdX5XEmbJ2TIHYMC8cI'
+    })
   ],
   entryComponents: [MapaComponent]
 })
