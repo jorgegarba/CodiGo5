@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar',
@@ -6,14 +6,28 @@ import { Component, OnInit, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
+  enlinea: boolean = false;
 
-  constructor() { }
+  constructor() {
+    this.enlinea = navigator.onLine;
+
+    window.addEventListener('online', () => {
+      this.enlinea = navigator.onLine;
+
+    });
+    window.addEventListener('offline', () => {
+      this.enlinea = navigator.onLine;
+
+    });
+
+
+  }
 
   @Output() emisor = new EventEmitter<void>();
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  emitir(){
+  emitir() {
     this.emisor.emit();
   }
 

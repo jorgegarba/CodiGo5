@@ -24,8 +24,10 @@ interface iLugar {
 })
 export class LugaresComponent implements OnInit {
 
+
   constructor(private _sLugares: LugaresService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog) {
+    }
   lugares: Array<iLugar> = [];
 
   ngOnInit() {}
