@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {WebsocketService} from './../../services/websocket.service';
+import { WebsocketService } from './../../services/websocket.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,9 +7,18 @@ import {WebsocketService} from './../../services/websocket.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private _sWebsocket:WebsocketService) { }
+  usuarioConectado;
+
+  constructor(private _sWebsocket: WebsocketService) { }
 
   ngOnInit() {
+    if (localStorage.getItem("nombre")) {
+      this.usuarioConectado = localStorage.getItem("nombre");
+    }
+  }
+
+  cerrarSesion(){
+    this._sWebsocket.cerrarSesion();
   }
 
 }

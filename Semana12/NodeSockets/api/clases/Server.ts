@@ -38,12 +38,22 @@ export class Server {
                 this.clientes.remove(cliente.id)
                 console.log("Nueva Lista de clientes");
                 console.log(this.clientes.getclientes());
+                // enviar la nueva lista de clientes
+                this.io.emit("lista-usuarios", this.clientes.getclientes());
             })
 
-            cliente.on('pedir-usuarios',()=>{
+            cliente.on('pedir-usuarios', () => {
                 console.log(`el cliente ${cliente.id} esta pidiendo usuarios`);
-                this.io.emit("lista-usuarios",this.clientes.getclientes());
+                this.io.emit("lista-usuarios", this.clientes.getclientes());
             });
+
+
+            cliente.on('configurar-usuario', (nombre) => {
+                let objCliente = new Cliente(cliente.id);
+                objCliente.nombre = nombre;
+                this.clientes.update(objCliente);
+                this.io.emit("lista-usuarios", this.clientes.getclientes());
+            })
 
         })
     }

@@ -6,6 +6,7 @@ import { UsuariosComponent } from './admin/components/usuarios/usuarios.componen
 import { ProductosComponent } from './admin/components/productos/productos.component';
 import { LoginComponent } from './components/login/login.component';
 import { SalaComponent } from './components/sala/sala.component';
+import { AuthService } from './services/auth.service';
 
 
 const MIS_RUTAS: Routes = [
@@ -19,7 +20,8 @@ const MIS_RUTAS: Routes = [
     },
     {
         path: 'sala',
-        component: SalaComponent
+        component: SalaComponent,
+        canActivate: [AuthService]
     },
     {
         path: 'admin',

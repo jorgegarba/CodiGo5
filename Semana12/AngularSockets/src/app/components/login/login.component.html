@@ -5,12 +5,13 @@
         <div class="col-md-6">
             <div>
                 <input class="form-control mb-3"
+                        #inputNombre
                         type="text"
                         placeholder="Ingresa tu Nick"
-                        (keyup.enter)="entrarSalita()">
+                        (keyup.enter)="entrarSalita(inputNombre.value)">
                 <button type="button"
                         class="btn btn-primary btn-block"
-                        (click)="entrarSalita()">
+                        (click)="entrarSalita(inputNombre.value)">
                         Entrar a la Salita
                         <i class="fa fa-sign-in"></i>
                 </button>    
