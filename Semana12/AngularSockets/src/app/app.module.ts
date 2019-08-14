@@ -18,6 +18,9 @@ import { LoginComponent } from './components/login/login.component';
 import { SalaComponent } from './components/sala/sala.component';
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
+// forms
+import {FormsModule} from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +36,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
   imports: [
     BrowserModule,
     RUTAS_APP,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

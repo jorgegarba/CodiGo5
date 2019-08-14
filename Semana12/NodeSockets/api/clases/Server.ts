@@ -55,6 +55,17 @@ export class Server {
                 this.io.emit("lista-usuarios", this.clientes.getclientes());
             })
 
+            cliente.on('enviar-mensaje', (mensaje) => {
+                let nombre = this.clientes.getClienteById(cliente.id);
+
+                let contenido = {
+                    de: nombre,
+                    mensaje: mensaje
+                }
+
+                this.io.emit('nuevo-mensaje', contenido);
+            })
+
         })
     }
 

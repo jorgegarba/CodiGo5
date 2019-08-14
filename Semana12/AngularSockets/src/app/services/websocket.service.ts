@@ -9,6 +9,8 @@ export class WebsocketService {
 
   public connected = false;
 
+  public usuario;
+
   constructor(private _socket: Socket,
     private _router: Router) {
     this.checkStatus();
@@ -18,12 +20,15 @@ export class WebsocketService {
   cerrarSesion() {
     localStorage.removeItem("nombre");
     this._socket.emit('configurar-usuario', "sin-nombre");
+    this.usuario = undefined;
     this._router.navigate(['/login']);
   }
 
   cargarStorage() {
     if (localStorage.getItem("nombre")) {
+      this.usuario = localStorage.getItem("nombre");
       this._socket.emit('configurar-usuario', localStorage.getItem("nombre"));
+
     }
   }
 
@@ -47,11 +52,19 @@ export class WebsocketService {
     return this._socket.fromEvent("lista-usuarios");
   }
 
+  escucharMensajes() {
+    return this._socket.fromEvent("nuevo-mensaje");
+  }
+
   login(nombre: string) {
 
     localStorage.setItem("nombre", nombre);
-
+    this.usuario = nombre;
     this._socket.emit('configurar-usuario', nombre);
+  }
+
+  enviarMensaje(mensaje: string) {
+    this._socket.emit('enviar-mensaje', mensaje);
   }
 
 }

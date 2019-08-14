@@ -22,11 +22,11 @@
             Desconectado
             <i class="fa fa-power-off text-danger"></i>
         </span>
-        <span *ngIf="usuarioConectado" class="mr-3">
-            {{usuarioConectado}}
+        <span *ngIf="_sWebsocket.usuario" class="mr-3">
+            {{_sWebsocket.usuario}}
         </span>
         <button class="btn btn-primary mr-3"
-                *ngIf="usuarioConectado"
+                *ngIf="_sWebsocket.usuario"
                 (click)="cerrarSesion()">
             Cerrar Sesión
         </button>

@@ -7,15 +7,9 @@ import { WebsocketService } from './../../services/websocket.service';
 })
 export class NavbarComponent implements OnInit {
 
-  usuarioConectado;
-
   constructor(private _sWebsocket: WebsocketService) { }
 
-  ngOnInit() {
-    if (localStorage.getItem("nombre")) {
-      this.usuarioConectado = localStorage.getItem("nombre");
-    }
-  }
+  ngOnInit() {  }
 
   cerrarSesion(){
     this._sWebsocket.cerrarSesion();
