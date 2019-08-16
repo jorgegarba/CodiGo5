@@ -4,21 +4,23 @@
     <div class="row">
         <div class="col-md-6">
             <div>
-                <input class="form-control mb-3"
-                        #inputNombre
-                        type="text"
-                        placeholder="Ingresa tu Nick"
-                        (keyup.enter)="entrarSalita(inputNombre.value)">
-                <button type="button"
-                        class="btn btn-primary btn-block"
-                        (click)="entrarSalita(inputNombre.value)">
-                        Entrar a la Salita
-                        <i class="fa fa-sign-in"></i>
-                </button>    
+                <input class="form-control mb-3" #inputNombre type="text" placeholder="Ingresa tu Nick"
+                    (keyup.enter)="entrarSalita(inputNombre.value)">
+                <button type="button" class="btn btn-primary btn-block" (click)="entrarSalita(inputNombre.value)">
+                    Entrar a la Salita
+                    <i class="fa fa-sign-in"></i>
+                </button>
             </div>
         </div>
         <div class="col-md-6">
-
+            <button class="btn btn-danger btn-block" (click)="signInWithGoogle()">
+                <i class="fa fa-google"></i>
+                Google
+            </button>
+            <button class="btn btn-info btn-block" (click)="signInWithFB()">
+                <i class="fa fa-facebook"></i>
+                Facebook
+            </button>
         </div>
     </div>
 </main>
