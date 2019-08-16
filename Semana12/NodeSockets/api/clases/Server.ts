@@ -47,7 +47,6 @@ export class Server {
                 this.io.emit("lista-usuarios", this.clientes.getclientes());
             });
 
-
             cliente.on('configurar-usuario', (nombre) => {
                 let objCliente = new Cliente(cliente.id);
                 objCliente.nombre = nombre;
@@ -66,13 +65,21 @@ export class Server {
                 this.io.emit('nuevo-mensaje', contenido);
             })
 
+            // Comando para que un cliente envie mensajes a todos los conectados
+            // excepto a sí mismo
+            // cliente.broadcast.emit('nombre-evento',?data);
+            // Comando para que socket.io envíe comunicación a un cliente
+            // en específico
+            // this.io.to("id-del-cliente").emit('nombre-evento',?data);
+
+
         })
     }
 
     habilitarCORS() {
         this.app.use((req: Request, res: Response, next: NextFunction) => {
             // configurar CORS
-            res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+            res.header("Access-Control-Allow-Origin", "*");
             res.header("Access-Control-Allow-Headers", "Content-type, Authorization");
             res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
             next();

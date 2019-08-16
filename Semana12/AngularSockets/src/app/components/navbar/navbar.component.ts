@@ -9,7 +9,7 @@ import { AuthService } from "angularx-social-login";
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private _sWebsocket: WebsocketService,
+  constructor(public _sWebsocket: WebsocketService,
     private authService: AuthService) { }
 
   ngOnInit() { }

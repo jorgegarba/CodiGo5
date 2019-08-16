@@ -16,7 +16,7 @@ import { UsuariosComponent } from './admin/components/usuarios/usuarios.componen
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { LoginComponent } from './components/login/login.component';
 import { SalaComponent } from './components/sala/sala.component';
-const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+const config: SocketIoConfig = { url: 'https://garnica-back-chat.herokuapp.com/', options: {} };
 
 // forms
 import { FormsModule } from '@angular/forms';

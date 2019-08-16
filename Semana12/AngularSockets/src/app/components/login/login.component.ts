@@ -35,6 +35,9 @@ export class LoginComponent implements OnInit {
   }
 
   entrarSalita(nombre: string) {
+    if (nombre.trim() == "") {
+      return;
+    }
     this._sWebsocket.login(nombre);
     this._router.navigate(['/sala']);
   }
