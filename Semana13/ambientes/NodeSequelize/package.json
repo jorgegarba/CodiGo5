@@ -16,7 +16,9 @@
     "sequelize": "^5.15.1"
   },
   "devDependencies": {
+    "@types/crypto-js": "^3.1.43",
     "@types/express": "^4.17.1",
-    "@types/node": "^12.7.2"
+    "@types/node": "^12.7.2",
+    "@types/sequelize": "^4.28.4"
   }
 }

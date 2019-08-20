@@ -1,5 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
 import { sequelize } from './../config/sequelize';
+import { usuario_router } from './../routes/Usuario';
 
 var bodyParser = require('body-parser');
 
@@ -29,13 +30,14 @@ export class Server {
         this.app.get('/', (req: Request, res: Response) => {
             res.status(200).send("Servidor OK!");
         });
+        this.app.use(usuario_router);
     }
     start() {
         this.app.listen(this.puerto, () => {
             console.log("Servidor Iniciado correctamente en el puerto " + this.puerto);
             // sync => sirve para crear las tablas en la BD a partir de los
             // modelos.
-            sequelize.sync({ force: true }).then(() => {
+            sequelize.sync({ force: false }).then(() => {
                 console.log("BD creada con éxito");
             }).catch((error: any) => {
                 console.log("error al crear la BD");
