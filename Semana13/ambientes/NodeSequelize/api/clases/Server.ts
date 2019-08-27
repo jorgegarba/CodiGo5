@@ -1,6 +1,8 @@
 import express, { Request, Response, NextFunction } from 'express';
 import { sequelize } from './../config/sequelize';
 import { usuario_router } from './../routes/Usuario';
+import { pabellon_router } from './../routes/Pabellon';
+import { aula_router } from './../routes/Aula';
 
 var bodyParser = require('body-parser');
 
@@ -31,6 +33,8 @@ export class Server {
             res.status(200).send("Servidor OK!");
         });
         this.app.use(usuario_router);
+        this.app.use(pabellon_router);
+        this.app.use(aula_router);
     }
     start() {
         this.app.listen(this.puerto, () => {
