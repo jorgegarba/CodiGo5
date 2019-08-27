@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoggedComponent } from './logged.component';
 import { HomeComponent } from './components/home/home.component';
+import { HorarioAulaComponent } from './components/horario-aula/horario-aula.component';
 const MIS_RUTAS: Routes = [
     {
         path:'',
@@ -10,6 +11,10 @@ const MIS_RUTAS: Routes = [
             {
                 path:'home',
                 component: HomeComponent
+            },
+            {
+                path:'horariosxaula',
+                component: HorarioAulaComponent
             }
         ]
     }

@@ -3,10 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-
-// SCHEDULE
-import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService} from '@syncfusion/ej2-angular-schedule';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,9 +12,9 @@ import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService,
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ScheduleModule
+    HttpClientModule
   ],
-  providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

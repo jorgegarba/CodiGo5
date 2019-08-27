@@ -3,6 +3,7 @@ import { sequelize } from './../config/sequelize';
 import { usuario_router } from './../routes/Usuario';
 import { pabellon_router } from './../routes/Pabellon';
 import { aula_router } from './../routes/Aula';
+import { reserva_router } from './../routes/Reserva';
 
 var bodyParser = require('body-parser');
 
@@ -15,8 +16,8 @@ export class Server {
 
         this.puerto = process.env.PORT || 3000;
         this.configurarBodyParser();
-        this.configurarRutas();
         this.habilitarCORS();
+        this.configurarRutas();
     }
 
     habilitarCORS() {
@@ -35,6 +36,7 @@ export class Server {
         this.app.use(usuario_router);
         this.app.use(pabellon_router);
         this.app.use(aula_router);
+        this.app.use(reserva_router);
     }
     start() {
         this.app.listen(this.puerto, () => {

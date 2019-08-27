@@ -1,0 +1,72 @@
+<main class="container-fluid mt-3">
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="card text-left">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        Opciones de Filtrado
+                    </h4>
+                    <div *ngIf="!pabellones">
+                        <p class="text-center">
+                            <i class="fa fa-refresh fa-spin fa-4x" aria-hidden="true"></i>
+                        </p>
+                        <p class="text-center">
+                            Cargando...
+                        </p>
+                    </div>
+                    <form *ngIf="pabellones">
+                        <div class="form-group">
+                            <label for="selectPabellon">Pabellones:</label>
+                            <select name="selectPabellon" id="selectPabellon" [(ngModel)]="pab_id" class="form-control"
+                                (change)="cambioPabellon()">
+                                <option value="0">Seleccione...</option>
+                                <option [value]="pabellon.pab_id" *ngFor="let pabellon of pabellones">
+                                    Pabellon - {{pabellon.pab_desc}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="selectAula">Aulas:</label>
+                            <select name="selectAula" id="selectAula" class="form-control" [(ngModel)]="aula_id"
+                                [disabled]="pab_id==0">
+                                <option value="0">Seleccione...</option>
+                                <option [value]="aula.aula_id" *ngFor="let aula of aulas">
+                                    Aula - {{aula.aula_nro}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputFechin">Fecha de Inicio:</label>
+                            <input type="datetime-local"
+                                    class="form-control"
+                                    id="inputFechin"
+                                    #inputFechin>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputFechfin">Fecha de Fin:</label>
+                            <input type="datetime-local"
+                                    class="form-control"
+                                    id="inputFechfin"
+                                    #inputFechfin>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block"
+                                    [disabled]="aula_id==0"
+                                    (click)="buscarHorarios(inputFechin.value, inputFechfin.value)">
+                                <i class="fas fa-search"></i>
+                                Buscar Horarios
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <ejs-schedule [eventSettings]='eventSettings' [currentView]="'Week'"> </ejs-schedule>
+        </div>
+
+    </div>
+
+</main>
