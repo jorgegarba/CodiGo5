@@ -9,7 +9,7 @@ const MIS_RUTAS: Routes = [
         component: LoggedComponent,
         children:[
             {
-                path:'home',
+                path:'',
                 component: HomeComponent
             },
             {

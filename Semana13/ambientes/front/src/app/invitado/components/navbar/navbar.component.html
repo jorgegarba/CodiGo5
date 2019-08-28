@@ -10,14 +10,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Home</a>
             </li>
-            <li class="nav-item">     
+            <li class="nav-item">
                 <a class="nav-link" href="#">Consultas</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
+            <li class="nav-item" *ngIf="_sAuth.isLogged()">
+                <a class="nav-link" [routerLink]="['/logged']">Intranet</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" [routerLink]="['/loggin']">Iniciar Sesión</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">

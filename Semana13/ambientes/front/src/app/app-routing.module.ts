@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const MIS_RUTAS: Routes = [
   {
@@ -8,7 +9,8 @@ const MIS_RUTAS: Routes = [
   },
   {
     path: 'logged',
-    loadChildren:'./logged/logged.module#LoggedModule'
+    loadChildren: './logged/logged.module#LoggedModule',
+    canActivate: [AuthGuardService]
   }
 ];
 

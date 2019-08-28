@@ -72,6 +72,7 @@ export let findUserByNomOApe = (req: Request, res: Response) => {
 export let iniciarSesion = (req: Request, res: Response) => {
 
     // usu_pass => llega encriptado an base64
+    // DESDE POSTMAN, enviar el campo b_usu_pass, encriptado en base64
     let { b_usu_email, b_usu_pass } = req.body;
 
     // desencriptando password
@@ -89,7 +90,13 @@ export let iniciarSesion = (req: Request, res: Response) => {
             let valido = objUsuario.validPass(pass_dec);
             if (valido) {
                 // PENDIENTE => Generar JWT
-                res.status(200).json({ message: "LOGGIN CORRECTO" });
+                let token = objUsuario.generarJWT();
+                res.status(200).json(
+                    {
+                        message: "ok",
+                        token: token
+                    }
+                );
             } else {
                 let rpta = {
                     message: "error",
