@@ -6,9 +6,18 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   private token: string;
+
   constructor(private _sHttp: HttpClient,
-              private _sRouter:Router) {
+    private _sRouter: Router) {
     this.cargarToken();
+  }
+
+  get getToken() {
+    if (this.token) {
+      return this.token;
+    } else {
+      return null;
+    }
   }
 
   cerrarSesion() {
