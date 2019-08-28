@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { PabellonService } from './../../../services/pabellon.service';
 import { ReservaService } from './../../../services/reserva.service';
 import { EventSettingsModel } from '@syncfusion/ej2-schedule';
+
+declare var $: any;
+
 @Component({
   selector: 'app-horario-aula',
   templateUrl: './horario-aula.component.html',
@@ -41,12 +44,14 @@ export class HorarioAulaComponent implements OnInit {
     // fechfin = fechfin.split("T")[0] + " " + fechfin.split("T")[1] + ":00";
     this._sReserva.getHorarioXAula(this.aula_id, fechin, fechfin)
       .subscribe((horarios) => {
-
         this.eventSettings = {
           dataSource: horarios
         }
-
       })
+  }
+
+  abrirModal() {
+    $("#miModal").modal("show");
   }
 
 }

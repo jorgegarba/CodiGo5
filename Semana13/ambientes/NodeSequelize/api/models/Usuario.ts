@@ -41,8 +41,13 @@ export let usuario_model = (sequelize: any, type: any) => {
 
     usuario.prototype.setSaltYHash = function (password: any) {
         this.usu_salt = crypto.randomBytes(16).toString('hex');
-        this.usu_hash = crypto.pbkdf2Sync(password, this.usu_salt, 1000, 64, 'sha512').toString('hex');        
+        this.usu_hash = crypto.pbkdf2Sync(password, this.usu_salt, 1000, 64, 'sha512').toString('hex');
     }
 
+    usuario.prototype.validPass = function (password: any) {
+        let usu_hash_tmp = crypto.pbkdf2Sync(password, this.usu_salt, 1000, 64, 'sha512')
+            .toString('hex');
+        return usu_hash_tmp === this.usu_hash;
+    }
     return usuario;
 }
