@@ -16,7 +16,7 @@ const MIS_RUTAS: Routes = [
 
 @NgModule({
   declarations: [],
-  imports: [RouterModule.forRoot(MIS_RUTAS)],
+  imports: [RouterModule.forRoot(MIS_RUTAS,{useHash:true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

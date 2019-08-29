@@ -7,8 +7,8 @@ import { aula_model } from './../models/Aula';
 import { reserva_model } from './../models/Reserva';
 import { usuario_model } from './../models/Usuario';
 
-export const sequelize = new Sequelize('ambientes', 'root', '', {
-    host: 'localhost',
+export const sequelize = new Sequelize('oFPsedlMDT', 'oFPsedlMDT', 'Rmf896de6P', {
+    host: 'remotemysql.com',
     dialect: 'mysql',
     logging: console.log,
     timezone: '-05:00',

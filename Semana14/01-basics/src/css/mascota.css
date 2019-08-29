@@ -1,0 +1,16 @@
+.mascota {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px 1px black;
+    margin-right: 10px;
+}
+
+.mascota .nombre {
+    font-size: 18px;
+}
+
+.mascota .tipo {
+    font-weight: 600;
+}
