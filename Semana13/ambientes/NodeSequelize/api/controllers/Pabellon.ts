@@ -1,11 +1,11 @@
 import { Response, Request } from "express";
-import { Pabellon, TipoAula } from "./../config/sequelize";
-import { Aula } from "./../config/sequelize";
+import { Pabellon, TipoAula, Aula } from "./../config/sequelize";
 // pabellon controller
 
 export let createPabellon = (req: Request, res: Response) => {
-
-    let objPabellon = Pabellon.build(req.body);
+    console.log(req.headers);
+    
+    let objPabellon = Pabellon.build(req.body.pabellon);
     objPabellon.save().then((pabellonCreado: any) => {
         let rpta = {
             message: "Creado Correctamente",
@@ -20,6 +20,16 @@ export let createPabellon = (req: Request, res: Response) => {
         res.status(501).json(rpta);
     });
 
+}
+
+export let getPabellones = (req: Request, res: Response) => {
+    Pabellon.findAll().then((pabellones: any) => {
+        let rpta = {
+            message: 'ok',
+            contenido: pabellones
+        }
+        res.status(200).json(rpta);
+    })
 }
 
 export let updatePabellon = (req: Request, res: Response) => {

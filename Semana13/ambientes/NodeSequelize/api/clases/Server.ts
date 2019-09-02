@@ -4,6 +4,8 @@ import { usuario_router } from './../routes/Usuario';
 import { pabellon_router } from './../routes/Pabellon';
 import { aula_router } from './../routes/Aula';
 import { reserva_router } from './../routes/Reserva';
+const swaggerUi = require('swagger-ui-express');
+const openApiDocumentation = require('./../docs/swagger_doc.json');
 
 var bodyParser = require('body-parser');
 
@@ -14,7 +16,7 @@ export class Server {
     constructor() {
         this.app = express();
 
-        this.puerto = process.env.PORT || 3000;
+        this.puerto = process.env.PORT || 5000;
         this.configurarBodyParser();
         this.habilitarCORS();
         this.configurarRutas();
@@ -37,6 +39,8 @@ export class Server {
         this.app.use(pabellon_router);
         this.app.use(aula_router);
         this.app.use(reserva_router);
+        this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openApiDocumentation));
+
     }
     start() {
         this.app.listen(this.puerto, () => {

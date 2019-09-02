@@ -7,8 +7,19 @@ import { aula_model } from './../models/Aula';
 import { reserva_model } from './../models/Reserva';
 import { usuario_model } from './../models/Usuario';
 
-export const sequelize = new Sequelize('oFPsedlMDT', 'oFPsedlMDT', 'Rmf896de6P', {
-    host: 'remotemysql.com',
+// export const sequelize = new Sequelize('oFPsedlMDT', 'oFPsedlMDT', 'Rmf896de6P', {
+//     host: 'remotemysql.com',
+//     dialect: 'mysql',
+//     logging: console.log,
+//     timezone: '-05:00',
+//     dialectOptions: {
+//         useUTC: false, //for reading from database
+//         dateStrings: true,
+//         typeCast: true
+//     },
+// });
+export const sequelize = new Sequelize('ambientes', 'root', '', {
+    host: 'localhost',
     dialect: 'mysql',
     logging: console.log,
     timezone: '-05:00',

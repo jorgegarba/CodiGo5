@@ -46,7 +46,7 @@ export default class Productos extends Component {
                                                 this.seleccionarProducto(prod);
                                             }}>
                                                 Seleccionar
-                                        </button>
+                                            </button>
                                         </td>
                                     </tr>
                                 )
@@ -54,7 +54,12 @@ export default class Productos extends Component {
                         }
                     </tbody>
                 </table>
-                <p>Producto Seleccionado: {this.state.producto.nombre}</p>
+                {
+                    this.state.producto.nombre ?
+                        (<p>Producto Seleccionado: {this.state.producto.nombre}</p>) :
+                        (<p>No has seleccionado ningun producto</p>)
+                }
+
             </div>
         )
     }
