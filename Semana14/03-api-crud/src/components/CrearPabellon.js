@@ -108,6 +108,7 @@ export default class CrearPabellon extends Component {
                         <input type="text" placeholder="Nombre del Pabellon"
                             id="inputNombre" className={this.verError()} name="descripcion"
                             onChange={this.handleChange}
+                            value={this.state.objPabellon.descripcion}
                         />
                     </div>
                     <div className="form-group">
