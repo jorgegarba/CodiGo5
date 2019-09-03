@@ -4,7 +4,7 @@ import { Pabellon, TipoAula, Aula } from "./../config/sequelize";
 
 export let createPabellon = (req: Request, res: Response) => {
     console.log(req.headers);
-    
+
     let objPabellon = Pabellon.build(req.body.pabellon);
     objPabellon.save().then((pabellonCreado: any) => {
         let rpta = {
@@ -20,6 +20,24 @@ export let createPabellon = (req: Request, res: Response) => {
         res.status(501).json(rpta);
     });
 
+}
+
+export let getPabellonById = (req: Request, res: Response) => {
+    Pabellon.findByPk(req.params.pab_id).then((objPabellon: any) => {
+        if (objPabellon) {
+            let rpta = {
+                message: 'ok',
+                contenido: objPabellon
+            }
+            res.status(200).json(rpta);
+        } else {
+            let rpta = {
+                message: 'error',
+                contenido: "no se encontró el pabellon"
+            }
+            res.status(500).json(rpta);
+        }
+    });
 }
 
 export let getPabellones = (req: Request, res: Response) => {
