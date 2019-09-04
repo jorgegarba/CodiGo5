@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import Alerta from './Alerta';
 import Swal from 'sweetalert2';
+import { withRouter } from 'react-router-dom';
 
-export default class EditarPabellon extends Component {
+class EditarPabellon extends Component {
 
     constructor(props) {
         super(props);
@@ -74,7 +75,8 @@ export default class EditarPabellon extends Component {
             })
         }
     }
-    
+
+
     render() {
         return (
 
@@ -111,3 +113,6 @@ export default class EditarPabellon extends Component {
         )
     }
 }
+
+
+export default withRouter(EditarPabellon);

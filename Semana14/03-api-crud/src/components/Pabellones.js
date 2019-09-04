@@ -2,20 +2,20 @@ import React, { Component } from 'react'
 import Alerta from './Alerta';
 import axios from 'axios';
 import { MDBDataTable } from 'mdbreact';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-export default class Pabellones extends Component {
+class Pabellones extends Component {
 
     constructor(props) {
+        console.log("Constructor pabellones");
+
         super(props);
         this.state = {
             pabellones: [],
         }
     }
 
-    componentDidMount() {
-        console.log("componentDidMount");
-
+    traerPabellones() {
         axios.get('http://localhost:5000/pabellon').then(data => {
             this.setState({
                 pabellones: data.data.contenido
@@ -23,72 +23,106 @@ export default class Pabellones extends Component {
         });
     }
 
+    componentDidMount() {
+        console.log("componentDidMount");
+        this.traerPabellones();
+    }
+
     render() {
 
         let pabellonesTmp = this.state.pabellones;
         let pabellonesFinal = pabellonesTmp.map(p => {
-            return (
-                {
-                    pab_id: p.pab_id,
-                    pab_desc: p.pab_desc,
-                    createdAt: p.createdAt,
-                    updatedAt: p.updatedAt,
-                    // ...p => spread operator => crea una copia de las propiedades de p
-                    actions: <Link className="btn btn-primary" to={`/pabellones/${p.pab_id}`} > Editar </Link >
-                }
-        )
-    })
+            if (this.props.isLogged) {
+                return (
+                    {
+                        pab_id: p.pab_id,
+                        pab_desc: p.pab_desc,
+                        createdAt: p.createdAt,
+                        updatedAt: p.updatedAt,
+                        // ...p => spread operator => crea una copia de las propiedades de p
+                        actions: <Link className="btn btn-primary" to={`/pabellones/${p.pab_id}`} > Editar </Link >
+                    }
+                )
+            } else {
+                return (
+                    {
+                        pab_id: p.pab_id,
+                        pab_desc: p.pab_desc,
+                        createdAt: p.createdAt,
+                        updatedAt: p.updatedAt,
+                        // ...p => spread operator => crea una copia de las propiedades de p
+                        // actions: <Link className="btn btn-primary" to={`/pabellones/${p.pab_id}`} > Editar </Link >
+                    }
+                )
+            }
+
+        })
 
         let data = {
-    columns: [
-        {
-            label: 'Identificador',
-            field: 'pab_id',
-            sort: 'asc',
-            width: 150
-        },
-        {
-            label: 'Nombre',
-            field: 'pab_desc',
-            sort: 'asc',
-            width: 150
-        },
-        {
-            label: 'Creación',
-            field: 'createdAt',
-            sort: 'asc',
-            width: 150
-        },
-        {
-            label: 'Última actualización',
-            field: 'updatedAt',
-            sort: 'asc',
-            width: 150
-        },
-        {
-            label: 'Acciones',
-            field: 'actions',
-            sort: 'asc',
-            width: 150
-        },
-    ],
-    rows: pabellonesFinal
-}
-
-return (
-    <main className="container mt-5">
-        {
-            this.state.pabellones.length === 0 ?
-                <Alerta mensaje={'No hay pabellones'}
-                    tipo={'info'} /> :
-                <MDBDataTable
-                    striped
-                    bordered
-                    hover
-                    data={data}
-                />
+            columns: [
+                {
+                    label: 'Identificador',
+                    field: 'pab_id',
+                    sort: 'asc',
+                    width: 150
+                },
+                {
+                    label: 'Nombre',
+                    field: 'pab_desc',
+                    sort: 'asc',
+                    width: 150
+                },
+                {
+                    label: 'Creación',
+                    field: 'createdAt',
+                    sort: 'asc',
+                    width: 150
+                },
+                {
+                    label: 'Última actualización',
+                    field: 'updatedAt',
+                    sort: 'asc',
+                    width: 150
+                },
+                {
+                    label: 'Acciones',
+                    field: 'actions',
+                    sort: 'asc',
+                    width: 150
+                },
+            ],
+            rows: pabellonesFinal
         }
-    </main>
-)
+
+        return (
+            <main className="container mt-5">
+                {
+                    this.state.pabellones.length === 0 ?
+                        <Alerta mensaje={'No hay pabellones'}
+                            tipo={'info'} /> :
+                        <MDBDataTable
+                            striped
+                            bordered
+                            hover
+                            data={data}
+                        />
+                }
+                {
+                    this.props.isLogged ?
+                        <button onClick={(e) => {
+                            this.props.signout();
+                        }}>LOGOUT</button> :
+                        <button onClick={(e) => {
+                            this.props.loggear();
+                        }}>LOGIN</button>
+                }
+
+            </main>
+        )
     }
 }
+// La funcion 'withRouter'
+// sirve para que cuando el componente PABELLONES se renderice
+// reciba en sus 'props' las propiedades del Router
+// como por ejemplo match, history, etc
+export default withRouter(Pabellones);

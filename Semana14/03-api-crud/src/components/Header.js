@@ -22,6 +22,12 @@ const Header = ({ nombre }) => {
                             Crear Pabellon
                         </NavLink>
                     </li>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" to="/login"
+                            activeClassName="active">
+                            Iniciar Sesión
+                        </NavLink>
+                    </li>
 
                 </ul>
                 <form className="form-inline my-2 my-lg-0">
