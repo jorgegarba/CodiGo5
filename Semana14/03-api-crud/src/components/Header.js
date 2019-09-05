@@ -1,7 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
-const Header = ({ nombre }) => {
+const Header = ({ nombre, isLogged, signout }) => {
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
             <a className="navbar-brand" href="/#">{nombre}</a>
@@ -23,10 +23,18 @@ const Header = ({ nombre }) => {
                         </NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link" to="/login"
-                            activeClassName="active">
-                            Iniciar Sesión
-                        </NavLink>
+                        {
+                            isLogged ?
+                                <Link className="nav-link" onClick={() => {
+                                    signout();
+                                }}>
+                                    Cerrar Sesion
+                                </Link> :
+                                <NavLink className="nav-link" to="/login"
+                                    activeClassName="active">
+                                    Iniciar Sesión
+                                </NavLink>
+                        }
                     </li>
 
                 </ul>

@@ -37,15 +37,21 @@ export class AuthService {
 
     isLogged() {
         if (this.token) {
-            let payload = this.token.split(".")[1];
-            let payload_dec = JSON.parse(window.atob(payload));
-            if (payload_dec.exp > (new Date().getTime()) / 1000) {
-                return true;
-            } else {
+            try {
+                let payload = this.token.split(".")[1];
+                let payload_dec = JSON.parse(window.atob(payload));
+                if (payload_dec.exp > (new Date().getTime()) / 1000) {
+                    return true;
+                } else {
+                    localStorage.removeItem("token");
+                    return false;
+                }
+            } catch (error) {
                 localStorage.removeItem("token");
                 return false;
             }
         } else {
+            console.log("no hayb token ");
             return false;
         }
     }

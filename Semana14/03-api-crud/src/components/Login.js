@@ -8,10 +8,7 @@ const Login = (props) => {
 
     const iniciarSesion = e => {
         e.preventDefault();
-        // console.log(usuRef.current.value);
-        // console.log(passRef.current.value);
-        props.signin();
-        
+        props.signin(usuRef.current.value, passRef.current.value);
     }
 
     return (
@@ -32,11 +29,6 @@ const Login = (props) => {
                 <input type="submit" value="Iniciar Sesion"
                     className="btn btn-primary" />
             </form>
-            {
-                props.isLogged ?
-                    <p className="text-success">EL USUARIO ESTÁ LOGGEADO</p> :
-                    <p className="text-danger">EL USUARIO NO ESTÁ LOGGEADO</p>
-            }
         </main>
     );
 }

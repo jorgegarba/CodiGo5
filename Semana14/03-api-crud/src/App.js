@@ -22,19 +22,24 @@ var msalInstance = new Msal.UserAgentApplication(msalConfig);
 export default class App extends Component {
 
 
+  _sAuth = new AuthService();
 
   constructor(props) {
     super(props);
 
-
-
-    this.state = {
-      isLogged: true
+    if (this._sAuth.isLogged()) {
+      this.state = {
+        isLogged: true
+      }
+    } else {
+      this.state = {
+        isLogged: false
+      }
     }
-
   }
 
-
+  // usar esta funcion en caso de inicio de sesion con maicrosof
+  // NO RECOMENDABLE..... MICROSOFT APESTA
   iniciar = () => {
     var requestObj = {
       scopes: ["user.read"]
@@ -49,40 +54,36 @@ export default class App extends Component {
     });
   }
 
-  signin = () => {
-    this.setState({ isLogged: true });
+  signin = (email, pass) => {
+    this._sAuth.login(email, pass).then(rpta => {
+      console.log(rpta);
+      if (rpta.status === 200) {
+        this._sAuth.saveToken(rpta.data.token);
+        this.setState({
+          isLogged: true
+        })
+      }
+    });
   }
   signout = () => {
+    this._sAuth.cerrarSesion();
     this.setState({ isLogged: false });
   }
-
-
 
   render() {
     return (
       <Fragment>
-        {/* <Header nombre={'AulasGo'} /> */}
-        {/* <Pabellones/> */}
-        {/* <CrearPabellon /> */}
+
         <Router>
-          <Header nombre={'AulasGo'} />
-          <button onClick={this.iniciar}>INICIAR</button>
+
+          <Header nombre={'AulasGo'} isLogged={this.state.isLogged}
+            signout={this.signout} />
+
           {/* El elemento switch seria algo asi como el <router-outlet> de angular */}
           <Switch>
             {/* Cada ruta es un elemento Route */}
-            {/* <Route exact path="/pabellones" render={() => {
-              return <Pabellones isLogged={this.state.isLogged} loggear={this.loggear}  signout={this.signout}/>
-            }} /> */}
+
             <Route exact path="/pabellones/crear" component={CrearPabellon} />
-            {/* <Route exact path="/pabellones/:pab_id" render={(props) => {
-              if (this.state.isLogged) {
-                return <EditarPabellon />
-              } else {
-                return <Redirect to={{ pathname: '/pabellones/crear' }} />
-              }
-
-            }} /> */}
-
 
             <Route exact path="/pabellones" render={() => {
 
@@ -96,8 +97,11 @@ export default class App extends Component {
 
             <Route exact path="/login" render={() => {
 
-              return <Login signin={this.signin}
-                isLogged={this.state.isLogged} />
+              if (this.state.isLogged) {
+                return <Redirect to={{ pathname: '/pabellones' }} />
+              } else {
+                return <Login signin={this.signin} />
+              }
 
             }} />
 
