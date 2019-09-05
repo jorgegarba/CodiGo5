@@ -92,6 +92,12 @@ export let getAulasXPabellones = (req: Request, res: Response) => {
 
 export let getAulasByPabellonId = (req: Request, res: Response) => {
 
+    // Aula.findaAll({
+    //     where: {
+    //         pab_id: req.params.pab_id
+    //     }
+    // })
+
     Pabellon.findAll({
         where: {
             pab_id: req.params.pab_id

@@ -9,9 +9,6 @@ const Op = Sequelize.Op;
 export let getReservasByFechas = (req: Request, res: Response) => {
     let { p_aula_id } = req.params;
     let { body_res_fechin, body_res_fechfin } = req.body;
-    console.log(p_aula_id);
-    console.log(body_res_fechin);
-    console.log(body_res_fechfin);
     
     Reserva.findAll({
         where: {
