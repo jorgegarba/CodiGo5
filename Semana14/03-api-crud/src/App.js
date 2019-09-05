@@ -8,6 +8,7 @@ import EditarPabellon from './components/EditarPabellon';
 import Login from './components/Login';
 
 import { AuthService } from './services/Auth';
+import ConsultaHorarios from './components/ConsultaHorarios';
 
 var Msal = require('msal');
 var msalConfig = {
@@ -102,6 +103,12 @@ export default class App extends Component {
               } else {
                 return <Login signin={this.signin} />
               }
+
+            }} />
+
+            <Route exact path="/pabellones/consulta" render={() => {
+
+              return <ConsultaHorarios />
 
             }} />
 
