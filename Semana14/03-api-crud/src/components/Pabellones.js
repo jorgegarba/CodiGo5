@@ -3,6 +3,7 @@ import Alerta from './Alerta';
 import axios from 'axios';
 import { MDBDataTable } from 'mdbreact';
 import { Link, withRouter } from 'react-router-dom';
+import { Animated } from 'react-animated-css';
 
 class Pabellones extends Component {
 
@@ -100,12 +101,17 @@ class Pabellones extends Component {
                     this.state.pabellones.length === 0 ?
                         <Alerta mensaje={'No hay pabellones'}
                             tipo={'info'} /> :
-                        <MDBDataTable
-                            striped
-                            bordered
-                            hover
-                            data={data}
-                        />
+
+                        <Animated animationIn="fadeIn">
+
+                            <MDBDataTable
+                                striped
+                                bordered
+                                hover
+                                data={data}
+                            />
+                        </Animated>
+
                 }
                 {
                     this.props.isLogged ?

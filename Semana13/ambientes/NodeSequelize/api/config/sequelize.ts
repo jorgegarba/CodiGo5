@@ -18,7 +18,7 @@ import { usuario_model } from './../models/Usuario';
 //         typeCast: true
 //     },
 // });
-export const sequelize = new Sequelize('ambientes', 'root', '', {
+export const sequelize = new Sequelize('ambientes', 'root', 'root', {
     host: 'localhost',
     dialect: 'mysql',
     logging: console.log,

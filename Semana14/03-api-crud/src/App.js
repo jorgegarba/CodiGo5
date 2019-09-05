@@ -6,9 +6,10 @@ import CrearPabellon from './components/CrearPabellon';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import EditarPabellon from './components/EditarPabellon';
 import Login from './components/Login';
+
+import { AuthService } from './services/Auth';
+
 var Msal = require('msal');
-
-
 var msalConfig = {
   auth: {
     clientId: '5a5e93ba-2669-49b1-a233-5a2115f30717'
@@ -20,8 +21,13 @@ var msalInstance = new Msal.UserAgentApplication(msalConfig);
 
 export default class App extends Component {
 
+
+
   constructor(props) {
     super(props);
+
+
+
     this.state = {
       isLogged: true
     }
