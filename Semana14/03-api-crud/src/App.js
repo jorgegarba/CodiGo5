@@ -9,6 +9,8 @@ import Login from './components/Login';
 
 import { AuthService } from './services/Auth';
 import ConsultaHorarios from './components/ConsultaHorarios';
+import NotFound from './components/NotFound';
+import Home from './components/Home';
 
 var Msal = require('msal');
 var msalConfig = {
@@ -83,7 +85,8 @@ export default class App extends Component {
           {/* El elemento switch seria algo asi como el <router-outlet> de angular */}
           <Switch>
             {/* Cada ruta es un elemento Route */}
-
+            <Route path="/" exact component={Home} />
+            
             <Route exact path="/pabellones/crear" component={CrearPabellon} />
 
             <Route exact path="/pabellones" render={() => {
@@ -111,6 +114,8 @@ export default class App extends Component {
               return <ConsultaHorarios />
 
             }} />
+
+            <Route component={NotFound} />
 
 
           </Switch>

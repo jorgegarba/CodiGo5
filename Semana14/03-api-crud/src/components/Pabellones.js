@@ -113,15 +113,10 @@ class Pabellones extends Component {
                         </Animated>
 
                 }
-                {
-                    this.props.isLogged ?
-                        <button onClick={(e) => {
-                            this.props.signout();
-                        }}>LOGOUT</button> :
-                        <button onClick={(e) => {
-                            this.props.loggear();
-                        }}>LOGIN</button>
-                }
+
+                <button className="btn btn-secondary" onClick={(e) => {
+                    this.props.history.push('/pabellones/consulta');
+                }}>Consultar Horarios</button>
 
             </main>
         )

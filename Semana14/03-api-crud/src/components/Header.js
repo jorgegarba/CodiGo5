@@ -4,7 +4,9 @@ import { NavLink, Link } from 'react-router-dom';
 const Header = ({ nombre, isLogged, signout }) => {
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-            <a className="navbar-brand" href="/#">{nombre}</a>
+            <NavLink className="navbar-brand" to="/">
+                {nombre}
+            </NavLink>
             <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                 aria-expanded="false" aria-label="Toggle navigation"></button>
             <div className="collapse navbar-collapse" id="collapsibleNavId">

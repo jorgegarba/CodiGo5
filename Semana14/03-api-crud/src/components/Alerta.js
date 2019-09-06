@@ -6,7 +6,10 @@ const Alerta = ({ mensaje, tipo }) => {
     let clase = `alert alert-${tipo}`;
     return (
         <div className={clase} role="alert">
-            <strong>{mensaje}</strong>
+            <strong style={{
+                backgroundColor:'white',
+                color:'black'
+                }}>{mensaje}</strong>
         </div>
     );
 }
