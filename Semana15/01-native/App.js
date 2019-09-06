@@ -1,28 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 import Boton from './src/components/Boton';
+import PreLoader from './src/components/PreLoader';
+import BackgroundImage from './src/components/BackgroundImage';
+import Home from './src/screens/Home';
+import Login from './src/screens/Login';
+import Register from './src/screens/Register';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Boton texto="Click Aqui"
-        iconName={"arrow-right"}
-        iconSize={15}
-        iconColor={"white"}
-        fullWidth={true}
-        bgColor={"#ccc"}
-        action={() => { console.log("click!"); }}
-      />
-    </View>
+    <Register />
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

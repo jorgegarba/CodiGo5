@@ -12,8 +12,10 @@ const Boton = (props) => {
         <Button title={texto}
             onPress={action}
             buttonStyle={{
-                width: width,
-                backgroundColor: bgColor
+                width: width - 30,
+                backgroundColor: bgColor,
+                marginBottom: 5,
+                borderRadius: 20,
             }}
             type="solid"
             icon={
