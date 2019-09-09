@@ -50,6 +50,17 @@ export default class Register extends Component {
             >
                 <View style={styles.container} />
                 <View style={styles.wrapper}>
+                    {
+                        this.state.error ?
+                            <View style={styles.error}>
+                                <Text style={styles.errorTexto}>
+                                    Todos los campos deben estar llenos y las contraseñas deben coincidir
+                                </Text>
+                            </View> :
+                            null
+                    }
+
+
                     <View style={styles.inputWrap}>
                         <View style={styles.iconWrap}>
                             <Image
@@ -125,6 +136,18 @@ const styles = StyleSheet.create({
 
     wrapper: {
         paddingHorizontal: 15,
+    },
+    error: {
+        marginVertical: 10,
+        height: 40,
+        backgroundColor: '#d73352',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: 15
+    },
+    errorTexto: {
+        color: 'white',
+        fontWeight: "600"
     },
     inputWrap: {
         flexDirection: "row",
