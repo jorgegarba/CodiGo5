@@ -3,6 +3,8 @@ import express, { Request, Response, NextFunction } from 'express';
 import * as ApiPlantilla from "./../docs/swagger_template.json";
 import * as ApiDocumentacion from "./../docs/swagger_doc.json";
 
+import { curso_router } from './../routes/Curso';
+
 var mongoose = require('mongoose');
 
 const swaggerUi = require('swagger-ui-express');
@@ -34,6 +36,8 @@ export class Server {
         this.app.get('/', (req: Request, res: Response) => {
             res.status(200).send("Servidor OK!");
         });
+
+        this.app.use(curso_router);
 
         this.app.use('/rutasplantilla', swaggerUi.serve, swaggerUi.setup(ApiPlantilla));
         this.app.use('/rutas', swaggerUi.serve, swaggerUi.setup(ApiDocumentacion));
