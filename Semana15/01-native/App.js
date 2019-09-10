@@ -5,6 +5,8 @@ import PreLoader from './src/components/PreLoader';
 import BackgroundImage from './src/components/BackgroundImage';
 import RutasInvitado from './src/rutas/invitado';
 
+import RutasLogged from './src/rutas/logged';
+
 export default function App() {
   return (
     <RutasInvitado />

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import {
     Alert,
     StyleSheet,
@@ -10,36 +9,32 @@ import {
     TouchableOpacity,
     ImageBackground
 } from 'react-native'
-import Boton from '../components/Boton';
+import Boton from './../../components/Boton';
 
-const background = require("./../../assets/bg.jpg");
-const lockIcon = require("./../../assets/lock.png");
-const personIcon = require("./../../assets/person.png");
+const background = require("./../../../assets/bg.jpg");
+const lockIcon = require("./../../../assets/lock.png");
+const personIcon = require("./../../../assets/person.png");
 
 
-export default class Register extends Component {
+export default class Login extends Component {
 
     state = {
         email: '',
-        password: '',
-        repassword: '',
-        error: false,
+        password: ''
     }
 
-
+    changeInputEmail = (email) => {
+        this.setState({
+            email
+        })
+    }
+    changeInputPassword = (password) => {
+        this.setState({
+            password
+        })
+    }
     login = () => {
-        if (this.state.email.trim() === '' ||
-            this.state.password.trim() === '' ||
-            this.state.repassword.trim() === '' ||
-            this.state.password !== this.state.repassword) {
-
-            this.setState({ error: true });
-
-            return;
-        } else {
-            this.setState({ error: false })
-            Alert.alert("TUDO BEM");
-        }
+        Alert.alert("DATOS", `Email: ${this.state.email} Pass: ${this.state.password}`)
     }
 
     render() {
@@ -50,17 +45,6 @@ export default class Register extends Component {
             >
                 <View style={styles.container} />
                 <View style={styles.wrapper}>
-                    {
-                        this.state.error ?
-                            <View style={styles.error}>
-                                <Text style={styles.errorTexto}>
-                                    Todos los campos deben estar llenos y las contraseñas deben coincidir
-                                </Text>
-                            </View> :
-                            null
-                    }
-
-
                     <View style={styles.inputWrap}>
                         <View style={styles.iconWrap}>
                             <Image
@@ -70,10 +54,10 @@ export default class Register extends Component {
                             />
                         </View>
                         <TextInput
-                            placeholder="Ingrese su Email"
+                            placeholder="Email"
                             style={styles.input}
                             underlineColorAndroid="transparent"
-                            onChangeText={(email) => { this.setState({ email }) }}
+                            onChangeText={this.changeInputEmail}
                         />
                     </View>
                     <View style={styles.inputWrap}>
@@ -85,32 +69,16 @@ export default class Register extends Component {
                             />
                         </View>
                         <TextInput
-                            placeholder="Ingrese su Password"
+                            placeholder="Password"
                             secureTextEntry
                             style={styles.input}
                             underlineColorAndroid="transparent"
-                            onChangeText={(password) => { this.setState({ password }) }}
-                        />
-                    </View>
-                    <View style={styles.inputWrap}>
-                        <View style={styles.iconWrap}>
-                            <Image
-                                source={lockIcon}
-                                style={styles.icon}
-                                resizeMode="contain"
-                            />
-                        </View>
-                        <TextInput
-                            placeholder="Repita su Password"
-                            secureTextEntry
-                            style={styles.input}
-                            underlineColorAndroid="transparent"
-                            onChangeText={(repassword) => { this.setState({ repassword }) }}
+                            onChangeText={this.changeInputPassword}
                         />
                     </View>
                     <TouchableOpacity activeOpacity={.5}>
-                        <Boton texto={"Registrarme"}
-                            iconName={'user-plus'}
+                        <Boton texto={"Iniciar Sesión"}
+                            iconName={'sign-in'}
                             bgColor={'#d73352'}
                             action={this.login}
                             iconColor={'#fff'}
@@ -136,18 +104,6 @@ const styles = StyleSheet.create({
 
     wrapper: {
         paddingHorizontal: 15,
-    },
-    error: {
-        marginVertical: 10,
-        height: 40,
-        backgroundColor: '#d73352',
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingHorizontal: 15
-    },
-    errorTexto: {
-        color: 'white',
-        fontWeight: "600"
     },
     inputWrap: {
         flexDirection: "row",
