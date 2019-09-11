@@ -10,7 +10,7 @@ import React from 'react';
 import { View } from 'react-native';
 import ListaCursos from './../screens/logged/ListaCursos';
 import Videos from '../screens/logged/Videos';
-
+import VideoSingle from '../screens/logged/VideoSingle';
 
 const CursoStackNavigator = createStackNavigator(
     {
@@ -28,21 +28,15 @@ const CursoStackNavigator = createStackNavigator(
                     },
                     headerStyle: {
                         backgroundColor: '#803820',
-                        shadowColor: "#0000ff",
-                        shadowOffset: {
-                            width: 0,
-                            height: 12,
-                        },
-                        shadowOpacity: 0.58,
-                        shadowRadius: 16.00,
-
-                        elevation: 24,
                     }
                 }
             }
         },
         ListaDeVideos: {
             screen: Videos,
+        },
+        VideoIndividual: {
+            screen: VideoSingle
         }
     },
     {

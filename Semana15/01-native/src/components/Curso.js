@@ -7,10 +7,11 @@ export default class Curso extends Component {
         super(props);
     }
 
-    verCurso = cur_id => {
-        this.props.navigation.navigate('ListaDeVideos');
-        // console.log(this.props);
-
+    verCurso = cur_videos => {
+        this.props.navigation.navigate('ListaDeVideos', {
+            cur_videos: cur_videos,
+            cur_titulo: this.props.curso.cur_titulo
+        });
     }
 
     render() {
@@ -30,7 +31,7 @@ export default class Curso extends Component {
                         backgroundColor: 'rgba(128,51,32,0.9)',
                     }}
                     onPress={() => {
-                        this.verCurso(objCurso._id);
+                        this.verCurso(objCurso.cur_videos);
                     }}
                     title='Ver Curso'
                     titleStyle={{ color: '#FFBAA8' }} />

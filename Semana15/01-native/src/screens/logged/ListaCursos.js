@@ -27,6 +27,8 @@ export default class ListaCursos extends Component {
         })
     }
     componentDidMount() {
+        console.log("dimount");
+        
         this.traerCursos();
     }
 
