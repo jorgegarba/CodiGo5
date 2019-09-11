@@ -9,6 +9,7 @@ import CustomDrawerComponent from './../components/CustomDrawerNavigation';
 import React from 'react';
 import { View } from 'react-native';
 import ListaCursos from './../screens/logged/ListaCursos';
+import Videos from '../screens/logged/Videos';
 
 
 const CursoStackNavigator = createStackNavigator(
@@ -27,7 +28,7 @@ const CursoStackNavigator = createStackNavigator(
                     },
                     headerStyle: {
                         backgroundColor: '#803820',
-                        shadowColor: "#ff0000",
+                        shadowColor: "#0000ff",
                         shadowOffset: {
                             width: 0,
                             height: 12,
@@ -39,6 +40,9 @@ const CursoStackNavigator = createStackNavigator(
                     }
                 }
             }
+        },
+        ListaDeVideos: {
+            screen: Videos,
         }
     },
     {
