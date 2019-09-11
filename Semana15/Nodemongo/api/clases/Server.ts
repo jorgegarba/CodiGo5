@@ -39,7 +39,7 @@ export class Server {
 
         this.app.use(curso_router);
 
-        this.app.use('/rutasplantilla', swaggerUi.serve, swaggerUi.setup(ApiPlantilla));
+        // this.app.use('/rutasplantilla', swaggerUi.serve, swaggerUi.setup(ApiPlantilla));
         this.app.use('/rutas', swaggerUi.serve, swaggerUi.setup(ApiDocumentacion));
 
     }

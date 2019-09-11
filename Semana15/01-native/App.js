@@ -9,7 +9,7 @@ import RutasLogged from './src/rutas/logged';
 
 export default function App() {
   return (
-    <RutasInvitado />
+    <RutasLogged />
   );
 }
 

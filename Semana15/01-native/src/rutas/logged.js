@@ -5,7 +5,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { createAppContainer } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import CustomDrawerComponent from './../components/CustomDrawerNavigation';
-
 import React from 'react';
 
 const LoggedNavigator = createDrawerNavigator(

@@ -11,8 +11,6 @@ var comentarioSchema = new mongoose.Schema({
         type: String
     }
 });
-
-
 var videoSchema = new mongoose.Schema(
     {
         vid_titulo: {
