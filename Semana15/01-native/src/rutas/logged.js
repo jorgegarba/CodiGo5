@@ -4,8 +4,47 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { createAppContainer } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createStackNavigator } from 'react-navigation-stack';
 import CustomDrawerComponent from './../components/CustomDrawerNavigation';
 import React from 'react';
+import { View } from 'react-native';
+import ListaCursos from './../screens/logged/ListaCursos';
+
+
+const CursoStackNavigator = createStackNavigator(
+    {
+        ListaDeCursos: {
+            screen: ListaCursos,
+            navigationOptions: () => {
+                return {
+                    title: 'Lista de Cursos',
+                    headerTitleContainerStyle: {
+                        justifyContent: 'center',
+                        alignContent: 'center',
+                    },
+                    headerTitleStyle: {
+                        color: '#FFA98C'
+                    },
+                    headerStyle: {
+                        backgroundColor: '#803820',
+                        shadowColor: "#ff0000",
+                        shadowOffset: {
+                            width: 0,
+                            height: 12,
+                        },
+                        shadowOpacity: 0.58,
+                        shadowRadius: 16.00,
+
+                        elevation: 24,
+                    }
+                }
+            }
+        }
+    },
+    {
+        initialRouteName: 'ListaDeCursos'
+    }
+)
 
 const LoggedNavigator = createDrawerNavigator(
     {
@@ -38,7 +77,23 @@ const LoggedNavigator = createDrawerNavigator(
                     }
                 )
             }
+        },
+        Curso: {
+            screen: CursoStackNavigator,
+            navigationOptions: () => {
+                return (
+                    {
+                        drawerLabel: 'Mis Cursos',
+                        drawerIcon: () => {
+                            return (<Icon name="book"
+                                size={15}
+                                color='#C3C3C3' />)
+                        }
+                    }
+                )
+            }
         }
+
     },
     {
         contentComponent: CustomDrawerComponent,
