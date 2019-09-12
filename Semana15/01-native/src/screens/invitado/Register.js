@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import axios from 'axios';
 import {
     Alert,
     StyleSheet,
@@ -11,6 +11,7 @@ import {
     ImageBackground
 } from 'react-native'
 import Boton from './../../components/Boton';
+import { URL_BACKEND } from './../../environments/environment';
 
 const background = require("./../../../assets/bg.jpg");
 const lockIcon = require("./../../../assets/lock.png");
@@ -37,8 +38,28 @@ export default class Register extends Component {
 
             return;
         } else {
-            this.setState({ error: false })
-            Alert.alert("TUDO BEM");
+            this.setState({ error: false });
+
+            let data = {
+                "usuario": {
+                    "usu_pass": this.state.password,
+                    "usu_nom": "Nombre Generico",
+                    "usu_ape": "Apellido Generico",
+                    "usu_email": this.state.email
+                }
+            }
+            let misHeaders = {
+                "content-type": "application/json"
+            }
+
+            axios.post(`${URL_BACKEND}/usuario`,
+                JSON.stringify(data), { headers: misHeaders })
+                .then(rpta => {
+                    if (rpta.status === 201) {
+                        // consimir la funcion iniciar sesion del App.js
+                        this.props.screenProps.iniciarSesionOk(rpta.data.contenido.token);
+                    }
+                })
         }
     }
 

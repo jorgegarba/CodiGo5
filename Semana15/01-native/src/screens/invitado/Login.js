@@ -34,7 +34,12 @@ export default class Login extends Component {
         })
     }
     login = () => {
-        Alert.alert("DATOS", `Email: ${this.state.email} Pass: ${this.state.password}`)
+        // Alert.alert("DATOS", `Email: ${this.state.email} Pass: ${this.state.password}`)
+        // CREANDO UN TOKEN FALSO
+        let token = "mitokennnnnnnnnnnnn";
+        // si el es valido, ejecutar la funcion de inicio de sesion en App.js
+        this.props.screenProps.iniciarSesionOk(token);
+
     }
 
     render() {

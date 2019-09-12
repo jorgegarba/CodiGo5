@@ -5,30 +5,83 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { createAppContainer } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createStackNavigator } from 'react-navigation-stack';
+import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import CustomDrawerComponent from './../components/CustomDrawerNavigation';
 import React from 'react';
-import { View } from 'react-native';
 import ListaCursos from './../screens/logged/ListaCursos';
 import Videos from '../screens/logged/Videos';
 import VideoSingle from '../screens/logged/VideoSingle';
+import Comentarios from '../screens/logged/Comentarios';
+import InfoAdicional from '../screens/logged/InfoAdicional';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
+
+const VideoTabNavigator = createMaterialTopTabNavigator(
+    {
+        ListaComentarios: {
+            screen: Comentarios,
+            navigationOptions: (props) => {
+                console.log("aqiu vinen");
+                console.log(props)
+
+                return {
+                    title: 'Comentarios',
+                }
+            }
+        },
+        Adicional: {
+            screen: InfoAdicional,
+            navigationOptions: () => {
+                return {
+                    title: 'Info Adicional'
+                }
+            }
+        },
+    }, {
+    initialRouteName: 'ListaComentarios',
+    tabBarOptions: {
+        activeTintColor: '#FFA98C',
+        inactiveTintColor: '#bfA98a',
+        labelStyle: {
+            fontSize: 12,
+        },
+        style: {
+            backgroundColor: '#803820',
+        },
+    },
+});
+
+export const VideoTabs = createAppContainer(VideoTabNavigator);
 
 const CursoStackNavigator = createStackNavigator(
     {
         ListaDeCursos: {
             screen: ListaCursos,
-            navigationOptions: () => {
+            navigationOptions: (props) => {
+                console.log(props);
                 return {
                     title: 'Lista de Cursos',
                     headerTitleContainerStyle: {
                         justifyContent: 'center',
                         alignContent: 'center',
                     },
+
                     headerTitleStyle: {
                         color: '#FFA98C'
                     },
                     headerStyle: {
                         backgroundColor: '#803820',
-                    }
+                    },
+                    headerRight: (
+                        <TouchableOpacity onPress={() => {
+                            props.screenProps.cerrarSesion();
+                        }}>
+                            <Icon name="sign-out"
+                                size={20}
+                                color='#FFA98C'
+                                style={{ marginRight: 20 }} />
+                        </TouchableOpacity>
+                    ),
                 }
             }
         },
@@ -91,7 +144,6 @@ const LoggedNavigator = createDrawerNavigator(
                 )
             }
         }
-
     },
     {
         contentComponent: CustomDrawerComponent,

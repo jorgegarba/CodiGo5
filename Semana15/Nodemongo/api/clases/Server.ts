@@ -4,6 +4,7 @@ import * as ApiPlantilla from "./../docs/swagger_template.json";
 import * as ApiDocumentacion from "./../docs/swagger_doc.json";
 
 import { curso_router } from './../routes/Curso';
+import { usuario_router } from '../routes/Usuario';
 
 var mongoose = require('mongoose');
 
@@ -38,6 +39,7 @@ export class Server {
         });
 
         this.app.use(curso_router);
+        this.app.use(usuario_router);
 
         // this.app.use('/rutasplantilla', swaggerUi.serve, swaggerUi.setup(ApiPlantilla));
         this.app.use('/rutas', swaggerUi.serve, swaggerUi.setup(ApiDocumentacion));

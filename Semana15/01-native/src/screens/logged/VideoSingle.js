@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, WebView } from 'react-native'
+import { VideoTabs } from '../../rutas/logged';
 
 // En caso de mostrar videos con extensión
 // import { Video } from 'expo-av';
@@ -27,11 +28,14 @@ export default class VideoSingle extends Component {
             <View style={{ flex: 1 }}>
 
                 <WebView
-                    style={{ flex: 0.5 }}
+                    style={{ flex: 1 }}
                     javaScriptEnabled={true}
                     source={{ uri: 'https://www.youtube.com/embed/LdKtugH-sb8?rel=0&autoplay=0&showinfo=0&controls=0' }}
                 />
-                
+                <VideoTabs
+                    style={{ flex: 1 }}
+                    screenProps={{ comentarios: this.props.navigation.state.params.video.vid_comentarios }} />
+
                 {/*
                 // Si el VIDEO tiene un formato o extension como un .mp4 por ejemplo,
                 // el verdadero componente que reproduce videos es el siguiente

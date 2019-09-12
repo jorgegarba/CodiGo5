@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, ScrollView } from 'react-native'
-import { ListItem } from 'react-native-elements';
+import { ListItem, Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Rating } from 'react-native-elements';
 
@@ -17,6 +17,18 @@ export default class Videos extends Component {
                 alignContent: 'center'
             },
             headerRight: (<View></View>),
+            headerLeft: (
+                <TouchableOpacity onPress={() => {
+                    props.navigation.goBack();
+                }}>
+                    <Icon
+                        name="home"
+                        color={"#FFA98C"}
+                        containerStyle={{ marginLeft: 16, backgroundColor: '#803820' }}
+                    // raised
+                    />
+                </TouchableOpacity>
+            ),
             headerTitleStyle: {
                 color: '#FFA98C'
             },
