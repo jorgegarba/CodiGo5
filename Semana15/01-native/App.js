@@ -7,7 +7,9 @@ import RutasInvitado from './src/rutas/invitado';
 import * as SecureStore from 'expo-secure-store';
 import base64 from 'react-native-base64'
 import RutasLogged from './src/rutas/logged';
+import { YellowBox } from 'react-native';
 
+YellowBox.ignoreWarnings(['Require cycle:'])
 
 export default class App extends React.Component {
 

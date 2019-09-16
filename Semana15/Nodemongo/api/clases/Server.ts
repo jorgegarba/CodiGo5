@@ -48,7 +48,7 @@ export class Server {
     start() {
         this.app.listen(this.puerto, () => {
             console.log("Servidor Iniciado correctamente en el puerto " + this.puerto);
-            mongoose.connect('mongodb://localhost/codigo', { useNewUrlParser: true })
+            mongoose.connect('mongodb+srv://jorgegarba:z7oylkak2421fuma@cluster-codigo-vnpcu.mongodb.net/codigo', { useNewUrlParser: true })
                 .then(() => {
                     console.log("Conectado a la base de datos en Mongo correctamente =)");
                 })

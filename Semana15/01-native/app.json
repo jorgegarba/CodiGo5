@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "MiPrimeraApp",
-    "slug": "01-native",
+    "name": "Codigo Virtual",
+    "slug": "codigo-virtual",
     "privacy": "public",
     "sdkVersion": "34.0.0",
     "platforms": [
@@ -24,7 +24,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.codigotecsup.codigovirtual"
+    },
+    "android": {
+      "package": "com.codigotecsup.codigovirtual"
     }
   }
 }

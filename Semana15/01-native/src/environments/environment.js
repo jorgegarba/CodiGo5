@@ -1,1 +1,1 @@
-export const URL_BACKEND = 'http://192.168.42.148:5000';
+export const URL_BACKEND = 'https://codigo-movil-back.herokuapp.com';
