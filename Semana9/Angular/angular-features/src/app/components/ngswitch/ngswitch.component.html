@@ -1,24 +1,37 @@
 <main class="container">
 
     <span [ngSwitch]="estado">
-        <div class="alert alert-danger"
-            *ngSwitchCase="'danger'">
+        <div class="alert alert-danger" *ngSwitchCase="'danger'">
             Oh! Error!
         </div>
 
-        <div class="alert alert-success"
-            *ngSwitchCase="'success'">
+        <div class="alert alert-success" *ngSwitchCase="'success'">
             Exito! =)
         </div>
 
-        <div class="alert alert-info"
-            *ngSwitchCase="'info'">
+        <div class="alert alert-info" *ngSwitchCase="'info'">
             Info!!!
         </div>
-        
+
         <p *ngSwitchDefault>
             NO COINCIDE CON NINGUNA ALTERNATIVA
         </p>
     </span>
+
+
+    <hr>
+
+
+    <form (ngSubmit)="onSubmit(ctrl, formulario)" #formulario="ngForm">
+
+        <input type="text" [(ngModel)]="miInput" #ctrl="ngModel" name="variable" required />
+        <input type="submit" value="click" />
+        <span>
+            {{miInput.value}}
+        </span>
+        <span>
+            {{ctrl.valid}}
+        </span>
+    </form>
 
 </main>

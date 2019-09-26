@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-ngswitch',
@@ -7,11 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgswitchComponent implements OnInit {
 
-  estado:string = "danger";
-
+  estado: string = "danger";
+  miInput: string = '';
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSubmit(variable, formulario) {
+    // $event.preventDefault();
+    console.log("submit");
+    console.log(formulario);
+    console.log(variable);
+
+  }
 }

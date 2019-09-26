@@ -1,0 +1,25 @@
+html,
+body {
+  height: 100%; }
+
+* {
+  margin: 0;
+  box-sizing: border-box; }
+
+.contenedor {
+  border: #a21f55 solid 1px;
+  font-family: Helvetica, sans-serif;
+  display: flex;
+  color: #ddd;
+  justify-content: center;
+  height: 300px; }
+  .contenedor .izquierda {
+    flex: 0.25;
+    background-color: tomato; }
+  .contenedor .derecha {
+    flex: 0.25;
+    background-color: #a21f55;
+    height: 100px;
+    align-self: flex-end; }
+
+/*# sourceMappingURL=estilos.css.map */

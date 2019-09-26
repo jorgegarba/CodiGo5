@@ -10,12 +10,12 @@ import { PipesComponent } from './components/pipes/pipes.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 
 // Importando las Rutas
-import {RUTAS_APP} from './app.routes';
+import { RUTAS_APP } from './app.routes';
 import { BienvenidaComponent } from './components/bienvenida/bienvenida.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { ProductoVerComponent } from './components/productos/producto-ver.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +32,8 @@ import { ProductoVerComponent } from './components/productos/producto-ver.compon
   ],
   imports: [
     BrowserModule,
-    RUTAS_APP
+    RUTAS_APP,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

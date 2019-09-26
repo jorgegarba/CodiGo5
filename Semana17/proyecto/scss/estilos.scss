@@ -1,0 +1,24 @@
+// variables
+$violeta: #a21f55;
+$helvetica: Helvetica, sans-serif;
+// importando un archivo externo, se ignora el subguion y la extension ".scss"
+@import "reset";
+
+.contenedor {
+  border: $violeta solid 1px;
+  font-family: $helvetica;
+  display: flex;
+  color: #ddd;
+  justify-content: center;
+  height: 300px;
+  .izquierda {
+    flex: 0.25;
+    background-color: tomato;
+  }
+  .derecha {
+    flex: 0.25;
+    background-color: $violeta;
+    height: 100px;
+    align-self: flex-end;
+  }
+}
